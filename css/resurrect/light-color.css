@@ -1,0 +1,595 @@
+/**
+ * Light Color Scheme
+ * 
+ * It is best not to edit this directly. Use a child theme instead (see guides).
+ */
+
+/**********************************************
+ * BASE STYLES
+ **********************************************/
+
+/**************** BACKGROUND ******************/
+
+/* Force background color for specific images (shows before image loads) */
+
+body.custom-background.resurrect-background-image-file-asphalt {
+	background-color: #333 !important;
+}
+
+body.custom-background.resurrect-background-image-file-concrete {
+	background-color: #ddd !important;
+}
+
+/******************* TEXT *********************/
+
+/* Text Color */
+
+body,
+.resurrect-list-icons a,
+.resurrect-text-icon,
+.resurrect-caption-image-description,
+.gallery-caption,
+#resurrect-top-menu-links li a,
+.resurrect-header-right-item a,
+#resurrect-header-menu-links > li > a .ctfw-header-menu-link-description,
+.sf-menu li li a,
+.flex-description,
+#resurrect-banner .ctfw-breadcrumbs,
+#resurrect-content-inner .ctfw-breadcrumbs a,
+.resurrect-comment-author span,
+.resurrect-comment-trackback-link span,
+.resurrect-comment-meta time,
+.resurrect-search-button,
+.resurrect-main-title span, /* page number */
+input,
+select,
+textarea {
+	color: #777;
+}
+
+/* Link Color */
+
+a,
+a:hover,
+.resurrect-list-icons a:hover,
+a:hover .resurrect-text-icon,
+#resurrect-top-menu-links li a:hover,
+.resurrect-header-right-item a:hover,
+.js .selectnav:hover,
+.js .selectnav:focus,
+#resurrect-banner .ctfw-breadcrumbs a:hover,
+#resurrect-content-inner .ctfw-breadcrumbs a:hover,
+.resurrect-comment-meta time:hover {
+	color: #000;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #000;
+}
+
+/* Blockquote */
+
+blockquote,
+.quote-caption {
+	color: #000;
+}
+
+/* Text Selection (fails when selectors combined) */
+
+::-moz-selection {
+    background-color: #000;
+    color: #fff;
+}
+
+::selection {
+    background-color: #000;
+    color: #fff;
+}
+
+/****************** FORMS *********************/
+
+input[type=text], /* being specific to avoid background on radio/checkbox in Opera */
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=number],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=time],
+input[type=datetime],
+input[type=datetime-local],
+select,
+textarea {
+
+	background-image: url(images/form-sprites.jpg);
+
+	/* light on dark BG needs some definition */
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	border-color: rgba(150, 150, 150, 0.1);
+
+}
+
+	/* Retina */
+	
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (-o-min-device-pixel-ratio: 5/4) {
+		input,
+		select,
+		textarea {
+			background-image: url('images/form-sprites@2x.jpg');
+		}
+	}
+
+	input:focus,
+	select:focus,
+	textarea:focus {
+		color: #000;
+	}
+	
+textarea {
+	background-image: url(images/form-textarea.png);
+	background-color: #ededed;
+}
+
+	textarea:focus {
+		background-image: url(images/form-textarea-active.png);
+		background-color: #e4e4e4;
+	}
+
+	/* Retina */
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (-o-min-device-pixel-ratio: 5/4) {
+
+		textarea {
+			background-image: url(images/form-textarea@2x.png);
+		}
+
+			textarea:focus {
+				background-image: url(images/form-textarea-active@2x.png);
+			}
+
+	}
+
+input[type=submit] {
+	background-image: none;
+}
+
+/******************* OTHER ********************/
+
+/* Lines */
+	
+hr,
+.resurrect-entry-content table,
+.resurrect-entry-content table td {
+	border-color: #292929;
+}
+
+/**********************************************
+ * CUSTOM STYLES
+ **********************************************/
+
+/***************** BUTTONS ********************/
+
+a.resurrect-button,
+.resurrect-list-buttons a,
+a.comment-reply-link,
+a.comment-edit-link,
+a.post-edit-link,
+.resurrect-nav-left-right a,
+.page-numbers a,
+.widget_tag_cloud a,
+input[type=submit],
+.more-link {
+	color: #fff;
+	background-color: #7d7d7d;
+}
+
+	a.resurrect-button:hover,
+	.resurrect-list-buttons a:hover,
+	a.comment-reply-link:hover,
+	a.comment-edit-link:hover,
+	a.post-edit-link:hover,
+	.resurrect-nav-left-right a:hover,
+	.page-numbers a:hover,
+	.page-numbers.current,
+	.widget_tag_cloud a:hover,
+	input[type=submit]:hover,
+	.more-link:hover {
+		color: #fff;
+		background-color: #222;
+	}
+
+/* Button Icon */
+
+.resurrect-gallery-image-buttons-inner span {
+	background-image: url(images/thumb-grid-button-sprites.png);
+}
+
+/************* MEDIAELEMENT.JS ****************/
+
+/* Lighter control bar */
+
+.hentry .mejs-container .mejs-controls {
+	background: #2f2f2f;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(55,55,55,1)), to(rgba(40,40,40,1)));
+	background: -webkit-linear-gradient(top, rgba(55,55,55,1), rgba(40,40,40,1)); 
+	background:    -moz-linear-gradient(top, rgba(55,55,55,1), rgba(40,40,40,1));
+	background:     -ms-linear-gradient(top, rgba(55,55,55,1), rgba(40,40,40,1)); 	
+	background:      -o-linear-gradient(top, rgba(55,55,55,1), rgba(40,40,40,1)); 
+	background: linear-gradient(rgba(55,55,55,1), rgba(40,40,40,1)); 	
+}
+
+/* Grayscale loading rail */
+
+.hentry .mejs-controls .mejs-time-rail .mejs-time-loaded { /* grayscale progress bar */
+	background: #828282;
+	background: rgba(130,130,130,0.8);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(115,115,115,0.8)), to(rgba(145,145,145,0.8))); 
+	background: -webkit-linear-gradient(top, rgba(115,115,115,0.8), rgba(145,145,145,0.8));
+	background:    -moz-linear-gradient(top, rgba(115,115,115,0.8), rgba(145,145,145,0.8));
+	background:     -ms-linear-gradient(top, rgba(115,115,115,0.8), rgba(145,145,145,0.8));
+	background:      -o-linear-gradient(top, rgba(115,115,115,0.8), rgba(145,145,145,0.8));
+	background: linear-gradient(rgba(115,115,115,0.8), rgba(145,145,145,0.8));
+}
+
+/* Grayscale time rail */
+
+.hentry .mejs-controls .mejs-time-rail .mejs-time-current {
+	background: #000;
+	background: rgba(255,255,255,0.8);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.9)), to(rgba(200,200,200,0.8)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	background:    -moz-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8)); 
+	background:     -ms-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	background:      -o-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	background: linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+}
+
+/***************** LEFT BARS *****************/
+
+#resurrect-header-menu-links > li > a .ctfw-header-menu-link-inner, /* top-level menu item */
+.js .selectnav, /* mobile menu */
+.resurrect-main-title, /* page title */
+#resurrect-intro-heading { /* home intro title */
+	border-color: #999; /* left bar */
+}
+
+/**********************************************
+ * LAYOUT
+ **********************************************/
+
+/*************** SHARED STYLES ***************/
+
+/* Container Elements */
+
+#resurrect-top-inner,
+#resurrect-footer-inner,
+#resurrect-header-menu,
+#resurrect-slider-inner,
+#ctcom-home-highlights .resurrect-caption-image,
+#resurrect-intro,
+#resurrect-banner,
+.resurrect-content-block,
+#resurrect-content-inner .ctfw-breadcrumbs,
+.resurrect-widget,
+.resurrect-header-right-item a {
+	background-color: #fff; /* solid for IE8 */
+	background-color: rgba(250, 250, 250, 0.94); /* semi-transparent for modern browsers */
+	-webkit-box-shadow:	0 0 7px #bbb; /* Old Safari, Chrome - appears stronger than box-shadow */
+	-moz-box-shadow:	0 0 7px #bbb; /* really old Firefox - appears stronger than box-shadow */
+	box-shadow:			0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Title Bars (Slider. Image Widgets, etc.) */
+
+.flex-title,
+#resurrect-banner h1,
+.resurrect-caption-image-title,
+.resurrect-widget-title,
+.resurrect-widget-title a,
+.resurrect-header-right-item-date {
+	background-color: #222;
+	color: #fff;
+}
+
+	/* Always black */
+
+	.flex-title:hover,
+	#resurrect-banner h1 a {
+		color: #fff;
+	}
+
+/* Description Bars */
+
+.flex-description,
+.resurrect-caption-image-description,
+#ctcom-home-highlights .resurrect-caption-image-description,
+.resurrect-widget .resurrect-caption-image-description,
+.gallery-caption {
+	background-color: #fff; /* solid for IE8 */
+	background-color: rgba(250, 250, 250, 0.94); /* semi-transparent for modern browsers */
+	z-index: 50; /* for Safari 5.0 and lower, keep title shadow from going over top description bar */
+}
+
+/* Bar Shadows */
+
+.flex-title,
+.flex-description,
+#resurrect-banner h1,
+.resurrect-caption-image-title,
+.resurrect-caption-image-description,
+.gallery-caption {
+	-webkit-box-shadow:	0 0 10px #333; /* Old Safari, Chrome - appears stronger than box-shadow */
+	-moz-box-shadow: 	0 0 10px #333; /* really old Firefox - appears stronger than box-shadow */
+	box-shadow: 		0 0 14px rgba(0, 0, 0, 0.15);
+}
+
+/******************* HEADER *******************/
+
+/* Note: These are the same in both color schemes */
+
+/* Dark */
+
+.resurrect-header-text-dark .resurrect-tagline, /* tagline */
+.resurrect-header-text-dark #resurrect-header-custom-content, /* custom content */
+.resurrect-header-text-dark #resurrect-logo-text span { /* logo text light portion */
+	color: #555;
+	color: rgba(25, 25, 25, 0.75);
+}
+
+.resurrect-header-text-dark #resurrect-header-custom-content a, /* custom content links */
+.resurrect-header-text-dark #resurrect-logo-text, /* logo text */
+.resurrect-header-text-dark #resurrect-logo-text a { /* logo text */
+	color: #000;
+}
+
+/* Light */
+
+.resurrect-header-text-light .resurrect-tagline, /* tagline */
+.resurrect-header-text-light #resurrect-header-custom-content, /* custom content */
+.resurrect-header-text-light #resurrect-logo-text span { /* logo text light portion */
+	color: #bbb;
+	color: rgba(230, 230, 230, 0.75);
+}
+
+.resurrect-header-text-light #resurrect-header-custom-content a, /* custom content links */
+.resurrect-header-text-light #resurrect-logo-text, /* logo text */
+.resurrect-header-text-light #resurrect-logo-text a { /* logo text */
+	color: #fff;
+}
+
+.resurrect-header-text-light #resurrect-logo-text, /* logo text shadow */
+.resurrect-header-text-light #resurrect-logo-text a {
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/******************** MENU ********************/
+
+/* Header Menu Items Hover (Top Level) */
+
+#resurrect-header-menu-links > li:hover > a .ctfw-header-menu-link-inner {
+	border-color: #000;
+}
+
+	/* Top Level Links */
+	
+	#resurrect-header-menu-links > li > a {
+		color: #000;
+	}
+
+	/* Dropdowns */
+	
+	.sf-menu li li {
+		background-color: #fdfdfd;
+	}
+
+		/* Sub Menu Item Links */
+
+		.sf-menu li li a {
+			background-image: url(images/menu-sprites.png);
+		}
+
+			/* Retina version */
+			
+			@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (-o-min-device-pixel-ratio: 5/4) {
+				.sf-menu li li a {
+					background-image: url('images/menu-sprites@2x.png');
+				}
+			}
+		
+		/* Sub Menu Hovering */
+		
+		.sf-menu ul li:hover > a,
+		.sf-menu ul .sfHover > a,
+		.sf-menu ul a:focus,
+		.sf-menu ul a:hover,
+		.sf-menu ul a:active{
+			background-color: #eee;
+			color: #000;
+		}
+	
+		/* Arrows */
+
+		.sf-arrows .sf-with-ul .ctfw-header-menu-link-title:after { /* top level */
+			border-top-color: #000;
+		}
+
+		.sf-arrows > li > .sf-with-ul:focus .ctfw-header-menu-link-title:after, /* top level */
+		.sf-arrows > li:hover > .sf-with-ul .ctfw-header-menu-link-title:after,
+		.sf-arrows > .sfHover > .sf-with-ul .ctfw-header-menu-link-title:after {
+			border-top-color: #000;
+		}
+
+		.sf-arrows ul .sf-with-ul:after { /* sub menu */
+			border-left-color: #777;
+		}
+
+		.sf-arrows ul li > .sf-with-ul:focus:after,/* sub menu */
+		.sf-arrows ul li:hover > .sf-with-ul:after,
+		.sf-arrows ul .sfHover > .sf-with-ul:after {
+			border-left-color: #000;
+		}
+
+		/* Shadows */
+		
+		.sf-menu ul {
+			box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+		}
+		
+	/* SelectNav.js (converts menu to <select> for mobile devices) */
+
+	.js .selectnav { 
+		background-image: url(images/touch-menu-bg.png);
+		background-color: #fff;
+	}
+
+		.js .selectnav:hover,
+		.js .selectnav:focus { 
+			background-image: url(images/touch-menu-bg-hover.png);
+			border-color: #000;
+		}
+
+		/* Retina */
+
+		@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (-o-min-device-pixel-ratio: 5/4) {
+
+			.js .selectnav { 
+				background-image: url(images/touch-menu-bg@2x.png);
+			}
+
+				.js .selectnav:hover,
+				.js .selectnav:focus { 
+					background-image: url(images/touch-menu-bg-hover@2x.png);
+				}
+
+		}
+
+/* Breadcrumbs (Banner) */
+
+#resurrect-banner .ctfw-breadcrumbs { /* IE rgba hack for transparent background */
+	background: none !important;
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#EFFAFAFA,endColorstr=#EFFAFAFA) !important;
+	filter:		progid:DXImageTransform.Microsoft.gradient(startColorstr=#EFFAFAFA,endColorstr=#EFFAFAFA) !important;
+}
+
+#resurrect-banner .ctfw-breadcrumbs {
+	background: rgba(250, 250, 250, 0.94) !important; /* modern browsers */
+}
+
+/**********************************************
+ * HOMEPAGE
+ **********************************************/
+
+/******************* SLIDER *******************/
+
+/* Slider Video Play Button Overlay */
+
+.flex-play-overlay {
+	background-image: url(images/play-button.png);
+}
+
+	/* Retina */
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (-o-min-device-pixel-ratio: 5/4) {
+		.flex-play-overlay {
+			background-image: url(images/play-button@2x.png);
+		}
+	}
+
+	/* Switch to small play button for small screens */
+
+	@media only screen and (max-width: 640px) {
+		.flex-play-overlay {
+			background-image: url(images/play-button-small.png);
+		}
+	}
+
+		/* Retina */
+
+		@media only screen and (max-width: 640px), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+			.flex-play-overlay {
+				background-image: url(images/play-button-small@2x.png);
+			}
+		}
+
+/* Slider Controls */
+	
+.flex-control-nav li a {
+	background-image: url(images/slider-control-nav.png);
+}
+
+	/* Retina */
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (-o-min-device-pixel-ratio: 5/4) {
+		.flex-control-nav li a {
+			background-image: url(images/slider-control-nav@2x.png);
+		}
+	}
+
+/**********************************************
+ * GALLERIES
+ **********************************************/
+
+/************ GALLERIES (MULTIPLE) ************/
+
+/* If no cover image, show a solid background */
+
+.resurrect-galleries-item.resurrect-caption-image-no-image {
+	background-color: #727272; /* same as buttons */
+}
+
+/* Mask bottom portion of long captions */
+
+.gallery-caption:before {
+	box-shadow: 0 -10px 20px rgba(250, 250, 250, 0.94) inset;
+}
+
+/**********************************************
+ * COMMENTS
+ **********************************************/
+ 
+/*************** COMMENT LIST *****************/
+
+/* Author Name */
+
+.resurrect-comment-author {
+	color: #000; 
+}
+
+/**********************************************
+ * WIDGETS
+ **********************************************/
+
+/************* WP CALENDAR WIDGET *************/
+
+.widget_calendar #wp-calendar th {
+	border-color: #393939;
+}
+
+/**********************************************
+ * PLUGINS
+ **********************************************/
+
+/************** CONTACT FORM 7 ****************/
+
+span.wpcf7-not-valid-tip {
+	background-color: #1c1c1c; /* solid for IE8 */
+	background-color: rgba(28, 28, 28, 0.94); /* semi-transparent for modern browsers */
+	color: #fff;
+	-webkit-box-shadow:	0 0 7px #222; /* Old Safari, Chrome - appears stronger than box-shadow */
+	-moz-box-shadow:	0 0 7px #222; /* really old Firefox - appears stronger than box-shadow */
+	box-shadow:			0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+span.wpcf7-not-valid-tip-no-ajax {
+	color: #000;
+}

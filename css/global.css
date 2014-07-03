@@ -1,0 +1,34 @@
+
+/* <style type="text/css" id="custom-background-css"> */
+body.custom-background {
+	background-color: #ffffff;
+	background-image: url('../images/light-grey-curves-15195-copy1.jpg');
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-attachment: fixed;
+}
+
+#resurrect-logo-text {
+	font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
+body, input, textarea, select, .sf-menu li li a, .flex-description, #cancel-comment-reply-link, .resurrect-accordion-section-title, a.resurrect-button, a.comment-reply-link, a.comment-edit-link, a.post-edit-link, .resurrect-nav-left-right a, input[type=submit] {
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+#resurrect-header-menu-links > li > a .ctfw-header-menu-link-title, #resurrect-footer-menu-links {
+	font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
+#resurrect-intro-heading, .resurrect-main-title, .resurrect-entry-content h1, .resurrect-entry-content h2, .resurrect-entry-content h3, .resurrect-entry-content h4, .resurrect-entry-content h5, .resurrect-entry-content h6, .resurrect-author-box h1, .resurrect-person header h1, .resurrect-location header h1, .resurrect-entry-short h1, #reply-title, #resurrect-comments-title, .flex-title, .resurrect-caption-image-title, #resurrect-banner h1, h1.resurrect-widget-title, .resurrect-header-right-item-date {
+	font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
+
+#resurrect-logo-tagline {
+	left: 50px;
+}
+
+.dclm-sermons-category {
+	font-weight: bold;
+}

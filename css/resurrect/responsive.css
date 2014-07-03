@@ -1,0 +1,1027 @@
+/**
+ * Responsive Styles
+ * 
+ * Adjusts elements and layout for mobile devices (small screens).
+ */
+
+/**********************************************
+ * BASE STYLES
+ **********************************************/
+
+/******************* FORMS ********************/
+
+input,
+select,
+textarea {
+	max-width: 100%;
+}
+
+/**********************************************
+ * CUSTOM STYLES
+ **********************************************/
+
+/******************** MAPS ********************/
+
+/* Google Map */
+
+.ctfw-google-map {
+	padding-bottom: 50%; /* responsive at 1:2 ratio (same as slider) */
+}
+
+.resurrect-widget .ctfw-google-map {
+	padding-bottom: 60%; /* responsive at just under 3:5 ratio */
+}
+
+/**********************************************
+ * LAYOUT
+ **********************************************/
+
+/******************* HEADER *******************/
+
+/* Responsive Logo */
+
+#resurrect-logo-image img {
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+ * SelectNav.js - http://lukaszfiszer.github.com/selectnav.js/ 
+ * Copyright (c) 2012 Łukasz Fiszer (MIT License)
+ * Converts menu to <select> for mobile devices
+ */
+
+.selectnav {
+	width: 100%;
+	height: 3em;
+	padding: 10px 7px 10px 8px;
+	font-size: 1em;
+	background-position: right center;
+	background-size: 1000px; /* assist Retina */
+	border-width: 0 0 0 5px;
+	border-style: solid;
+	cursor: pointer;
+	-webkit-appearance:	none;
+	-moz-appearance: 	none; /* someday this will work */
+}
+
+	.selectnav:hover,
+	.selectnav:focus {
+		background-position: right center;
+	}
+
+/**********************************************
+ * HOMEPAGE
+ **********************************************/
+
+/****************** SLIDER ********************/
+
+/* Slider Video */
+
+.resurrect-slide-video { /* <li> */
+	position: relative;
+	padding-bottom: 50%; /* 960x480 (480 / 960 * 100) */
+	height: 0;
+}
+
+	.resurrect-slide-video iframe { /* YouTube, Vimeo */
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+/**********************************************
+ * 1024px - Big Tablet, Small Laptop or Less
+ **********************************************/
+
+@media only screen and (max-width: 1024px) {
+
+	/******************* LAYOUT *******************/
+
+	/* Create margins for content */
+
+	#resurrect-top-content,
+	#resurrect-middle-content,
+	#resurrect-footer-content {
+		width: 90%;
+	}
+
+	/* Header: Logo Text */
+
+	#resurrect-logo-text-inner {
+		font-size: 0.8em;
+	}
+
+	#resurrect-logo-text-inner {
+		line-height: 1em; /* maintain it */
+	}
+
+	/* Header Menu Bar (keep on one line) */
+
+	#resurrect-header-menu { /* <nav> */
+		padding: 0 15px;
+	}
+
+		/* Header Menu Items (Top Level) */
+		
+		#resurrect-header-menu-links > li {
+			margin-left: 9px;
+			margin-right: 9px;
+		}
+		
+			/* Header Menu Links (Top Level) */
+			
+			#resurrect-header-menu-links > li > a .ctfw-header-menu-link-inner {
+				font-size: 0.9em;
+			}
+			
+				/* Description */
+				
+				#resurrect-header-menu-links > li > a .ctfw-header-menu-link-description {
+					display: none;
+				}
+				
+				/*
+				If no description on top-level menu link, move the dropdown up
+				IMPORTANT: This is copied higher up (without .ctfw-header-menu-link-no-description) for when Description is left blank
+				*/
+			
+				.sf-menu li:hover > ul,
+				.sf-menu .sfHover > ul {
+					top: 2em;
+				}
+
+	/* Sidebar - Make Narrow */
+
+	.resurrect-has-sidebar #resurrect-content-inner  {
+		margin-right: 240px;
+	}
+
+	#resurrect-sidebar-right {
+		width: 210px;
+		margin-left: -211px; /* width + border */
+
+	}
+
+	/******************* FOOTER *******************/
+
+	/* Show "View Full Site" as soon as go responsive */
+
+	#resurrect-footer-responsive-toggle {
+		display: block;
+	}
+
+	/***************** HOMEPAGE *******************/
+
+	/* Highlights (Right of Slider) */
+
+	#ctcom-home-highlights .resurrect-highlight,
+	.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight {
+		font-size: 0.9em; /* reduce size */
+	}
+
+	/* Homepage Widgets */
+
+	.resurrect-home-widget {
+		width: 46.9%;
+	}
+
+	/************* GALLERY (SINGLE) ***************/
+
+	/* Smaller caption for small thumbnails */
+
+	.gallery-columns-2 .gallery-caption,
+	.gallery-columns-3 .gallery-caption {
+		font-size: 0.9em;
+	}
+
+	/*********** GALLERIES (MULTIPLE) *************/
+
+	/* Galleries Template - Show caption thumbs in 2 columns */
+
+	.resurrect-galleries-list .gallery-item { /* duplicate in style.css for 2 columns */
+		max-width: 44%; /* Opera Mobile, Android 4 don't like anything greater */
+		max-width: -webkit-calc(50% - 14px);
+		max-width:         calc(50% - 14px);
+	}
+
+	.resurrect-galleries-list .gallery-item {
+		margin-right: 7px !important; /* reset to original */
+	}
+
+	.resurrect-galleries-list .gallery-item:nth-of-type(2n) {
+		margin-right: 0;
+	}
+
+}
+
+/**********************************************
+ * 800px - Tablet, Small Netbook or Less
+ **********************************************/
+  
+@media only screen and (max-width: 800px) {
+
+	/****************** LAYOUT ********************/
+
+	/* Less margin, more space for content/menu */
+
+	#resurrect-top-content,
+	#resurrect-middle-content,
+	#resurrect-footer-content {
+		width: 93%;
+	}
+	
+	/* Top Bar */
+	
+	#resurrect-top-menu-links {
+		font-size: 0.9em;
+	}
+
+	/* Header: Logo Text */
+
+	#resurrect-logo-text-inner {
+		font-size: 0.7em;
+	}
+
+	/* Header: Tagline below logo */
+	
+	#resurrect-logo-tagline {
+		font-size: 1.2em;
+	}
+
+	/* Header: Upcoming Events */
+
+	.resurrect-header-right-item-date {
+		display: none;
+	}
+	
+	/* Header Menu Bar (keep on one line) */
+	
+	#resurrect-header-menu { /* <nav> */
+		padding: 0 4px 0 9px;
+	}
+		/* Header Menu List */
+		
+		#resurrect-header-menu-links { /* <ul> */
+			padding: 12px 0 2px 0;
+		}
+			
+			/* Header Menu Items (Top Level) */
+			
+			#resurrect-header-menu-links > li {
+				margin-left: 7px;
+				margin-right: 8px;
+			}
+			
+				/* Header Menu Links (Top Level) */
+				
+				#resurrect-header-menu-links > li > a .ctfw-header-menu-link-inner {
+					padding-left: 7px;
+				}
+
+				/* Remove arrows */
+
+				.sf-arrows .sf-with-ul .ctfw-header-menu-link-title {
+					margin-right: 0;
+				}
+
+					.sf-arrows .sf-with-ul .ctfw-header-menu-link-title:after {
+						display: none;
+					}
+
+
+	/* Banner */
+	
+	#resurrect-banner h1 {
+		font-size: 1.8em;
+	}
+
+	/* Content */
+
+	#resurrect-content {
+		float: none;
+		width: 100%;
+	}
+
+	/* Sidebar */
+
+	.resurrect-has-sidebar #resurrect-content-inner {
+		margin-right: 0;
+	}
+	
+	#resurrect-sidebar-right { /* move to bottom */
+		float: none;
+		width: 100%;
+		padding: 0;
+		margin: 30px 0 0 0;
+		font-size: 1em;
+		border-top: 1px solid transparent; /* hack to make margin snap into place */
+	}
+
+	/* Footer */
+	
+	#resurrect-footer {
+		font-size: 0.9em;
+	}
+
+	/***************** HOMEPAGE *******************/
+
+	/* Slider */
+
+	.flex-title {
+		font-size: 1.8em;
+	}
+	
+	/* Homepage Slider */
+	
+	.touch #resurrect-slider {
+		padding-bottom: 38px; /* a little more space for touch devices at this size */
+	}	
+
+	/*
+	Move homepage boxes below slider
+	IMPORTANT: same code is copied higher up for when slider is disabled
+	*/
+
+	#resurrect-slider-boxes {
+		border-top: 0; /* undoing what was done higher up, prevents margin issue with FF */
+		margin-top: 14px; /* related to the fix above (was border 1 + margni-top 13 = 14 */
+		margin-bottom: 30px;
+	}
+
+		#resurrect-slider,
+		#ctcom-home-highlights {
+			width: 100%;
+			float: none;
+			margin-top: 14px;
+		}
+
+			/* Image Box */
+			
+			#ctcom-home-highlights .resurrect-highlight,
+			.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight { /* .resurrect-caption-image */
+				margin-top: 0;
+				margin-left: 2%;
+				width: 49%;
+				float: left;
+				font-size: 1em; /* restore to original size */
+			}
+
+				/* No margin on first item */
+				
+				#ctcom-home-highlights .resurrect-highlight:first-child,
+				.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight:first-child {
+					margin-left: 0;
+				}
+
+	/* Homepage Intro */
+
+	#resurrect-intro-heading,
+	#resurrect-intro-content {
+		font-size: 1.8em; /* same as slider title */
+	}
+	
+	/* Homepage Widgets - increase margin between columns */
+
+	#resurrect-home-bottom-widgets {
+		margin-right: -3.8%;
+	}
+
+		.resurrect-home-widget {
+			width: 46.2%;
+		}
+
+}
+
+/**********************************************
+ * 640px - Big Phone, Small Tablet or Less
+ **********************************************/
+
+@media only screen and (max-width: 640px) {
+
+	/****************** LAYOUT ********************/
+
+	/*
+	Remove display: table / table-cell / table-row
+	in Opera and IE8 these interfere with logo scaling
+	Sticky footer and vertical centering are lost, but not needed at this size
+	*/
+	
+	#resurrect-container,
+	#resurrect-top,
+	#resurrect-middle,
+	#resurrect-footer,
+	#resurrect-header-content,
+	#resurrect-logo {
+		display: block;
+		width: 100%;
+	}
+
+	/* Hide Social Icons */
+	
+	#resurrect-top-content .resurrect-list-icons {
+		display: none;
+	}
+	
+	/* Show Search Only */
+	
+	#resurrect-top-right {
+		float: none;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+		
+		/* Top Menu */
+		
+		#resurrect-top-menu {
+			display: none;
+		}
+		
+		/* Search Form */
+		
+		#resurrect-top-search {
+			display: block;
+			width: 100%;
+			margin: 0;
+			text-align: center;
+			padding-left: 3px;
+		}
+		
+			/* Search Input */
+		
+			#resurrect-top-search .resurrect-search-field {
+				width: 70%;
+				max-width: 300px;
+			}
+				
+				#resurrect-top-search .resurrect-search-field input {
+					width: 100%;
+				}
+				
+			#resurrect-top-search .resurrect-search-button {
+				margin-left: 10px;
+			}
+
+	/* Header: Logo Text */
+
+	#resurrect-logo-text-inner {
+		font-size: 0.7em;
+	}
+
+	/* Center Logo/Tagline */
+
+	#resurrect-header-content {
+		padding: 35px 0; /* less vertical margin */
+	}
+
+		#resurrect-logo,
+		#resurrect-logo-tagline {
+			text-align: center;
+		}
+
+		#resurrect-logo-content {
+			width: 100%;
+		}
+
+		.resurrect-no-logo #resurrect-logo-image, /* default */
+		#resurrect-logo-image,
+		#resurrect-logo-tagline {
+			left: 0 !important; /* override any offsets set in <head> via options */
+			margin-left: auto; /* center */
+			margin-right: auto; /* center */
+		}
+
+			#resurrect-logo-image img {
+				max-width: 90%;
+			}
+
+		#resurrect-logo-tagline {
+			font-size: 1.3em;
+		}
+
+	/* Hide Header Right Content */
+
+	#resurrect-header-right {
+		display: none;
+	}
+	
+	/* Header Menu (center if JavaScript is off - otherwise SelectNav.js below is used) */
+
+	.no-js #resurrect-header-menu-links {
+		float: none;
+		text-align: center;
+	}
+	
+		.no-js #resurrect-header-menu-links li li {
+			text-align: left;
+		}
+
+	/* SelectNav.js (converts menu to <select> for mobile devices) */
+
+	.js #resurrect-header-menu {
+		margin: 0 auto; /* centered */
+		padding: 0;
+		width: 100%;
+		min-width: 200px;
+		min-height: 0;
+	}
+		
+		/* Show <select> mobile menu */
+		
+		.js .selectnav { 
+			display: inline-block; /* show */
+			font-size: 1.1em; /* don't let it downsize too much */
+		}
+		
+		/* Hide regular menu */
+		
+		.js #resurrect-header-menu-links { 
+			visibility: hidden; /*  not using display:none because it interferes with supersubs calcs if size up */
+			position: absolute;
+			left: -10000px;
+		}
+		
+	/* Reduce space between content/footer */
+	
+	#resurrect-middle-content {
+		padding-bottom: 35px; /* space above footer */
+	}
+
+	/* Banner */
+
+	#resurrect-banner h1 {
+		bottom: 20%; /* move down */
+	}
+
+	/* Breadcrumbs */
+	
+	#resurrect-banner .ctfw-breadcrumbs,
+	#resurrect-content-inner .ctfw-breadcrumbs {
+		display: none;
+	}
+	
+	/* Footer - one element per line, centered, less margin */
+
+	#resurrect-footer-content {
+		padding: 15px 0 30px 0;
+	}
+
+		#resurrect-footer-left,
+		#resurrect-footer-right {
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
+		
+			#resurrect-footer-menu-links,
+			#resurrect-footer-contact { /* <ul> */
+				left: 0; /* offset item margin */
+			}
+			
+			#resurrect-footer-responsive-toggle,
+			#resurrect-footer-menu-links,
+			#resurrect-footer-social-icons,
+			#resurrect-footer-contact,
+			#resurrect-notice {
+				margin-top: 15px;
+			}
+
+	/***************** HOMEPAGE *******************/
+
+	/* Slider - small play button */
+
+	.flex-play-overlay {
+		background-size: 51px;
+	}
+
+	/* Homepage Highlights - one per row now */
+
+	#ctcom-home-highlights .resurrect-highlight,
+	.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight { /* .resurrect-caption-image */
+		font-size: 0.9em; /* reduce size */
+	}
+	
+	/* Homepage Widgets */
+
+	#resurrect-home-bottom-widgets {
+		margin-right: 0;
+	}
+
+		.resurrect-home-widget {
+			width: 100%;
+		}
+
+	/************* GALLERY (SINGLE) ***************/
+
+	/* Hide all gallery captions */
+
+	.gallery-caption {
+		display: none;
+	}
+
+	/* Make 6+ columns show as 5 columns */
+
+	.gallery-columns-6 .gallery-item,
+	.gallery-columns-7 .gallery-item,
+	.gallery-columns-8 .gallery-item,
+	.gallery-columns-9 .gallery-item { /* duplicate in style.css for 5 columns */
+		max-width: 17%;
+		max-width: -webkit-calc(20% - 14px);
+		max-width:         calc(20% - 14px);
+	}
+
+	.gallery-item {
+		margin-right: 7px !important; /* reset to original */
+	}
+
+	.gallery-columns-6 .gallery-item:nth-of-type(5n),
+	.gallery-columns-7 .gallery-item:nth-of-type(5n),
+	.gallery-columns-8 .gallery-item:nth-of-type(5n),
+	.gallery-columns-9 .gallery-item:nth-of-type(5n) {
+		margin-right: 0;
+	}
+
+	/*********** GALLERIES (MULTIPLE) *************/
+
+	/* Galleries Template - Show caption thumbs in 1 column */
+
+	.resurrect-galleries-list {
+		margin: 40px -14px 26px 0;
+	}
+
+	.resurrect-galleries-list .gallery-item { /* duplicate in style.css */
+		max-width: 96%; /* old Android, IE 8, etc. -- in widget in particular */
+		max-width: -webkit-calc(100% - 14px);
+		max-width:         calc(100% - 14px);
+	}
+
+	.resurrect-galleries-list .gallery-item {
+		margin: 14px 0;
+	}
+
+		.resurrect-galleries-list .gallery-item:first-child {
+			margin-top: 0;
+		}
+
+	/****************** COMMENTS ******************/
+	
+	.resurrect-comment-meta time .resurrect-comment-time { /* hide the "at 8:00 AM" part of date */
+		display: none;
+	}
+
+	#respond input[type=text] { /* move inputs below labels */
+		position: relative;
+		left: 0;
+		width: 95%;
+	}
+	
+	.comment-form-comment textarea {
+		margin: 15px 0 10px 0;
+	}
+	
+	.comment-form-author label.error, /* comment error messages */
+	.comment-form-email label.error,
+	.comment-form-url label.error {
+		display: block;
+		width: 99%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		text-align: right;
+	}
+	
+}
+
+/**********************************************
+ * 480px - Phone, Very Small Tablet or Less
+ **********************************************/
+
+@media only screen and (max-width: 480px) {
+
+	/**************** BASE STYLES *****************/
+
+	/* Quotes */
+
+	blockquote,
+	.quote-caption {
+		margin-left: 0;
+	}
+	
+	/*************** CUSTOM STYLES ****************/
+
+	/* Prev/Next Navigation (single posts and comments) */
+
+	.resurrect-nav-left-right a {
+		min-width: 50%;
+	}
+	
+	.resurrect-nav-left,
+	.resurrect-nav-right {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.resurrect-nav-right {
+		margin-top: 14px;
+	}
+
+	/* Author Box */
+		
+	.resurrect-author-avatar img {
+		width: 50px;
+		height: 50px;
+	}
+	
+	.resurrect-author-content {
+		margin-left: 70px;
+	}
+
+	/************* WORDPRESS STYLES ***************/
+
+	/* Move floated images to their own line and center */
+
+	.alignleft,
+	.alignright {
+		display: block;
+		margin: 30px auto;
+		float: none;
+	}
+
+	/****************** LAYOUT ********************/
+
+	/* Tagline under logo */
+
+	#resurrect-logo-tagline {
+		font-size: 1.2em;
+	}
+
+	/* Banner */
+	
+	#resurrect-banner {
+		margin-top: 30px
+	}
+	
+		#resurrect-banner h1 {
+			font-size: 1.4em;
+			padding: 8px 11px 9px 11px;
+		}
+
+	/****************** CONTENT *******************/
+
+	.resurrect-content-block,
+	.resurrect-content-block-compact {
+		padding: 25px;
+	}
+
+	/****************** HOMEPAGE ******************/
+
+	/* Slider Title / Description */
+
+	.flex-title {
+		font-size: 1.4em;
+		padding: 8px 11px 9px 11px;
+	}
+
+	.flex-description {
+		display: none !important; /* don't let JS re-show it on slide change */
+	}
+
+	/*
+	Slider - Move controls below slider on touch devices (on some doesn't work on top)
+	NOTE: These styles are roughly the same for touch screens
+	*/
+	
+	.flex-control-nav {
+		top: auto;
+		right: auto;
+		bottom: -30px;
+		width: 100%;
+		padding: 0;
+		text-align: center;
+	}
+
+	#resurrect-slider,
+	.touch #resurrect-slider { /* also overrride the .touch styles higher up */
+		padding-bottom: 26px;
+	}
+
+	/* Homepage Highlights - one per row now */
+
+	#ctcom-home-highlights .resurrect-highlight,
+	.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight { /* .resurrect-caption-image */
+		margin-left: 0;
+		width: 100%;
+		float: none;
+		font-size: 1em; /* restore to original size */
+	}
+
+		/* No bottom margin on last box */
+			
+		#ctcom-home-highlights .resurrect-highlight:last-child,
+		.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight:last-child {
+			margin-bottom: 0;
+		}
+	
+	/* Homepage Intro */
+
+	#resurrect-intro {
+		padding: 25px;
+	}
+	
+		#resurrect-intro-heading {
+			font-size: 1.4em;
+			padding: 1px 0 1px 9px;
+		}
+		
+		#resurrect-intro-content {
+			font-size: 1.2em;
+			line-height: 1.5em;
+		}
+		
+	/* Even spacing between all elements */
+	
+	#resurrect-slider-boxes,
+	#ctcom-home-highlights .resurrect-highlight,
+	#ctcom-home-highlights .resurrect-highlight:first-child,
+	.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight:first-child,
+	#resurrect-intro {
+		margin: 25px 0;
+	}
+
+	/*************** ENTRY STYLES *****************/
+
+	/* Image Container */
+
+	.resurrect-entry-image,
+	.resurrect-no-sidebar .resurrect-entry-image {
+		display: block;
+		float: none;
+		max-width: 100%;
+		margin: 0 0 40px 0;
+		padding: 0;
+		text-align: center;
+	}
+
+	/* Title & Meta Container */
+
+	.resurrect-entry-title-meta,
+	.resurrect-no-sidebar .resurrect-entry-title-meta {
+		display: block;
+		float: none;
+		max-width: 100%;
+	}
+
+	/* Allow links to wrap now */
+
+	.resurrect-entry-meta > li a {
+		white-space: normal;
+	}
+
+	/************* GALLERY (SINGLE) ***************/
+
+	/* Make 4+ columns show as 3 columns */
+
+	.gallery-columns-4 .gallery-item,
+	.gallery-columns-5 .gallery-item,
+	.gallery-columns-6 .gallery-item,
+	.gallery-columns-7 .gallery-item,
+	.gallery-columns-8 .gallery-item,
+	.gallery-columns-9 .gallery-item { /* duplicate in style.css for 3 columns */
+		max-width: 27%; /* Android 4 browser did not like anything greater */
+		max-width: -webkit-calc(33.3% - 14px);
+		max-width:         calc(33.3% - 14px);
+	}
+
+	.gallery-item {
+		margin-right: 7px !important; /* reset to original */
+	}
+
+	.gallery-columns-4 .gallery-item:nth-of-type(3n), /* set all to 3 column */
+	.gallery-columns-5 .gallery-item:nth-of-type(3n),
+	.gallery-columns-6 .gallery-item:nth-of-type(3n),
+	.gallery-columns-7 .gallery-item:nth-of-type(3n),
+	.gallery-columns-8 .gallery-item:nth-of-type(3n),
+	.gallery-columns-9 .gallery-item:nth-of-type(3n) {
+		margin-right: 0;
+	}
+
+	/***************** COMMENTS *******************/
+
+	/* Comments */
+
+	.resurrect-comment-author span, /* remove "Author" or "Trackback" from after name */
+	.resurrect-comment-trackback-link span {
+		display: none;
+	}
+	
+	a.comment-edit-link { /* hide admin Edit link */
+		display: none;
+	}
+
+	.resurrect-comment-buttons .resurrect-button-icon { /* remove icon from Edit button */
+		display: none;
+	}
+
+	/****************** WIDGETS *******************/
+
+	/* Highlights Widget (sidebars, homepage bottom) */
+
+	.resurrect-highlight,
+	.resurrect-no-slider .resurrect-highlight { /* .resurrect-caption-image */
+		font-size: 1em; /* restore to original size */
+	}
+	
+}
+
+/**********************************************
+ * 320px - Small Phone
+ **********************************************/
+
+@media only screen and (max-width: 320px) {	
+
+	/****************** LAYOUT ********************/
+
+	/* Shrink Logo Tagline */
+
+	#resurrect-logo-tagline {
+		font-size: 1.2em;
+	}
+
+	/* Page Header */
+	
+	#resurrect-banner h1 {
+		font-size: 1.25em;
+		bottom: 12%;
+	}
+	
+	/***************** HOMEPAGE *******************/
+
+	/* Slider */
+
+	.flex-title {
+		font-size: 1.25em;
+	}
+	
+	/* Homepage Highlights - reduce text */
+
+	#ctcom-home-highlights .resurrect-highlight,
+	.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight { /* .resurrect-caption-image */
+		font-size: 1em; /* restore to original size */
+	}
+	
+	/* Homepage Intro */
+
+	#resurrect-intro {
+		padding: 20px;
+	}
+	
+		#resurrect-intro-heading {
+			font-size: 1.25em;
+		}
+		
+		#resurrect-intro-content {
+			font-size: 1em;
+		}
+	
+	/******************* PEOPLE *******************/
+
+	/* People */
+	
+	.resurrect-person-image { /* move image to top */
+		width: 100%;
+		max-height: 180px;
+		float: none;
+		margin: 0 auto 22px auto;
+	}
+
+	.resurrect-person-content header {
+		text-align: center;
+	}
+	
+		.resurrect-person-content header h1 {
+			margin-right: 0;
+			width: 100%;
+		}
+		
+		.resurrect-person-position {
+			display: block;
+			margin: 0;
+		}
+	
+	/***************** COMMENTS *******************/
+	
+	.resurrect-comment,
+	.resurrect-comment #respond { /* no indentation for threaded comments */
+		margin-left: 0;
+	}
+
+	/****************** WIDGETS *******************/
+	
+	.resurrect-widget-title {
+		font-size: 1.25em; /* reduce size */
+	}
+
+}

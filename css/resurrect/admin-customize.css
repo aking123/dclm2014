@@ -1,0 +1,90 @@
+/**
+ * Theme Customizer Controls
+ */
+
+/* Background Image Colorable Note */
+
+#resurrect-customize-background-colorable {
+	clear: both;
+	display: block;
+	padding-top: 6px;
+	font-style: italic;
+}
+
+/* Background Image Presets */
+
+.library-content[data-customize-tab="ctfw_presets"] .thumbnail {
+	width: 46px !important;
+	height: 46px !important;
+	display: inline-block !important;
+	margin: 0 2px 2px 0 !important;
+	outline: 0;
+
+}
+
+	.library-content[data-customize-tab="ctfw_presets"] .thumbnail .ctfw-customizer-thumbnail-wrapper {
+		overflow: hidden;
+		display: inline-block;
+		height: 40px;
+		width: 40px;
+	}
+
+		.library-content[data-customize-tab="ctfw_presets"] .thumbnail img {
+			max-width: 150% !important;
+			padding: 0 !important;
+			margin: 0 !important;
+			border: 0 !important;
+		}
+
+		.library-content[data-customize-tab="ctfw_presets"] .thumbnail:hover .ctfw-customizer-thumbnail-wrapper {
+			border-width: 1px !important;
+			border-style: solid !important;
+			border-color: #bbb !important; /* IE8 */
+			border-color: rgba(0, 0, 0, 0.3) !important;
+			margin: -1px !important;
+		}
+
+/* Tooltip for "Colorable" background images */
+
+a[data-customize-image-preset-colorable="1"] {
+	position: relative;
+}
+
+a[data-customize-image-preset-colorable="1"]:hover:after {
+	content: attr(data-customize-image-title);
+	position: absolute;
+	top: -12px;
+	left: -16px;
+	z-index: 100;
+	background: #fff;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	padding: 4px 8px;
+	color: #777;
+	font-style: italic;
+}
+
+/* Logo Text */
+
+#customize-control-resurrect_customizations-logo_text textarea {
+	height: 40px;
+}
+
+/* Social Media Icons */
+
+#resurrect-customize-icons-description code {
+	font-style: normal;
+}
+ 
+#customize-section-resurrect_icons textarea {
+	white-space: nowrap;
+	overflow: auto;
+	height: 105px;
+}
+
+/* Slider Speed */
+
+#customize-control-resurrect_customizations-slider_speed input[type=number] {
+	width: 40px;
+}

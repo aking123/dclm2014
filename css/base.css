@@ -1,0 +1,410 @@
+/**********************************************
+ * NOTES
+ **********************************************/
+
+/*
+
+
+COLOR SCHEMES
+
+The light-color stylesheet is used to control the color scheme.
+
+RESPONSIVE STYLES
+
+See css/responsive.css for responsive styling and media queries.
+
+PREFIXES
+
+To prevent conflicts with plugins, everything is prefixed with resurrect- (this theme),
+ctcom- (all churchthemes.com themes) or ctfw- (framework). Those with wp- or no prefix are from WordPress.
+Other prefixes are from third party code.
+
+*/
+
+/**********************************************
+ * TABLE OF CONTENTS
+ **********************************************/
+
+/*
+
+1.	BASE STYLES
+	- Reset
+	- Text
+	- Blocks
+	- Images
+	- Forms
+	- Other
+2.	CUSTOM STYLES
+	- Background
+	- Text
+	- Images
+	- Icons
+	- Buttons
+	- Navigation
+	- Author Box
+	- Search Form
+	- Visibility
+	- Clearfix
+3.	LAYOUT
+	- Shared Styles
+	- Container
+	- Top Bar
+	- Header
+	- Banner
+	- Content
+	- Sidebar
+	- Footer
+4.	HOMEPAGE
+	- Layout
+	- Slider
+	- Highlights
+	- Intro
+	- Widgets
+5.	ENTRY STYLES
+	- Shared Styles (Full + Short)
+	- Full / Single
+	- Short / Multiple
+6.	SERMONS
+7.	EVENTS
+8.	PEOPLE
+9.	LOCATIONS
+10.	ATTACHMENTS
+11.	GALLERIES
+12.	COMMENTS
+	- Comment List
+	- Comment Form
+13.	WIDGETS
+	- Widget Container
+	- Shared Styles
+	- WP Tag Cloud
+	- WP Calendar
+	- WP Search
+	- WP Text
+	- WP RSS
+	- Highlight
+	- Gallery
+	- Events
+	- People
+	- Locations
+	- Giving
+14.	TWEAKS
+15.	PLUGINS
+
+*/
+
+/**********************************************
+ * 1. BASE STYLES
+ **********************************************/
+ 
+/******************* RESET ********************/
+
+/**
+ * html5doctor.com Reset v1.6.1 (public domain) - 
+ * by Richard Clark - http://richclarkdesign.com
+ */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}
+body{line-height:1;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+nav ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:none;}
+a{font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}
+ins{background-color:#ff9;color:#000;text-decoration:none;}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold;}
+del{text-decoration:line-through;}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help;}
+table{border-collapse:collapse;border-spacing:0;}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}
+input,select{vertical-align:middle;}
+
+/* Additional Reset */
+
+* { /* natural box layout model */
+	-webkit-box-sizing:	border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:			border-box;
+}
+
+img {
+	vertical-align: bottom; /* remove gap from below <img> tags */
+}
+
+/******************* TEXT *********************/
+
+/* Base Font */
+
+body,
+input,
+textarea,
+select {
+	font-size: 0.9em;
+	line-height: 1.6em;
+}
+
+body {
+	-webkit-text-size-adjust: 100%; /* prevent inconsistent font sizes in mobile Safari */
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	text-transform: uppercase;
+	line-height: 1.4em;
+}
+
+h1 {
+	font-size: 2.2em;
+}
+
+h2,
+#reply-title { /* comment form title */
+	font-size: 1.9em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+h4 {
+	font-size: 1.3em;
+}
+
+h5 {
+	font-size: 1.1em;
+}
+
+h6 {
+	font-size: 0.9em;
+}
+
+/* Paragraph */
+
+p,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+table,
+form {
+	margin: 30px 0;
+}
+
+/* Subscript */
+
+sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+
+/* Superscript */
+
+sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+/****************** BLOCKS ********************/
+
+/* Lists */
+
+ul,
+ol { /* more comfortable margins */
+	margin-left: 40px;
+}
+
+	ul ul,
+	ol ol,
+	ul ol,
+	ol ul {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+ul { /* consistent bullets */
+	list-style: square;
+}
+
+dl { /* definition list */
+	margin-left: 25px;
+}
+
+	dt {
+		font-style: normal;
+		font-weight: bold;
+	}
+
+	dd {
+		margin-bottom: 20px;
+	}
+
+/* Blockquote */
+
+blockquote {
+	margin: 32px 5% 0 5%;
+	padding-left: 52px;
+}
+
+blockquote {
+	display: block;
+	position: relative;
+	padding-left: 50px;
+	font-style: italic;
+	font-size: 1.2em; /* a little bigger than default */
+	line-height: 1.5em;
+	background-repeat: no-repeat;
+	background-size: 27px; /* assist Retina */
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:			border-box; /* make padding-left not stretch whole width */
+}
+
+	/* Quotation mark before */
+
+	blockquote:before {
+		position: absolute;
+		top: 15px;
+		left: -5px;
+		display: block;
+		content: "\201C";
+		font-size: 5em;
+	}
+	
+	/* Citation */
+
+	blockquote cite {
+		text-transform: uppercase;
+	}
+
+	/* <cite> in blockquote */
+	
+	blockquote cite {
+		display: block;
+		margin-top: 15px;
+		font-size: 0.8em;
+		font-style: normal;
+	}
+
+		/* Emdash before */
+
+		blockquote cite:before {
+			content: "\2014 \2009";
+		}
+
+/* Quote Tag */
+
+q {
+	font-style: italic;
+}
+
+/****************** IMAGES ********************/
+
+/* Don't let images exceed their containers */
+
+img.size-full,
+img.size-large,
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+	max-width: 100%;
+	height: auto;
+}
+
+/******************* FORMS ********************/
+
+input {
+	height: 32px;
+	margin: 0;
+	padding: 0 8px;
+	border: none;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	font-size: 1em;
+	line-height: 32px;
+	outline: 0;	
+}
+	
+	input:focus {
+		background-position: 0 -50px;
+	}
+
+select {
+	min-width: 150px;
+	height: 2.3em;
+	padding: 4px 4px 4px 8px;
+	background-position: right -109px;
+	border: none;
+	font-size: 1em;
+	cursor: pointer;
+	-webkit-border-radius: 0px;
+	-webkit-appearance:	none; /* hide arrow Chrome/Safari */
+	-moz-appearance:	none; /* someday this will work */
+}
+
+	select::-ms-expand { /* hide arrow on IE 10 */
+		display: none;
+	}
+
+	select:focus {
+		background-position: right -159px;
+		outline: 0;
+	}
+
+textarea {
+	margin: 0;
+	padding: 5px 8px;
+	background-repeat: no-repeat;
+	border: none;
+	font-size: 1em;
+}
+
+	textarea:focus {
+		outline: 0;
+	}
+	
+input[type=radio],
+input[type=checkbox] {
+	margin-right: 4px;
+}
+
+input[type=submit] {
+	padding: 7px;
+}
+
+.touch input:not([type=checkbox]):not([type=radio]),
+.touch select,
+.touch textarea { /* get rid of iOS styles */
+    -webkit-appearance: none;
+	-webkit-border-radius:	0; /* iOS 3 */
+    border-radius:			0;
+}
+
+input,
+select,
+textarea {
+	background-size: 1000px; /* assist Retina */
+}
+
+/******************* OTHER ********************/
+
+/* Horizontal Rule */
+
+hr {
+	border-style: solid;
+	border-width: 1px 0 0 0;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	margin: 24px 0;
+	padding: 0;
+}
+
+

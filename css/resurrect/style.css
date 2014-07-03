@@ -1,0 +1,3416 @@
+/*
+Theme Name: Resurrect
+Theme URI: http://churchthemes.com/themes/resurrect
+Author: churchthemes.com
+Author URI: http://churchthemes.com
+Description: An urban-inspired WordPress theme for churches.
+Copyright: (c) 2013 churchthemes.com
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, gray, dark, light, one-column, two-columns, responsive-layout, custom-background, custom-colors, custom-menu, featured-image-header, featured-images, threaded-comments, translation-ready
+Text Domain: resurrect
+Version: 1.1.2
+*/
+
+/**********************************************
+ * NOTES
+ **********************************************/
+
+/*
+
+STYLE CUSTOMIZATION
+
+If you want to edit styles, it is best to use a child theme.
+Theme updates replace original stylesheets, so keeping your customizations separate makes updates easier.
+See the example child theme and guide for more information.
+
+COLOR SCHEMES
+
+See the light and dark stylesheets in the 'colors' directory.
+You can switch between these color schemes in Appearance > Customize.
+There you can also specify colors, background, fonts, etc.
+
+RESPONSIVE STYLES
+
+See css/responsive.css for responsive styling and media queries.
+
+PREFIXES
+
+To prevent conflicts with plugins, everything is prefixed with resurrect- (this theme),
+ctcom- (all churchthemes.com themes) or ctfw- (framework). Those with wp- or no prefix are from WordPress.
+Other prefixes are from third party code.
+
+*/
+
+/**********************************************
+ * TABLE OF CONTENTS
+ **********************************************/
+
+/*
+
+1.	BASE STYLES
+	- Reset
+	- Text
+	- Blocks
+	- Images
+	- Forms
+	- Other
+2.	CUSTOM STYLES
+	- Background
+	- Text
+	- Images
+	- Icons
+	- Buttons
+	- Navigation
+	- Author Box
+	- Search Form
+	- Visibility
+	- Clearfix
+3.	LAYOUT
+	- Shared Styles
+	- Container
+	- Top Bar
+	- Header
+	- Banner
+	- Content
+	- Sidebar
+	- Footer
+4.	HOMEPAGE
+	- Layout
+	- Slider
+	- Highlights
+	- Intro
+	- Widgets
+5.	ENTRY STYLES
+	- Shared Styles (Full + Short)
+	- Full / Single
+	- Short / Multiple
+6.	SERMONS
+7.	EVENTS
+8.	PEOPLE
+9.	LOCATIONS
+10.	ATTACHMENTS
+11.	GALLERIES
+12.	COMMENTS
+	- Comment List
+	- Comment Form
+13.	WIDGETS
+	- Widget Container
+	- Shared Styles
+	- WP Tag Cloud
+	- WP Calendar
+	- WP Search
+	- WP Text
+	- WP RSS
+	- Highlight
+	- Gallery
+	- Events
+	- People
+	- Locations
+	- Giving
+14.	TWEAKS
+15.	PLUGINS
+
+*/
+
+/**********************************************
+ * 1. BASE STYLES
+ **********************************************/
+ 
+/******************* RESET ********************/
+
+/**
+ * html5doctor.com Reset v1.6.1 (public domain) - 
+ * by Richard Clark - http://richclarkdesign.com
+ */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}
+body{line-height:1;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+nav ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:none;}
+a{font-size:100%;vertical-align:baseline;background:transparent;margin:0;padding:0;}
+ins{background-color:#ff9;color:#000;text-decoration:none;}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold;}
+del{text-decoration:line-through;}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help;}
+table{border-collapse:collapse;border-spacing:0;}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}
+input,select{vertical-align:middle;}
+
+/* Additional Reset */
+
+* { /* natural box layout model */
+	-webkit-box-sizing:	border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:			border-box;
+}
+
+img {
+	vertical-align: bottom; /* remove gap from below <img> tags */
+}
+
+/******************* TEXT *********************/
+
+/* Base Font */
+
+body,
+input,
+textarea,
+select {
+	font-size: 0.9em;
+	line-height: 1.6em;
+}
+
+body {
+	-webkit-text-size-adjust: 100%; /* prevent inconsistent font sizes in mobile Safari */
+}
+
+/* Link Hover Fading */
+
+a,
+.resurrect-comment-meta time {
+	text-decoration: none;
+	-webkit-transition:	color .15s ease-in;
+	-moz-transition:	color .15s ease-in;
+	-ms-transition:		color .15s ease-in;
+	-o-transition:		color .15s ease-in;
+	transition:			color .15s ease-in;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	text-transform: uppercase;
+	line-height: 1.4em;
+}
+
+h1 {
+	font-size: 2.2em;
+}
+
+h2,
+.resurrect-entry-short h1,
+#reply-title { /* comment form title */
+	font-size: 1.9em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+h4 {
+	font-size: 1.3em;
+}
+
+h5 {
+	font-size: 1.1em;
+}
+
+h6 {
+	font-size: 0.9em;
+}
+
+.resurrect-entry-content h1,
+.resurrect-entry-content h2,
+.resurrect-entry-content h3 {
+	margin-top: 40px;
+}
+
+/* Paragraph */
+
+p,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+table,
+form {
+	margin: 30px 0;
+}
+
+/* Subscript */
+
+sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+
+/* Superscript */
+
+sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+/****************** BLOCKS ********************/
+
+/* Lists */
+
+ul,
+ol { /* more comfortable margins */
+	margin-left: 40px;
+}
+
+	ul ul,
+	ol ol,
+	ul ol,
+	ol ul {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+ul { /* consistent bullets */
+	list-style: square;
+}
+
+dl { /* definition list */
+	margin-left: 25px;
+}
+
+	dt {
+		font-style: normal;
+		font-weight: bold;
+	}
+
+	dd {
+		margin-bottom: 20px;
+	}
+
+/* Blockquote */
+
+blockquote {
+	margin: 32px 5% 0 5%;
+	padding-left: 52px;
+}
+
+blockquote {
+	display: block;
+	position: relative;
+	padding-left: 50px;
+	font-style: italic;
+	font-size: 1.2em; /* a little bigger than default */
+	line-height: 1.5em;
+	background-repeat: no-repeat;
+	background-size: 27px; /* assist Retina */
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:			border-box; /* make padding-left not stretch whole width */
+}
+
+	/* Quotation mark before */
+
+	blockquote:before {
+		position: absolute;
+		top: 15px;
+		left: -5px;
+		display: block;
+		content: "\201C";
+		font-size: 5em;
+	}
+	
+	/* Citation */
+
+	blockquote cite {
+		text-transform: uppercase;
+	}
+
+	/* <cite> in blockquote */
+	
+	blockquote cite {
+		display: block;
+		margin-top: 15px;
+		font-size: 0.8em;
+		font-style: normal;
+	}
+
+		/* Emdash before */
+
+		blockquote cite:before {
+			content: "\2014 \2009";
+		}
+
+/* Quote Tag */
+
+q {
+	font-style: italic;
+}
+
+/* Tables */
+
+.resurrect-entry-content table {
+	width: 100%;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	line-height: 2em;
+}
+
+	.resurrect-entry-content caption {
+		margin-bottom: 15px;
+		font-style: italic;
+		text-align: left;
+	}
+
+	.resurrect-entry-content th {
+		text-transform: uppercase;
+		text-align: left;
+	}
+
+	.resurrect-entry-content td {
+		border-width: 1px 0 0 0;
+		border-style: solid;
+		padding: 8px 8px 8px 0;
+	}
+
+/****************** IMAGES ********************/
+
+/* Don't let images exceed their containers */
+
+.resurrect-entry-content img,
+.resurrect-widget img,
+.resurrect-caption-image img, /* for placeholder */
+.resurrect-image,
+#resurrect-banner img,
+img.size-full,
+img.size-large,
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+	max-width: 100%;
+	height: auto;
+}
+
+/******************* FORMS ********************/
+
+input {
+	height: 32px;
+	margin: 0;
+	padding: 0 8px;
+	border: none;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	font-size: 1em;
+	line-height: 32px;
+	outline: 0;	
+}
+	
+	input:focus {
+		background-position: 0 -50px;
+	}
+
+select {
+	min-width: 150px;
+	height: 2.3em;
+	padding: 4px 4px 4px 8px;
+	background-position: right -109px;
+	border: none;
+	font-size: 1em;
+	cursor: pointer;
+	-webkit-border-radius: 0px;
+	-webkit-appearance:	none; /* hide arrow Chrome/Safari */
+	-moz-appearance:	none; /* someday this will work */
+}
+
+	select::-ms-expand { /* hide arrow on IE 10 */
+		display: none;
+	}
+
+	select:focus {
+		background-position: right -159px;
+		outline: 0;
+	}
+
+textarea {
+	margin: 0;
+	padding: 5px 8px;
+	background-repeat: no-repeat;
+	border: none;
+	font-size: 1em;
+}
+
+	textarea:focus {
+		outline: 0;
+	}
+	
+input[type=radio],
+input[type=checkbox] {
+	margin-right: 4px;
+}
+
+input[type=submit] {
+	padding: 7px;
+}
+
+.touch input:not([type=checkbox]):not([type=radio]),
+.touch select,
+.touch textarea { /* get rid of iOS styles */
+    -webkit-appearance: none;
+	-webkit-border-radius:	0; /* iOS 3 */
+    border-radius:			0;
+}
+
+input,
+select,
+textarea {
+	background-size: 1000px; /* assist Retina */
+}
+
+/******************* OTHER ********************/
+
+/* Horizontal Rule */
+
+hr {
+	border-style: solid;
+	border-width: 1px 0 0 0;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	margin: 24px 0;
+	padding: 0;
+}
+
+/**********************************************
+ * 2. CUSTOM STYLES
+ **********************************************/
+
+/**************** BACKGROUND ******************/
+
+/* If fullscreen background, remove CSS background to prevent loading flicker and double transparency */
+
+.custom-background.resurrect-background-image-fullscreen { /* <body> */
+	background-image: none;
+}
+
+/********************* TEXT ********************/
+
+/* Font Weight */
+
+.resurrect-bold {
+	font-weight: bold;
+}
+
+.resurrect-nonbold {
+	font-weight: normal;
+}
+
+/******************** IMAGES *******************/
+
+/* Caption Image (e.g. Highlight Widget) */
+
+.resurrect-caption-image {
+	position: relative;
+}
+
+	/* Container for Title and Description */
+
+	.resurrect-caption-image-caption {
+		position: absolute;
+		bottom: 12%;
+		display: block;
+		max-width: 90%;
+	}
+
+		/* Title */
+	
+		.resurrect-caption-image-title {
+			display: inline-block;
+			float: left; /* needed for IE in order for float/clear: left on description to work below */
+			padding: 7px 11px 7px 11px;
+			font-size: 1.25em;
+			font-weight: normal;
+			line-height: 1.35em;
+			text-transform: uppercase;
+			position: relative; /* helps z-index kick in (in color scheme CSS) */
+		}
+		
+		/* Description */
+		
+		.resurrect-caption-image-description {
+			display: inline-block;
+			float: left; /* float/clear left causes new line without resorting to display: block which span 100% width of title/caption */
+			clear: left;
+			padding: 6px 10px;
+			font-style: italic;
+			font-weight: normal;
+			line-height: 1.4em;
+			position: relative; /* helps z-index kick in (in color scheme CSS) */
+		}
+
+/* Image Hover Fade */
+
+.resurrect-image, /* typically a linked image */
+.resurrect-entry-content a img,
+.gallery-item img {
+	opacity: 1;
+	-webkit-transition:	opacity .15s ease-out;
+	-moz-transition:	opacity .15s ease-out;
+	transition:			opacity .15s ease-out;
+	-webkit-backface-visibility: hidden; /* prevents shifting */
+}
+
+	a:hover .resurrect-image, /* this way hover on caption makes image below fade in/out */
+	.resurrect-entry-content a img:hover,
+	.gallery-item:hover img {
+		opacity: .5;
+	}
+
+/* WordPress Images */
+
+.alignnone {
+	margin: 30px 0;
+}
+
+	p .alignnone {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+.aligncenter {
+	display: block;
+	margin: 30px auto; /* top/bottom margin, centered */
+}
+
+.alignleft {
+	float: left;
+	margin: 20px 25px 20px 0;
+}
+
+.alignright {
+	float: right;
+	margin: 20px 0 20px 25px;
+}
+
+.wp-caption {
+	max-width: 100%;
+    text-align: center;
+}
+
+.wp-caption p.wp-caption-text {
+	font-style: italic;
+    margin: 8px 0 0 0;
+    padding: 0 5px;
+    line-height: 1.5em;
+}
+
+/******************** ICONS ********************/
+
+/* Font Icons */
+
+[class^="el-icon-"],
+[class*=" el-icon-"] {
+	position: relative;
+	top: 1px; /* global adjust */
+}
+
+/* Size Adjustments (also see for button below) */
+
+.el-icon-glasses {
+	font-size: 1.2em;
+}
+
+.el-icon-headphones {
+	font-size: 0.9em;
+}
+
+.el-icon-file {
+	font-size: 0.8em;
+}
+
+/* Icon List */
+
+.resurrect-list-icons { /* <ul> */
+	list-style: none;
+	margin: 0 0 0 -4px; /* negative of space between icons */
+	padding: 0;
+}
+
+	.resurrect-list-icons li {
+		display: inline-block;
+		margin: 0 4px; /* space between icons */
+		vertical-align: middle;
+		font-size: 1.4em;
+	}
+
+/* Icon to left of content */
+
+.resurrect-content-icon { /* add to container having <span class="icon"></span> before other content */
+	padding-left: 32px; /* offset for icon */
+	position: relative;
+}
+
+	/* Icons */
+
+	.resurrect-content-icon > [class^="el-icon-"],
+	.resurrect-content-icon > [class*=" el-icon-"] {
+		position: absolute;
+		top: 2px;
+		left: 0;
+		font-size: 1.6em;
+	}
+
+	/* Adjustments */
+
+	.resurrect-content-icon > .el-icon-comment {
+		top: 3px;
+		font-size: 1.25em;
+	} 
+
+	.resurrect-content-icon > .el-icon-phone-alt {
+		font-size: 1.4em;
+	} 
+
+	.resurrect-content-icon > .el-icon-map-marker {
+		left: -2px;
+	}
+
+	.resurrect-content-icon > .el-icon-calendar {
+		font-size: 1.3em;
+	} 
+
+	.resurrect-content-icon > .el-icon-user {
+		font-size: 1.25em;
+	}
+
+	.resurrect-content-icon > .el-icon-folder-open {
+		font-size: 1.3em;
+	}
+
+	.resurrect-content-icon > .el-icon-book {
+		top: 1px;
+		left: -1px;
+		font-size: 1.45em;
+	}
+
+	.resurrect-content-icon > .el-icon-forward-alt {
+		top: 3px;
+		font-size: 1.4em;
+	}
+
+	.resurrect-content-icon > .el-icon-mic {
+		top: 2px;
+		left: -1px;
+		font-size: 1.4em;
+	}
+
+	.resurrect-content-icon > .el-icon-tags {
+		font-size: 1.4em;
+	}
+
+	.resurrect-content-icon > .el-icon-flag {
+		top: 3px;
+		left: 1px;
+		font-size: 1.45em;
+	}
+
+	.resurrect-content-icon > .el-icon-envelope {
+		top: 3px;
+		font-size: 1.4em;
+	}
+
+	.resurrect-content-icon > .el-icon-adult {
+		font-size: 1.45em;
+	}
+
+	.resurrect-content-icon > .el-icon-paper-clip {
+		font-size: 1.4em;
+	}
+
+/***************** BUTTONS ********************/
+
+/* Button */
+
+a.resurrect-button,
+.resurrect-list-buttons a,
+a.comment-reply-link,
+a.comment-edit-link,
+a.post-edit-link,
+.resurrect-nav-left-right a,
+.page-numbers a,
+.page-numbers.current,
+.widget_tag_cloud a,
+input[type=submit],
+.more-link {
+	display: inline-block;
+	line-height: 2.6em;
+	padding: 0 12px 1px 12px;
+	font-weight: normal;
+	white-space: nowrap;
+	border: 0;
+	-webkit-transition:	color .15s ease-in, background .15s ease-in;
+	-moz-transition: 	color .15s ease-in, background .15s ease-in;
+	-ms-transition: 	color .15s ease-in, background .15s ease-in;
+	-o-transition: 		color .15s ease-in, background .15s ease-in;
+	transition: 		color .15s ease-in, background .15s ease-in;
+}
+
+	/* Submit Button */
+
+	input[type=submit] {
+		height: 38px;
+		cursor: pointer;
+	}
+
+/* Small Button (use with .resurrect-button) */
+
+a.resurrect-button.resurrect-button-small,
+.resurrect-list-buttons a.resurrect-button-small,
+a.comment-reply-link,
+a.comment-edit-link,
+a.post-edit-link,
+.resurrect-nav-left-right a,
+.page-numbers a,
+.page-numbers.current,
+.widget_tag_cloud a,
+.post-password-required input[type=submit] {
+	line-height: 2.4em;
+	padding: 0 9px;
+	font-size: .9em;
+}
+
+	/* Small Submit Button */
+
+	input[type=submit].resurrect-button-small,
+	.post-password-required input[type=submit] {
+		height: 32px;
+		cursor: pointer;
+	}
+
+/* Button Icon */
+
+.resurrect-button-icon {
+	margin-right: 4px;
+	font-size: 1.2em;
+	position: relative;
+	top: 2px;
+}
+
+	/* Icon Size Adjustments */
+
+	.resurrect-button-icon.el-icon-video {
+		font-size: 1.3em;
+		top: 4px;
+	}
+
+/* Button List */
+		
+.resurrect-list-buttons, /* <ul> */
+ul.page-numbers {
+	list-style: none;
+	margin: -7px;
+}
+
+	.resurrect-list-buttons li,
+	ul.page-numbers li {
+		display: inline-block;
+		margin: 7px;
+	}
+
+	.resurrect-list-buttons li.resurrect-hidden {
+		display: none;
+	}
+
+/***************** NAVIGATION *****************/
+
+/* Prev/Next Navigation (single posts and comments) */
+
+.resurrect-nav-left { /* use in .resurrect-nav-left-right */
+	float: left;
+	width: 50%;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+/* Next / Newer */
+
+.resurrect-nav-right {
+	float: right;
+	text-align: right;
+	width: 50%;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+/* Arrow Adjustments */
+
+.resurrect-nav-left-right span  {
+	position: relative;
+	bottom: 1px;
+}
+
+.resurrect-nav-left span {
+	margin-right: 4px;
+}
+
+.resurrect-nav-right span {
+	margin-left: 4px;
+}
+
+/* Paginated Navigation ( << 1 2 3 >> below loops) */
+
+ul.page-numbers { /* WordPress-provided class; see .resurrect-button class */
+	text-align: center;
+	margin: -3px;
+}
+
+	ul.page-numbers li {
+		margin: 5px 3px;
+	}
+
+		.page-numbers a,
+		.page-numbers.current {
+			min-width: 30px;
+		}
+
+/**************** AUTHOR BOX ******************/
+
+/* Used below blog posts and author archive */
+
+.resurrect-author-box {
+	margin: 30px 0;
+	position: relative;
+	min-height: 100px;
+}
+
+	/* Avatar */
+	
+	.resurrect-author-avatar {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100px;
+		height: 100px;
+	}
+
+		.resurrect-author-avatar img {
+			max-width: 100%;
+			height: auto;
+		}
+	
+	/* Bio */
+	
+	.resurrect-author-content {
+		margin-left: 118px;
+	}
+	
+		/* Heading */
+		
+		.resurrect-author-content h1 {
+			margin: 0 0 20px 0;
+			font-size: 1.3em; /* same as <h4> */
+			line-height: 1.3em;
+		}
+
+		/* More posts link */
+
+		.resurrect-author-box-archive {
+			margin-top: 20px;
+		}
+
+/**************** SEARCH FORM ******************/
+
+/* Search Form Shared Styles (Top & Widget) */
+
+.resurrect-search-form form {
+	margin: 0;
+}
+
+	.resurrect-search-field input {
+		padding: 4px 0 4px 6px;
+		line-height: inherit;
+		height: auto;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+	}
+
+		.resurrect-search-field input:focus {
+			background-position: 0 -50px;
+		}
+
+	.resurrect-search-button {
+		font-size: 1.4em;
+	}
+
+/****************** VISIBILITY *****************/
+
+/* Hidden */
+
+.resurrect-hidden {
+	display: none;
+}
+
+/* Hidden but active element (e.g. hidden submit) */
+
+.resurrect-invisible {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+	left: 30000px;
+}
+
+/* Assistive Text - hide except from screen readers */
+
+.resurrect-assistive-text {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+/***************** CLEARFIX *******************/
+
+.resurrect-clearfix:after,
+.gallery:after { /* for sidebar floating, more */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/**********************************************
+ * 3. LAYOUT
+ **********************************************/
+ 
+/*************** SHARED STYLES ****************/
+ 
+/* Prepare for sticky footer */
+ 
+html,
+body {
+	height: 100%; 
+}
+
+/* Prepare sections for sticky footer */
+
+#resurrect-top,
+#resurrect-middle,
+#resurrect-footer {
+	display: table-row;
+}
+
+/* Centered content */
+
+#resurrect-top-content,
+#resurrect-middle-content,
+#resurrect-footer-content {
+	width: 960px; /* force width when not using responsive stylesheet */
+	margin: 0 auto; /* centered content */
+}
+
+/***************** CONTAINER *****************/
+
+/* Container - prepare for sticky footer */
+
+#resurrect-container {
+	display: table;
+	table-layout: fixed; /* make FF and Opera respect max-width: http://stackoverflow.com/a/11310261 */
+	width: 100%;
+	height: 100%;
+}	
+
+	/* Middle Content */
+	
+	#resurrect-middle-content {
+		width: 960px;
+		padding-bottom: 45px; /* space above footer */
+	}
+
+/******************* TOP BAR *******************/
+
+/* Top Bar */
+
+#resurrect-top {
+	height: 60px; /* match #resurrect-top-content min-height */
+}
+
+	#resurrect-top-inner { /* box shadow will not work on #resurrect-top directly as table-cell */
+		min-height: 60px; /* match #resurrect-top height - 100% will not work for IE8 */
+	}
+	
+		#resurrect-top-content {
+			padding: 9px 0;
+		}
+		
+			#resurrect-top-content-inner {
+				width: 100%;
+				height: 100%;
+			}
+				
+				/* Social Icons */
+				
+				#resurrect-top-content .resurrect-list-icons {
+					display: inline-block;
+					margin: 5px 0 5px -3px;
+					float: left;
+					vertical-align: middle;
+				}
+				
+					#resurrect-top-content .resurrect-list-icons li {
+						margin-top: 4px;
+						margin-bottom: 4px;
+					}			
+				
+				/* Top Right (Menu, Search) */
+				
+				#resurrect-top-right {
+					display: inline-block;
+					float: right;
+					vertical-align: middle;
+					text-align: right;
+					margin: 5px 0;			
+				}
+					
+					/* Top Menu */
+					
+					#resurrect-top-menu {
+						display: inline-block;
+						vertical-align: middle;
+						padding-bottom: 2px;
+					}
+					
+						#resurrect-top-menu-links { /* <ul> */
+							margin: 0;
+							list-style: none;
+						}
+						
+							#resurrect-top-menu-links li {
+								display: inline-block;
+								margin: 0 7px;
+							}						
+					
+					/* Search Form */
+					
+					#resurrect-top-search {
+						display: inline-block;
+						margin-left: 14px;
+						vertical-align: middle;
+						text-align: right;
+					}
+
+						/* Search Field */
+					
+						#resurrect-top-search  .resurrect-search-field {
+							display: inline-block;
+							width: 226px; /* necessary for IE8 */
+						}
+						
+							/* Input */
+						
+							#resurrect-top-search  .resurrect-search-field input {
+								width: 220px;
+							}
+							
+						/* Search Button */
+
+						#resurrect-top-search .resurrect-search-button {
+							display: inline-block;
+							margin-left: 5px;
+							vertical-align: middle;
+						}
+
+/******************* HEADER *******************/
+
+/* Header Container */
+
+#resurrect-header { /* <header> */
+	width: 100%;
+}
+
+	/* Logo + Top Right */
+	
+	#resurrect-header-inner {
+		width: 100%;
+		position: relative; /* enables tagline box to be placed relatively, will not work for old FF in #resurrect-header-content because it is table*/
+	}
+		
+		/* Content Container */
+		
+		#resurrect-header-content {
+			position: relative;
+			display: table; /* for vertical centering logo */
+			width: 100%;
+			padding: 45px 0;
+		}
+
+			/* Logo */
+
+			#resurrect-logo {
+				display: table-cell; /* for vertical centering */
+				width: 100%;
+				height: 100%; /* match #resurrect-header-content height */
+				vertical-align: middle;
+			}
+
+				/* Make logo appear higher than top-right so it can be clicked */
+		
+				#resurrect-logo-content {
+					width: 47%; /* almost half the space */
+					z-index: 100;
+					position: relative; /* z-index won't work without this */
+				}
+				
+				/* Logo Image */
+
+				#resurrect-logo-image {
+					position: relative; /* for Customizer "Move" left/right */
+					max-width: 450px; /* help Firefox/IE */
+				}
+
+					/* Retina Logo */
+
+					#resurrect-logo-regular {
+						display: inline-block;
+					}
+
+					#resurrect-logo-hidpi {
+						display: none;
+					}
+
+					@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (-o-min-device-pixel-ratio: 5/4) { 
+
+						/* swap only if .resurrect-has-hidpi-logo indicates a retina logo exists */
+
+						.resurrect-has-hidpi-logo #resurrect-logo-regular {
+							display: none;
+						}
+
+						.resurrect-has-hidpi-logo #resurrect-logo-hidpi[width], /* show once jQuery adds dimensions from regular (if sooner, Retina logo shows enlarged for split second) */
+						.no-js .resurrect-has-hidpi-logo #resurrect-logo-hidpi /* fallback in case JS off */
+						{
+							display: inline-block;
+						}
+
+					}
+
+				/* Logo Text */
+
+				#resurrect-logo-text {
+					line-height: 1.1em;
+					letter-spacing: 1px;
+					font-weight: normal;
+					text-transform: uppercase;
+				}
+
+					#resurrect-logo-text.resurrect-logo-text-extra-small {
+						font-size: 1.75em;
+					}
+
+					#resurrect-logo-text.resurrect-logo-text-small {
+						font-size: 2.25em;
+					}
+
+					#resurrect-logo-text.resurrect-logo-text-medium {
+						font-size: 2.75em;
+					}
+
+					#resurrect-logo-text.resurrect-logo-text-large {
+						font-size: 3.25em;
+					}
+
+					#resurrect-logo-text.resurrect-logo-text-extra-large {
+						font-size: 3.75em;
+					}
+
+					/* Get rid of fading from standard links (shows on demo switch) */
+					#resurrect-logo-text a {
+						-webkit-transition-property: none;
+						-moz-transition-property:    none;
+						-ms-transition-property:     none;
+						-o-transition-property:      none;
+						transition-property:         none;
+					}
+
+				/* Tagline below logo */
+				
+				#resurrect-logo-tagline {
+					margin-top: 7px;
+					font-size: 1.4em;
+					font-style: italic;
+					position: relative;
+				}
+		
+			/* Header Right */
+
+			#resurrect-header-right {
+				position: absolute;
+				top: 0;
+				right: 0;
+				max-width: 47%; /* almost half space - rest for logo */
+				height: 100%; /* match #resurrect-header-content height */
+				z-index: 1000;
+			}
+			
+				/* Header Right Inner */
+			
+				#resurrect-header-right-inner {
+					display: table; /* for vertical centering text */
+					width: 100%; /* let it wrap with half the space for logo */
+					height: 100%; /* match #resurrect-header-content height */
+					float: right;
+				}
+				
+					/* Header Right Content */
+				
+					#resurrect-header-right-content {
+						display: table-cell; /* for vertical centering */
+						vertical-align: middle;
+						text-align: right;
+					}
+					
+						/* Tagline on right */
+						
+						#resurrect-header-right-tagline {
+							font-size: 1.4em;
+							font-style: italic;
+							position: relative;
+						}
+
+						/* Upcoming Events on right */
+						
+						#resurrect-header-right-items {
+							float: right;
+						}
+
+							/* Event Item */
+
+							.resurrect-header-right-item {
+								margin-top: 12px;
+							}
+
+								.resurrect-header-right-item:first-child {
+									margin-top: 0;
+								}
+
+							/* Event Item Link */
+
+							.resurrect-header-right-item a {
+								display: inline-block;
+								white-space: nowrap;
+							}
+
+								/* Title */
+
+								.resurrect-header-right-item-title { /* matching Caption Image and widget titles */
+									display: inline-block;
+									padding: 0 10px;
+									font-weight: normal;
+									font-style: italic;
+									line-height: 2.4em;
+									vertical-align: top;
+								}
+
+								/* Date */
+
+								.resurrect-header-right-item-date {
+									display: inline-block;
+									padding: 0 10px;
+									font-size: 1em;
+									font-weight: normal;
+									line-height: 2.4em;
+									text-transform: uppercase;
+								}
+
+	/* Header Menu Bar (Dropdowns, Social Icons) */
+	
+	#resurrect-header-menu { /* <nav> */
+		padding: 0 18px;
+		min-height: 50px;
+	}
+	
+		/* Header Menu List */
+		
+		#resurrect-header-menu-links { /* <ul> */
+			padding: 14px 0 4px 0;
+			margin: 0;
+			float: left;
+			list-style: none;
+		}
+		
+			/* Header Menu Items (Top Level) */
+			
+			#resurrect-header-menu-links > li {
+				display: inline-block;
+				margin: 4px 14px;
+				padding-bottom: 10px; /* to connect we/dropdown menu */
+				vertical-align: top;			
+			}
+			
+				/* Header Menu Links (Top Level) */
+				
+				#resurrect-header-menu-links > li > a .ctfw-header-menu-link-inner {
+					border-width: 0 0 0 1px;
+					border-style: solid;
+					padding: 1px 0 0 8px;
+				}
+				
+					/* Title */
+
+					#resurrect-header-menu-links > li > a .ctfw-header-menu-link-title {
+						font-size: 1.25em;
+						font-weight: 400;
+						text-transform: uppercase;
+						position: relative; /* for arrow placement */
+						display: inline-block;  /* for arrow placement */
+					}
+					
+					/* Description */
+					
+					#resurrect-header-menu-links > li > a .ctfw-header-menu-link-description {
+						margin-top: 3px;
+						font-style: italic;
+						font-weight: normal;
+						text-transform: none;
+					}
+					
+			/*
+			Superfish (Dropdowns) - http://users.tpg.com.au/j_birch/plugins/superfish/
+			Copyright (c) 2013 Joel Birch
+			Dual licensed under the MIT and GPL licenses
+			*/
+							
+			.sf-menu, .sf-menu * {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.sf-menu {
+				float: left;
+				margin-bottom: 1em;
+				line-height: 1;
+			}
+
+				/* All items */
+			
+				.sf-menu li {
+					position: relative;
+				}
+
+				/* All Links */
+				
+				.sf-menu a {
+					display: block;
+					position: relative;
+
+				}
+				
+				/* Hover Setup */
+				
+				.sf-menu li:hover ul,
+				.sf-menu li.sfHover ul {
+					top: 3.2em;
+					left: 0px;
+					z-index: 12000;
+				}
+				
+					/*
+					If no description on top-level menu link, move the dropdown up
+					IMPORTANT: This is copied into media query for when Description is hidden
+					*/
+				
+					.sf-menu li.ctfw-header-menu-link-no-description:hover > ul,
+					.sf-menu li.ctfw-header-menu-link-no-description.sfHover > ul {
+						top: 2em;
+					}					
+				
+				.sf-menu li:hover li ul,
+				.sf-menu li.sfHover li ul,
+				.sf-menu li li:hover li ul,
+				.sf-menu li li.sfHover li ul {
+					top: -999em;
+				}
+				
+				.sf-menu li li:hover ul,
+				.sf-menu li li.sfHover ul,
+				.sf-menu li li li:hover ul,
+				.sf-menu li li li.sfHover ul {
+					left: 10em; /* match .sf-menu ul width below */
+					top: 0;
+				}
+				
+				/* Sub Menu Lists */
+			
+				.sf-menu ul {
+					position: absolute;
+					top: -999em;
+					width: 10em; /* left offset of submenus need to match (see .sf-menu li li:hover ul above) */
+				}
+				
+					/* Sub Menu Items */
+
+					.sf-menu ul li {
+						width: 100%;
+					}
+
+						/* Sub Menu Item Links */
+					
+						.sf-menu li li a {
+							line-height: 1.6em;
+							padding: 0.5em 0.7em;
+							padding-left: 0.9em; /* compensate for left border */
+							background-repeat: no-repeat; /* for sprites */
+							background-position: 0 0;
+							background-size: 400px; /* assist Retina */
+						}
+						
+						/* Sub Menu Hovering */
+		
+						.sf-menu ul li:hover > a,
+						.sf-menu ul li.sfHover > a,
+						.sf-menu ul a:focus,
+						.sf-menu ul a:hover,
+						.sf-menu ul a:active{
+							outline: 0;
+							background-position: 0 -100px; /* use hover sprite */
+						}
+
+				/* Arrows */
+				
+				.sf-arrows .sf-with-ul .ctfw-header-menu-link-title:after, /* top level */
+				.sf-arrows ul .sf-with-ul:after { /* sub menu */
+					content: '';
+					position: absolute;
+					top: 50%;
+					height: 0;
+					width: 0;
+					border-width: 5px;
+					border-style: solid;
+					border-color: transparent;
+				}
+
+
+				.sf-arrows .sf-with-ul .ctfw-header-menu-link-title { /* top level */
+					margin-right: 11px; /* make room for arrow */
+				}
+
+					.sf-arrows .sf-with-ul .ctfw-header-menu-link-title:after {
+						right: -17px;
+						margin-top: -2px;
+					}
+
+				.sf-arrows ul .sf-with-ul:after { /* sub menu */
+					right: 10px;
+					margin-top: -5px;
+					margin-right: -3px;
+				}
+
+			/**
+			 * SelectNav.js - http://lukaszfiszer.github.com/selectnav.js/ 
+			 * Copyright (c) 2012 Łukasz Fiszer (MIT License)
+			 * Converts menu to <select> for mobile devices
+			 */
+
+			.selectnav {
+				display: none; /* media query below will cause this to show */
+			}
+
+/* Banner */
+
+#resurrect-banner {
+	position: relative;
+	margin-top: 14px;
+}
+
+	/* Header Title */
+	
+	#resurrect-banner h1 { /* <h1> */
+		position: absolute;
+		bottom: 28%;
+		max-width: 80%;
+		margin: 0;
+		padding: 11px 14px 11px 12px;
+		font-size: 2.2em;
+		font-weight: normal;
+		line-height: 1.2em;
+		text-transform: uppercase;
+		z-index: 100; /* above breadcrumbs if wraps onto second line */
+	}
+
+	/* Breadcrumbs (Banner) */
+
+	#resurrect-banner .ctfw-breadcrumbs {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		font-style: italic;
+		padding: 8px 12px;
+		overflow: hidden;
+	}
+		
+/****************** CONTENT *******************/
+
+/* Subpage Content */
+
+#resurrect-content {
+	float: left;
+	width: 100%;
+	margin-top: 30px;
+}
+
+	/* Create margins for content when "View Full Site" clicked */
+	/* Not done in responsive.css because that is removed for "Full Site" */
+
+	@media only screen and (max-width: 1024px) {
+
+		/* Also makes top/footer bar BG's fill the width: http://stackoverflow.com/questions/10249229/partial-background-on-ios-mobile-safari; */
+
+		.resurrect-responsive-off body {
+		  width: 1040px; /* 960 + 40px margin on each side */
+		}
+
+		/* Make sure background image fills full width on tablets */
+
+		.resurrect-responsive-off .backstretch,
+		.resurrect-responsive-off .backstretch img {
+			min-width: 1040px !important;
+		}
+
+	}
+
+	/* Content block (solid background) */
+
+	.resurrect-content-block {
+		position: relative;
+		margin-top: 30px;
+		padding: 35px;
+	}
+
+		.resurrect-content-block-close {
+			margin-top: 14px;
+		}
+
+		.resurrect-content-block-compact {
+			padding: 25px 30px;
+		}
+
+		/* Remove margin from top of first block */ 
+
+		.resurrect-content-block:first-child {
+			margin-top: 0;
+		}
+	
+		/* Remove margin from first/last elements inside block */
+		
+		.resurrect-content-block > :first-child {
+			margin-top: 0;
+		}
+		
+		.resurrect-content-block > :last-child {
+			margin-bottom: 0;
+		}
+	
+		/* Main Title (for page or block) */
+		
+		.resurrect-main-title { /* <h1> */
+			margin: 0 0 40px 0;
+			padding: 3px 0 3px 12px;
+			font-size: 2.2em;
+			font-weight: normal;
+			line-height: 1.3em;
+			text-transform: uppercase;
+			border-width: 0 0 0 1px;
+			border-style: solid;
+		}
+		
+			.resurrect-main-title span { /* lighter color for Page X) */
+				white-space: nowrap;
+			}
+	
+	/* Breadcrumb Path (when not shown in Banner) */
+
+	#resurrect-content-inner .ctfw-breadcrumbs {
+		padding: 10px 16px;
+		margin-bottom: 14px;
+		font-style: italic;
+	}
+
+/****************** SIDEBAR *******************/
+
+/* Make room for sidebar by content */
+
+.resurrect-has-sidebar #resurrect-content-inner  {
+	margin-right: 276px;
+}
+
+/* Sidebar */
+
+#resurrect-sidebar-right {
+	float: right;
+	width: 246px;
+	margin-top: 30px;
+	margin-left: -246px; /* width + border */
+}
+
+	/* No top margin for first widget */
+	
+	#resurrect-sidebar-right .resurrect-sidebar-widget.resurrect-widget-has-title:first-child {
+		margin-top: 19px; /* 30px less than the normal 49 px */
+	}
+
+		/* For some no margin at all because title is inside widget */
+
+		#resurrect-sidebar-right .resurrect-sidebar-widget.widget_ctfw-highlight.resurrect-widget-has-title:first-child { /* Highlight */
+			margin-top: 0;
+		}
+
+/******************* FOOTER *******************/
+
+/* Footer (sticks to bottom when content is short) */
+
+#resurrect-footer {
+	clear: both;
+	height: 100px; /* match #resurrect-footer-content min-height */
+}
+	
+	#resurrect-footer-inner { /* box shadow will not work on #resurrect-footer directly as table-cell */
+		min-height: 100px; /* match #resurrect-footer height - 100% will not work for IE8 */
+	}
+	
+		#resurrect-footer-content {
+			padding: 15px 0 40px 0;
+		}
+
+			/* Space between rows */
+
+			#resurrect-footer-responsive-toggle,
+			#resurrect-footer-menu-links,
+			#resurrect-footer-social-icons,
+			#resurrect-footer-contact,
+			#resurrect-notice {
+				margin: 25px 0 0 0;
+			}
+
+			/* "View Full Site" link (do not put in responsive.css) */
+
+			#resurrect-footer-responsive-toggle {
+				display: none;
+				text-align: center;
+			}
+
+				/* Show if responsive cookie set */
+
+				.resurrect-responsive-off #resurrect-footer-responsive-toggle {
+					display: block;
+				}
+
+					/* Which text to show? */
+
+					#resurrect-footer-full-site,
+					#resurrect-footer-mobile-site {
+						display: none;
+					}
+
+					.resurrect-responsive-on #resurrect-footer-full-site,
+					.resurrect-responsive-off #resurrect-footer-mobile-site {
+						display: inline-block;
+					}
+
+			
+			/* Left */
+			
+			#resurrect-footer-left {
+				width: 49%;
+				float: left;
+			}
+			
+				/* Footer Menu */
+				
+				#resurrect-footer-menu-links { /* <ul> */
+					list-style: none;
+					position: relative;
+					left: -12px; /* offset item margin */
+				}
+				
+					/* Menu Items */
+					
+					#resurrect-footer-menu-links li {
+						display: inline-block;
+						margin: 0 12px;
+					}
+
+						/* Menu Item Links */
+						
+						#resurrect-footer-menu-links a {
+							font-size: 1.1em;
+							font-weight: 400;
+							text-transform: uppercase;
+						}
+				
+				/* Footer Icons */
+				
+				#resurrect-footer-social-icons .resurrect-list-icons { /* <ul> */
+					margin: 0 0 0 -3px;
+					position: relative;
+					top: -2px;
+				}
+				
+					#resurrect-footer-social-icons .resurrect-list-icons li {
+						margin-top: 4px;
+						margin-bottom: 4px;
+					}
+			
+			/* Right */
+			
+			#resurrect-footer-right {
+				width: 49%;
+				float: right;
+				text-align: right;
+			}
+			
+				/* Address / Contact */
+				
+				#resurrect-footer-contact { /* <ul> */
+					list-style: none;
+					position: relative;
+					left: 9px; /* offset item margin */
+					font-weight: bold;
+				}
+				
+					/* Address, Phone Item */
+				
+					#resurrect-footer-contact li {
+						display: inline-block;
+						margin: 0 9px;
+					}
+					
+						/* Footer Icons */
+
+						#resurrect-footer-icon-address,
+						#resurrect-footer-icon-phone {
+							font-size: 1.1em;
+							top: 2px;
+						}
+
+						/* Phone Icon */
+
+						#resurrect-footer-icon-phone {
+							margin-right: 3px;
+						}
+
+/**********************************************
+ * 4. HOMEPAGE
+ **********************************************/
+
+/****************** LAYOUT ********************/
+
+/* When no slider or highlights, make margin for intro or widgets */
+
+#resurrect-home-content.resurrect-no-slider.resurrect-no-highlights {
+	margin-top: 30px;
+}
+ 
+/* No bottom margin for last element on homepage */
+
+#resurrect-home-content > :last-child {
+	margin-bottom: 0;
+}
+ 
+/* Container for Slider and Highlights */
+
+#resurrect-slider-boxes {
+	border-top: 1px solid transparent; /* prevents margin issue with FF */
+	margin-top: 13px; /* 14 when count invisible border above */
+	margin-bottom: 30px;
+}
+
+/****************** SLIDER ********************/
+
+/**
+ * jQuery FlexSlider v1.8 (http://www.woothemes.com/flexslider/)
+ * Copyright 2012 WooThemes
+ * MIT license (http://www.opensource.org/licenses/mit-license.php)
+ */
+
+#resurrect-slider {
+	width: 72.916%;
+	float: left;
+}
+
+	/* Span full width if no highlights to right */
+	
+	.resurrect-no-highlights #resurrect-slider {
+		width: 100%;
+		float: none;
+	}
+
+	/* FlexSlider */
+
+	.flexslider {
+		margin: 0;
+		padding: 0;
+		position: relative;
+	}
+		 
+		/* Browser Resets */
+
+		.flexslider a:active,
+		.flexslider a:focus  {
+			outline: none;
+		}
+
+		.flexslider .slides,
+		.flex-control-nav,
+		.flex-direction-nav {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		/* FlexSlider Necessary Styles */
+
+		.flexslider .slides > li {
+			position: relative;
+			/* for fixing Mac flickering on "slide" animation (https://github.com/woothemes/FlexSlider/pull/44)
+			   but BrowserStack Saf 5.1/Chr 18 causes page FREEZE, so disabling (we don't use "slide" anyway)
+			-webkit-backface-visibility: hidden;
+			*/
+		}
+
+			/* show first slide immediately -- for mobile: http://stackoverflow.com/a/16884845; */
+
+			.flexslider .slides > li:not(:first-child) {
+				display: none;
+			}
+		
+		.flexslider .slides img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+		
+		.flex-pauseplay span {
+			text-transform: capitalize;
+		}
+		
+		/* Slider Video */
+
+		.resurrect-slide-video iframe { /* YouTube, Vimeo */
+			width: 100%;
+		}
+		
+		/* Video Play Button Overlay */
+		
+		.flex-play-overlay {
+			z-index: 100; /* baseline for overlay, so can show .flex-title above (clickable) or below if it is not linked */
+			display: none;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-position: center 45%;
+			background-repeat: no-repeat;
+			background-size: 70px; /* assist Retina */
+		}
+
+		/* Clearfix for the .slides element */
+
+		.flexslider .slides:after {
+			content: ".";
+			display: block;
+			clear: both;
+			visibility: hidden;
+			line-height: 0;
+			height: 0;
+		}
+		
+		html[xmlns] .flexslider .slides {
+			display: block;
+		}
+		
+		* html .flexslider .slides {
+			height: 1%;
+		}
+
+		/* No JavaScript Fallback */
+
+		.no-js .flexslider .slides > li:first-child { /* .no-js requires Modernizr */
+			display: block;
+		}
+
+		/* Slide Caption (Title + Description) */		
+	
+		.flex-caption {
+			position: absolute;
+			bottom: 10%;
+			display: block;
+			max-width: 90%;
+			margin: 0;
+			cursor: default;
+		}
+		
+			/* Show pointer cursor on linked or video slide caption */
+			
+			.resurrect-slide-linked .flex-caption,
+			.resurrect-slide-video .flex-caption {
+				cursor: pointer;
+			}
+			
+			/* Slide Title */
+
+			.flex-title {
+				display: inline-block;
+				float: left; /* needed for IE in order for float/clear: left on description to work below */
+				padding: 11px 14px 11px 12px;
+				font-size: 2.2em;
+				font-weight: normal;
+				line-height: 1.2em;
+				text-transform: uppercase;
+				position: relative; /* helps z-index kick in (in color scheme CSS) */
+			}
+				
+			/* Slide Description */
+			
+			.flex-description {
+				display: inline-block;
+				float: left; /* float/clear left causes new line without resorting to display: block which span 100% width of title/caption */
+				clear: left;
+				padding: 10px 12px;
+				font-weight: normal;
+				font-style: italic;
+				line-height: 1.4em;
+				position: relative; /* helps z-index kick in (in color scheme CSS) */
+			}
+
+		/* Title higher if no description */
+
+		.resurrect-slide-no-description .flex-caption {
+			bottom: 15%;
+		}
+		
+		/* Make title clickable by placing above "play" overlay, if it is a link */
+		
+		.resurrect-slide-video .flex-caption,
+		.resurrect-slide-video a.flex-title { /* div.flex-title for non links */
+			z-index: 200; /* refer to z-index of .flex-play-overlay above */
+		}
+		
+		/* Control Nav (Radios) */
+
+		.flex-control-nav {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			padding: 11px 12px 10px 10px; /* make space around so on touch devices dont accidentally click slide */
+			z-index: 300; /* higher than play overlay and title/description */
+		}
+			
+			/* Control Buttons */
+		
+			.flex-control-nav li {
+				margin: 0;
+				display: inline-block;
+				*display: inline;
+			}
+
+				.flex-control-nav li a {
+					width: 22px;
+					height: 22px;
+					display: block;
+					background-repeat: no-repeat;
+					background-size: 22px; /* assist Retina */
+					cursor: pointer;
+					text-indent: -999em;
+				}
+				
+				.no-touch .flex-control-nav li a:hover { /* unless touch/mobile device */
+					background-position: 0 -22px;
+				}
+				
+				.flex-control-nav li a.active,
+				.no-touch .flex-control-nav li a.active:hover {
+					background-position: 0 -44px;
+					cursor: default;
+				}
+			
+			.flex-control-nav li:first-child {
+				margin: 0;
+			}
+			
+			/*
+			Move controls below slider on touch devices (on some doesn't work on top)
+			NOTE: These styles are roughly the same for small screens in responsive Media Queries
+			*/
+
+			.touch .flex-control-nav {
+				top: auto;
+				right: auto;
+				bottom: -30px;
+				width: 100%;
+				padding: 0;
+				text-align: center;
+			}
+			
+			.touch #resurrect-slider {
+				padding-bottom: 26px;
+			}	
+
+/************ HOMEPAGE HIGHLIGHTS *************/
+
+/* Homepage Highlights (Right of Slider) - see .resurrect-caption-image above */
+
+#ctcom-home-highlights {
+	width: 25.625%;
+	float: right;
+}
+
+	/* Image Box */
+	
+	#ctcom-home-highlights .resurrect-highlight { /* .resurrect-caption-image */
+		margin-top: 5.5%;
+	}
+	
+		/* No margin on first item */
+		
+		#ctcom-home-highlights .resurrect-highlight:first-child {
+			margin-top: 0;
+		}
+
+/*
+Homepage Highlights when slider is not showing
+IMPORTANT: Same code is copied (without parent .resurrect-no-slider) in responsive media queries for when no more room for boxes to right of slider
+*/
+
+.resurrect-no-slider #ctcom-home-highlights {
+	width: 100%;
+	float: none;
+	margin-top: 14px;
+}
+
+	/* Image Box */
+	
+	.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight { /* .resurrect-caption-image */
+		margin-top: 0;
+		margin-left: 2%;
+		width: 49%;
+		float: left;
+	}
+
+		/* No margin on first item */
+		
+		.resurrect-no-slider #ctcom-home-highlights .resurrect-highlight:first-child {
+			margin-left: 0;
+		}
+
+/*************** HOMEPAGE INTRO ***************/
+
+#resurrect-intro {
+	padding: 30px 35px;
+	margin-bottom: 30px;
+}
+
+	/* Heading */
+	
+	#resurrect-intro-heading { /* <h1> */
+		margin: 0;
+		padding: 3px 0 3px 12px;
+		font-size: 2.6em;
+		font-weight: normal;
+		line-height: 1.2em;
+		text-transform: uppercase;
+		border-width: 0 0 0 1px;
+		border-style: solid;
+	}
+	
+	/* Content */
+	
+	#resurrect-intro-content {
+		font-size: 2.2em;
+		line-height: 1.3em;
+	}
+	
+		/* No content top margin unless have heading */
+		
+		.resurrect-intro-has-heading #resurrect-intro-content {
+			margin-top: 10px;			
+		}
+	
+		/* No bottom margin so flush with container */
+	
+		#resurrect-intro-content p {
+			margin: 15px 0 0 0;
+		}
+		
+		/* No margin at top for first child in case no heading */
+		
+		#resurrect-intro-content p:first-child {
+			margin-top: 0;
+		}
+
+/************** HOMEPAGE WIDGETS **************/
+
+#resurrect-home-bottom-widgets {
+	margin: -30px -3.3% 0 0; /* compensate for individual top widget margins + margin between columns*/
+	border-top: 1px solid transparent; /* hack to fix top margin */
+}
+
+	/* Container Adjustment */
+
+	.resurrect-home-widget { /* .resurrect-widget */
+		width: 40.2%;
+		-webkit-box-sizing:	border-box;
+		-moz-box-sizing:	border-box;
+		box-sizing:			border-box;
+	}
+
+/**********************************************
+ * 5. ENTRY STYLES (Shared)
+ **********************************************/
+	
+/* These are generic styles used by multiple post types */
+
+/******** SHARED STYLES (Full + Short) ********/
+
+/* Image Container */
+
+.resurrect-entry-image {
+	display: inline-block;
+	float: left;
+	max-width: 35%; /* just big enough for image to be 100% */
+	padding-right: 30px;
+	vertical-align: top;
+}
+
+	/* No sidebar */
+
+	.resurrect-no-sidebar .resurrect-entry-image {
+		max-width: 24%; /* just big enough for image to be 100% */
+	}
+
+/* Title & Meta Container */
+
+.resurrect-entry-title-meta {
+	display: block;
+	float: left;
+	max-width: 65%; /* see Tweaks section for IE 8 adjustment */
+}
+
+	/* No sidebar */
+
+	.resurrect-no-sidebar .resurrect-entry-title-meta {
+		max-width: 76%;
+	}
+
+	/* No image */
+
+	.ctfw-no-image > .resurrect-entry-header .resurrect-entry-title-meta { /* affect only the most immediate header in light of "loop after content" */
+		max-width: 100%;
+	}
+
+	/* Title */
+
+	h1.resurrect-entry-title { /* .resurrect-main-title */
+		margin: 0 0 5px 0;
+	}
+
+	/* Meta List */
+
+	.resurrect-entry-meta { /* <ul> */
+		list-style: none;
+		margin: 0 -30px 0 0; /* negative of li right margin */
+	}
+
+		/* Meta Item */
+
+		.resurrect-entry-meta > li {
+			display: inline-block;
+			margin: 20px 30px 0 0;
+			vertical-align: top;
+		}
+
+			/* Meta is first element (no Title) so remove space above */
+
+			.resurrect-entry-meta:first-child {
+				margin-top: -20px; /* negative of .resurrect-entry-meta > li */
+			}
+
+			/* Keep links from wrapping */
+
+			.resurrect-entry-meta > li a {
+				white-space: nowrap;
+			}
+
+			/* Move buttons down a little to compensate for line height */
+
+			.resurrect-entry-meta > li .resurrect-button {
+				margin: 5px 0;
+			}
+
+			/* Date */
+
+			.resurrect-entry-date {
+				font-weight: bold;
+			}
+
+/* Entry Content (full content, short excerpt and comment content use this) */
+
+.resurrect-entry-content > :first-child {
+	margin-top: 0; /* remove margin from first element (probably <p>) */
+}
+
+.resurrect-entry-content > :last-child {
+	margin-bottom: 0; /* remove margin from last element (probably <p>) */
+}
+
+/*************** FULL / SINGLE ****************/
+
+/* Margin between elements */
+
+.resurrect-entry-full > *,
+.resurrect-entry-footer-item {
+	margin-top: 40px;
+}
+
+	.resurrect-entry-full > *:first-child {
+		margin-top: 0;
+	}
+
+/* No bottom margin on last element in entry */
+
+.resurrect-entry-full > :last-child {
+	margin-bottom: 0;
+}
+
+/* Password Protection Form */
+
+.post-password-form label {
+	font-weight: bold;
+}
+
+/* Loop after content */
+
+/* Entry content is first child, meaning no Title */
+/* Loop after content is first child, meaning no content above it */
+
+.resurrect-entry-full > .resurrect-entry-content:first-child {
+	margin-top : 0;
+}
+
+	.resurrect-entry-full > .resurrect-entry-content:first-child #resurrect-loop-after-content:first-child { /* if is first element (no page title or desc) */
+		margin-top: -60px; /* compensate for short entry top margin */
+	}
+
+/* Entry Footer */
+
+.resurrect-entry-footer-item:first-child {
+	margin-top: 0; /* no margin on first item */
+}
+
+	/* Multipage Navigation (Pages: 1 2 3)  - for posts/pages broken into multiple pages */
+
+	.resurrect-entry-page-nav {
+		font-weight: bold;
+		text-align: center;
+	}
+
+		/* "Pages:" */
+
+		.resurrect-entry-page-nav span {
+			font-weight: normal;
+		}
+		
+		/* Linked Page # */
+
+		.resurrect-entry-page-nav a {
+			font-weight: normal;
+		}
+
+	/* Term Lists (categories, tags, etc.) */
+
+	.resurrect-entry-footer-terms {
+		margin-top: 10px;
+		font-style: italic;
+	}
+
+		/* No margin on first item */
+		
+		.resurrect-entry-footer-terms:first-child {
+			margin-top: 0;
+		}
+
+	/* Edit Link */
+
+	.resurrect-entry-footer .post-edit-link {
+		float: right;
+	}
+
+/************** SHORT / MULTIPLE **************/
+
+/* Container */
+
+.resurrect-entry-short { /* space between each <article> */
+	margin-top: 60px; /* also change on: .resurrect-entry-full > .resurrect-entry-content:first-child #resurrect-loop-after-content:first-child */
+}
+
+/* Margin between elements (less than Full) */
+
+.resurrect-entry-short > *,
+.resurrect-entry-short .resurrect-entry-footer-item {
+	margin-top: 30px;
+}
+
+	/* Remove margin from top of first entry when show latest posts on homepage or "Posts page" */
+
+	.blog .resurrect-entry-short:first-child {
+		margin-top: -30px; /* compensate for short entry top margin */
+	}
+
+/* Sticky posts - required class */
+
+.sticky {
+	display: block;
+}
+
+/**********************************************
+ * 6. SERMONS
+ **********************************************/
+
+/*************** FULL / SINGLE ****************/
+
+/* Additional space around player/buttons container */
+
+#resurrect-sermon-full-media {
+	padding: 10px 0;
+}
+
+/* Space between player and buttons */
+
+#resurrect-sermon-full-player,
+#resurrect-sermon-full-buttons {
+	margin-top: 30px;
+}
+
+	#resurrect-sermon-full-player:first-child,
+	#resurrect-sermon-full-buttons:first-child {
+		margin-top: 0;
+	}
+
+/**********************************************
+ * 7. EVENTS
+ **********************************************/
+
+/******** SHARED STYLES (Full + Short) ********/
+
+/* Time */
+
+.resurrect-event-full-time {
+	font-style: italic;
+}
+
+/**********************************************
+ * 8. PEOPLE
+ **********************************************/
+
+/******** SHARED STYLES (Full + Short) ********/
+
+.resurrect-person-position {
+	font-weight: bold;
+}
+
+.resurrect-person-phone {
+	font-style: italic;
+}
+
+/**********************************************
+ * 9. LOCATIONS
+ **********************************************/
+
+/******** SHARED STYLES (Full + Short) ********/
+
+/* Address */
+
+.resurrect-location-address {
+	font-weight: bold;
+}
+
+/* Phone */
+
+.resurrect-location-phone {
+	font-style: italic;
+}
+
+/**********************************************
+ * 10. ATTACHMENTS
+ **********************************************/
+
+.resurrect-attachment-date time span { /* not the "Uploaded" portion, just date in span */
+	font-weight: bold;
+}
+
+/**********************************************
+ * 11. GALLERIES
+ **********************************************/
+
+/************** GALLERY (SINGLE) **************/
+
+/* Styles for native WordPress gallery based on styles from Twenty Thirteen theme */
+/* Note that these classes also used for showing cover thumbnails on Galleries template */
+
+/* Gallery container */
+
+.gallery { /* see .resurrect-clearfix */
+	margin: 40px -7px 26px -7px; /* 40px - 14px bottom margin; offset for left/right margin */
+	position: relative;
+}
+
+	/* Thumbnail container */
+
+	.gallery-item {
+		display: block;
+		position: relative;
+		float: left; /* fills vertical gaps in some browsers */
+		margin: 0 7px 14px 7px;
+		overflow: hidden;
+		width: 100%; /* fixes Safari 4 (and 5.0) and Android 2 sizing issue when using overflow: hidden */
+	}
+
+		/* Thumbnail caption */
+
+		.gallery-caption {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			max-height: 40%;
+			margin: 0;
+			padding: 6px 10px;
+			font-style: italic;
+			line-height: 1.4em;
+			text-align: left;
+			cursor: pointer;
+			opacity: 0;
+			-webkit-transition:	opacity .15s ease-out;
+			-moz-transition:	opacity .15s ease-out;
+			transition:			opacity .15s ease-out;
+			-webkit-backface-visibility: hidden; /* prevents shifting */
+		}
+
+			/* Show on hover */
+
+			.gallery-item:hover .gallery-caption {
+				opacity: 1;
+			}
+
+			/* Mask bottom portion of long captions */
+
+			.gallery-caption:before {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				min-height: 50px;
+				top: 0;
+				left: 0;
+				content: "";
+			}
+
+		/* Smaller caption for small thumbnails */
+
+		.resurrect-has-sidebar .gallery-columns-3 .gallery-caption,
+		.gallery-columns-4 .gallery-caption {
+			font-size: 0.9em;
+		}
+
+		/* No caption for very small thumbnails, galleries in widgets, and browsers without opacity */
+
+		.resurrect-has-sidebar .gallery-columns-4 .gallery-caption,
+		.gallery-columns-5 .gallery-caption,
+		.gallery-columns-6 .gallery-caption,
+		.gallery-columns-7 .gallery-caption,
+		.gallery-columns-8 .gallery-caption,
+		.gallery-columns-9 .gallery-caption,
+		.resurrect-widget .gallery-caption,
+		.no-opacity .gallery-caption {
+			display: none;
+		}
+
+	/* Multi-column widths */
+
+	.gallery-columns-1 .gallery-item { /* duplicate in responsive.css */
+		max-width: 96%; /* old Android, IE 8, etc. -- in widget in particular */
+		max-width: -webkit-calc(100% - 14px);
+		max-width:         calc(100% - 14px);
+	}
+
+	.gallery-columns-2 .gallery-item { /* duplicate in responsive.css */
+		max-width: 44%; /* Opera Mobile, Android 4 don't like anything greater */
+		max-width: -webkit-calc(50% - 14px);
+		max-width:         calc(50% - 14px);
+	}
+
+	.gallery-columns-3 .gallery-item { /* duplicate in responsive.css for 3 columns */
+		max-width: 27%; /* Opera Mobile, Android 4 don't like anything greater */
+		max-width: -webkit-calc(33.3% - 14px);
+		max-width:         calc(33.3% - 14px);
+	}
+
+	.gallery-columns-4 .gallery-item {
+		max-width: 22%; /* Android 4 does not like anything greater */
+		max-width: -webkit-calc(25% - 14px);
+		max-width:         calc(25% - 14px);
+	}
+
+	.gallery-columns-5 .gallery-item { /* duplicate in responsive.css for 5 columns */
+		max-width: 17%;
+		max-width: -webkit-calc(20% - 14px);
+		max-width:         calc(20% - 14px);
+	}
+
+	.gallery-columns-6 .gallery-item {
+		max-width: 14%;
+		max-width: -webkit-calc(16.7% - 14px);
+		max-width:         calc(16.7% - 14px);
+	}
+
+	.gallery-columns-7 .gallery-item {
+		max-width: 12%;
+		max-width: -webkit-calc(14.28% - 14px);
+		max-width:         calc(14.28% - 14px);
+	}
+
+	.gallery-columns-8 .gallery-item {
+		max-width: 10%;
+		max-width: -webkit-calc(12.5% - 14px);
+		max-width:         calc(12.5% - 14px);
+	}
+
+	.gallery-columns-9 .gallery-item {
+		max-width: 9%;
+		max-width: -webkit-calc(11.1% - 14px);
+		max-width:         calc(11.1% - 14px);
+	}
+
+	/* Flush with right edge */
+
+	.gallery-columns-1 .gallery-item:nth-of-type(1n),
+	.gallery-columns-2 .gallery-item:nth-of-type(2n),
+	.gallery-columns-3 .gallery-item:nth-of-type(3n),
+	.gallery-columns-4 .gallery-item:nth-of-type(4n),
+	.gallery-columns-5 .gallery-item:nth-of-type(5n),
+	.gallery-columns-6 .gallery-item:nth-of-type(6n),
+	.gallery-columns-7 .gallery-item:nth-of-type(7n),
+	.gallery-columns-8 .gallery-item:nth-of-type(8n),
+	.gallery-columns-9 .gallery-item:nth-of-type(9n) {
+		margin-right: 0;
+	}
+
+	/* Remove unnecesary breaks/clearing */
+
+	.gallery br {
+		display: none;
+	}
+
+/* Single column gallery (wider spacing) */
+
+.gallery-columns-1 {
+	margin: 40px -14px 26px 0;
+}
+
+	.gallery-columns-1 .gallery-item {
+		margin: 14px 0;
+	}
+
+	.gallery-columns-1 .gallery-item:first-child {
+		margin-top: 0;
+	}
+
+/**********************************************
+ * 12. COMMENTS
+ **********************************************/
+
+/* Note: #comments is hardcoded in WP core comments_popup_link(), so no prefix */
+
+/*************** COMMENT LIST *****************/
+
+.resurrect-comments, /* <ol> */
+.resurrect-comments ul {
+	list-style: none;
+	margin: 50px 0 0 0;
+}
+
+	/* Comment or Trackback/Pingback Item */
+
+	.resurrect-comment {
+		margin: 60px 0 0 0;
+	}
+
+		/* Comment Meta */
+		
+		.resurrect-comment-meta {
+			line-height: 1.4em;
+			min-height: 50px;
+		}
+
+			/* Avatar Container */
+			
+			.resurrect-comment-avatar {
+				float: left;
+				margin-right: 18px;
+			}
+
+				/* Image */
+
+				.resurrect-comment-avatar img {
+					width: 50px;
+					height: 50px;
+				}
+							
+			/* Comment Author or Trackback */
+			
+			.resurrect-comment-author,
+			.resurrect-comment-trackback-link {
+				padding: 0 0 0 0;
+				text-transform: uppercase;
+			}
+			
+				/* Author/Trackback Name */
+				
+				.resurrect-comment-author,
+				.resurrect-comment-trackback-link {
+					font-weight: bold;
+				}			
+			
+				/* Post author, or trackback or pingback note - after name/link */
+				
+				.resurrect-comment-author span,
+				.resurrect-comment-trackback-link span {
+					font-weight: normal;
+					text-transform: none;
+				}
+			
+			/* Date */
+			
+			.resurrect-comment-meta time {
+				display: inline-block;
+				padding-top: 10px;
+				font-weight: bold;
+			}
+			
+			/* Buttons */
+			
+			.resurrect-comment-buttons {
+				float: right;
+				margin-top: 8px;
+			}
+			
+				.comment-reply-link,
+				.comment-edit-link {
+					float: left;
+					margin-left: 14px;
+				}
+			
+		/* Comment Content */
+
+		.resurrect-comment-content {
+			margin-top: 30px;
+		}
+
+		/* Moderation Note */
+		
+		.resurrect-comment-moderation {
+			font-style: italic;
+		}
+
+		/* Indentations */
+		
+		.resurrect-comment,
+		.resurrect-comment #respond {
+			margin-left: 6%;
+		}
+		
+		.resurrect-comment.depth-1 { /* first level flush left */
+			margin-left: 0;
+		}
+
+	/* Required style */
+
+	.bypostauthor {
+
+	}
+
+#resurrect-comment-nav { /* .resurrect-nav-left-right */
+	margin-top: 60px;
+}
+
+/**************** COMMENT FORM ****************/
+
+/* Comment Form */
+
+#respond { /* hard coded by WP */
+	position: relative;
+	margin: 50px 0 60px 0;
+}
+
+	/* No bottom margin when at bottom */
+
+	#respond:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Cancel Reply Link */
+	
+	#cancel-comment-reply-link { /* this is within #reply-title heading so here we give it regular font */
+		position: relative;
+		bottom: 6px;
+		margin-left: 25px;
+		font-size: 0.5em;
+		font-weight: normal;
+		text-transform: none;
+	}
+
+	/* Message above form */
+
+	#respond .comment-notes,
+	#respond .logged-in-as {
+		margin: 25px 0 35px 0;
+	}
+
+	/* Text Inputs */
+
+	.comment-form-author,
+	.comment-form-email,
+	.comment-form-url {
+		position: relative;
+		margin: 10px 0;
+		text-transform: uppercase;
+	}
+	
+		#respond label {
+			font-weight: bold;
+			line-height: 34px;
+		}
+
+		.comment-form-comment label {
+			display: none;
+		}
+
+		#respond .required {
+			margin-left: 5px;
+		}
+	
+		#respond input[type=text] {
+			position: absolute;
+			left: 90px;
+			width: 250px;
+		}
+	
+	/* Comment Field */
+	
+	.comment-form-comment {
+		clear: left;
+		margin: 10px 0;
+	}
+		
+		/* Comment Textarea */
+		
+		.comment-form-comment textarea {
+			width: 95%;
+		}
+		
+	/* Error Messages */
+	
+	#respond label.error {
+		font-weight: normal;
+	}
+	
+		/* Error Message for Name, Email, URL after input */
+		
+		.comment-form-author label.error,
+		.comment-form-email label.error,
+		.comment-form-url label.error {
+			position: absolute;
+			left: 370px;
+			white-space: nowrap;
+			font-size: 13px;
+		}
+		
+		/* Error Message for Comment */
+		
+		p.comment-form-comment label.error {
+			position: relative;
+			top: -5px;
+			display: block;
+			font-size: 13px;
+		}
+
+	/* Allowed tags note */
+	
+	.form-allowed-tags {
+		display: none;
+	}
+	
+	/* Submit Button */
+		
+	#respond .form-submit {
+		margin: 20px 0 0 0;
+	}
+
+/* Comments closed message (in place of add form if comments have already been made) */
+
+#resurrect-comments-closed {
+	margin-top: 40px;
+	font-style: italic;
+}
+
+/**********************************************
+ * 13. WIDGETS
+ **********************************************/
+
+/************** WIDGET CONTAINER **************/
+
+/* Sidebar + Home Bottom */
+
+.resurrect-widget { /* <aside> */
+	padding: 0 20px 20px 20px;
+	line-height: 1.4em;
+	margin-top: 30px; /* in case no title */
+}
+
+	/* No top margin for sidebar */
+
+	#resurrect-sidebar-right .resurrect-widget:first-child { /* <aside> */
+		margin-top: 0;
+	}
+
+	/* Widget Title */
+	
+	.resurrect-widget-title { /* <h1> */
+		display: inline-block;
+		margin: 0 -20px;
+		padding: 8px 11px 8px 11px;
+		font-size: 1.25em;
+		font-weight: normal;
+		line-height: 1.2em;
+		text-transform: uppercase;
+	}
+
+	/*
+	Move title and content up
+	jQuery adds .resurrect-widget-has-title for better widget styling
+	*/
+	
+	.resurrect-widget-has-title > * {
+		position: relative;
+		top: -19px;
+	}
+	
+	.resurrect-widget-has-title {
+		margin-top: 49px;
+		padding-bottom: 0;
+	}
+	
+	/* No top margin first element IN widget */
+	
+	.resurrect-widget > :not(.resurrect-widget-title):first-of-type {
+		margin-top: 0; /* same value as below */
+		padding-top: 20px; /* same value as below */
+	}
+	
+		/* Applied for IE8 w/JavaScript since :first-of-type won't work, even with selectivizr */
+
+		.resurrect-widget-first-element { /* applied for IE8 w/JavaScript */
+			margin-top: 0 !important; /* same value as above */
+			padding-top: 20px !important; /* same value as above */
+		}
+	
+	/* No bottom margin last element IN widget */
+
+	.resurrect-widget > :last-child,
+	.resurrect-widget > :last-child > :last-child { /* such as an LI */
+		margin-bottom: 0; /* same value as below */
+	}
+
+/*************** SHARED STYLES ****************/
+
+/* Widget Entry */
+
+.resurrect-widget-entry { /* <article> */
+	margin: 30px 0;
+}
+
+	/* Thumbnail Container */
+		
+	.resurrect-widget-entry-thumb {
+		width: 55px;
+		height: 55px;
+		float: left;
+		margin-right: 15px;
+		margin-bottom: 5px;
+		padding-top: 2px;
+	}
+
+	/* Entry Title */
+
+	.resurrect-widget-entry-title { /* <h1> */
+		margin: 0;
+		font-size: 1em;
+		font-weight: bold;
+		line-height: 1.4em;
+	}
+
+	/* Meta List (Date, Author, etc.) */
+
+	.resurrect-widget-entry-meta { /* <ul> */
+		list-style: none;
+		margin: 0 -15px 0 0; /* negative of li right margin */
+	}
+
+		/* Meta Item */
+
+		.resurrect-widget-entry-meta > li {
+			display: inline-block;
+			margin: 12px 15px 0 0;
+			vertical-align: top;
+		}
+
+			/* Keep links from wrapping */
+
+			.resurrect-widget-entry-meta > li a {
+				white-space: nowrap;
+			}
+
+			/* Date */
+
+			.resurrect-widget-entry-date {
+				font-weight: bold;
+			}
+
+			/* Byline */
+
+			.resurrect-widget-entry-byline {
+				/*font-style: italic;*/
+			}
+
+			/* Icons */
+
+			.resurrect-widget-entry-icons .resurrect-list-icons { /* <ul> */
+				position: relative;
+				top: -2px;
+				white-space: nowrap;
+			}
+
+	/* Content / Excerpt */
+
+	.resurrect-widget-entry-content {
+		margin-top: 15px;
+	}
+
+		.resurrect-widget-entry-content p {
+			margin: 12px 0 0 0;
+		}
+
+		.resurrect-widget-entry-content p:first-child {
+			margin: 0;
+		}
+
+/* Dropdown Widgets */
+
+.widget_ctfw-archives select,
+.widget_ctfw-categories select {
+	width: 100%;
+}
+
+/* List Widgets */
+
+.widget_categories ul, /* default WP categories - blog only */
+.widget_ctfw-categories ul, /* enhanced categories - taxonomy selector */
+.widget_ctfw-archives ul, /* monthly sermon archives */
+.widget_ctfw-galleries ul, /* gallery page list */
+.widget_recent_entries ul,
+.widget_recent_comments ul,
+.widget_archive ul,
+.widget_meta ul,
+.widget_pages ul,
+.widget_links ul,
+.widget_nav_menu ul {
+	margin: 0;
+	list-style: none;
+	line-height: 1.4em;
+}
+
+.widget_categories ul ul,
+.widget_ctfw-categories ul ul,
+.widget_ctfw-archives ul ul,
+.widget_ctfw-galleries ul ul,
+.widget_recent_entries ul ul,
+.widget_recent_comments ul ul,
+.widget_archive ul ul,
+.widget_meta ul ul,
+.widget_pages ul ul,
+.widget_links ul ul,
+.widget_nav_menu ul ul {
+	margin-left: 15px;
+	list-style: none;
+	line-height: 1.4em;
+}
+
+	.widget_categories li,
+	.widget_ctfw-categories li,
+	.widget_ctfw-archives li,
+	.widget_ctfw-galleries li,
+	.widget_archive li,
+	.widget_meta li,
+	.widget_pages li,
+	.widget_links li,
+	.widget_nav_menu li {
+		padding-top: 0;
+		margin-bottom: 10px;
+	}
+	
+	.widget_recent_entries li,
+	.widget_recent_comments li {
+		padding-top: 0;
+		margin-bottom: 18px;
+	}
+
+		.widget_categories li a,
+		.widget_ctfw-categories li a,
+		.widget_ctfw-archives li a,
+		.widget_ctfw-galleries li a,
+		.widget_ctfw-posts li a,
+		.widget_recent_entries li a,
+		/*.widget_recent_comments li a,*/
+		.widget_archive li a,
+		.widget_meta li a,
+		.widget_pages li a,
+		.widget_links li a,
+		.widget_nav_menu li a {
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	
+		.widget_categories li:first-child,
+		.widget_ctfw-categories li:first-child,
+		.widget_ctfw-archives li:first-child,
+		.widget_ctfw-galleries li:first-child,
+		.widget_recent_entries li:first-child,
+		.widget_recent_comments li:first-child,
+		.widget_archive li:first-child,
+		.widget_meta li:first-child,
+		.widget_pages li:first-child,
+		.widget_links li:first-child,
+		.widget_nav_menu li:first-child {
+			border-top: 0;
+			padding-top: 0;
+		}
+		
+		.widget_categories li li,
+		.widget_ctfw-categories li li,
+		.widget_ctfw-archives li li,
+		.widget_ctfw-galleries li li,
+		.widget_recent_entries li li,
+		.widget_recent_comments li li,
+		.widget_archive li li,
+		.widget_meta li li,
+		.widget_pages li li,
+		.widget_links li li,
+		.widget_nav_menu li li {
+			margin: 0;
+			border-top: 0;
+			padding-top: 0;
+		}
+		
+			.widget_categories li li a,
+			.widget_ctfw-categories li li a,
+			.widget_ctfw-archives li li a,
+			.widget_ctfw-galleries li li a,
+			.widget_ctfw-posts li li a,
+			.widget_recent_entries li li a,
+			.widget_recent_comments li li a,
+			.widget_archive li li a,
+			.widget_meta li li a,
+			.widget_pages li li a,
+			.widget_links li li a,
+			.widget_nav_menu li li a {
+				font-weight: normal;
+				text-transform: none;
+			}
+
+/************* WP TAG CLOUD WIDGET ************/
+
+.widget_tag_cloud {
+	line-height: 2.05em;
+}
+
+	.widget_tag_cloud a {
+		font-size: 0.75em !important; /* single size */
+		text-transform: uppercase;
+	}
+
+/************* WP CALENDAR WIDGET *************/
+
+.widget_calendar #wp-calendar {
+	width: 100%;
+}
+
+.widget_calendar #wp-calendar caption,
+.widget_calendar #wp-calendar td,
+.widget_calendar #wp-calendar th {
+	text-align: center;
+}
+
+	.widget_calendar #wp-calendar tbody td a {
+		font-weight: bold;
+	}
+
+.widget_calendar #wp-calendar caption {
+	padding: 0 0 5px 0;
+	font-weight: bold;
+}
+
+.widget_calendar #wp-calendar th {
+	border-width: 1px 0;
+	border-style: solid;
+	font-weight: bold;
+	padding: 3px 0;
+}
+
+.widget_calendar #wp-calendar tfoot td {
+	padding-top: 5px;
+}
+
+/************** WP SEARCH WIDGET **************/
+
+.widget_search form {
+	position: relative;
+}
+
+	/* Search Input */
+
+	.widget_search  .resurrect-search-field {
+		margin-right: 34px;
+	}
+	
+	.widget_search .resurrect-search-field input {
+		width: 100%;
+	}
+		
+	/* Search Button */
+
+	.widget_search .resurrect-search-button {
+		position: absolute;
+		top: 4px;
+		right: 2px;
+	}
+
+/*************** WP TEXT WIDGET ***************/
+
+.textwidget > :first-child {
+	margin-top: 0;
+}
+
+.textwidget > :last-child {
+	margin-bottom: 0 !important;
+}
+
+/*************** WP RSS WIDGET ****************/
+
+.widget_rss h1 img { /* hide RSS icon */
+	display: none;
+}
+
+.widget_rss ul {
+	margin: 0;
+	list-style: none;
+}
+
+	.widget_rss li {
+		margin: 32px 0;
+	}
+	
+	.widget_rss li:first-child {
+		margin-top: 0;
+	}		
+		
+		.widget_rss li a {
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: 1em;
+			font-weight: bold;
+			line-height: 1.4em;
+			text-transform: uppercase;
+		}
+
+		.widget_rss .rss-date {
+			margin-top: 12px;
+			display: block;
+			font-weight: bold;
+		}
+	
+		.widget_rss .rssSummary {
+			margin-top: 12px;
+		}
+		.widget_rss cite {
+			display: block;
+			margin-top: 12px;
+			font-style: italic;
+		}
+
+/************ CT HIGHLIGHT WIDGET *************/
+
+.widget_ctfw-highlight { /* <aside> */
+	padding: 0;
+}
+	
+	.widget_ctfw-highlight .resurrect-widget-title { /* <h1> */
+		margin: 0;
+		padding: 0;
+		font-size: 1em;
+	}
+	
+	.widget_ctfw-highlight.resurrect-widget-has-title > * {
+		top: 0;
+	}
+	
+	.widget_ctfw-highlight.resurrect-widget-has-title {
+		margin-top: 30px;
+	}
+	
+	.widget_ctfw-highlight > :not(.resurrect-widget-title):first-of-type,
+	.widget_ctfw-highlight .resurrect-widget-first-element { /* resurrect-widget-first-element applied for IE8 w/JavaScript */
+		padding-top: 0 !important;
+	}
+
+/************* CT GALLERY WIDGET **************/
+
+/* Gallery container */
+
+.resurrect-widget .gallery {
+	margin-bottom: 0;
+	position: relative;
+	top: -12px; /* offset extra space at bottom */
+}
+
+/* Link */
+
+.resurrect-gallery-widget-link { /* holds <a> */
+	text-align: center;
+	margin-top: 20px;
+}
+
+/************** CT SERMONS WIDGET *************/
+
+.resurrect-sermons-widget-entry.resurrect-widget-entry-first {
+	margin-top: 0;
+}
+
+/* Series */
+
+.resurrect-widget-entry-meta > li.resurrect-sermons-widget-entry-series a {
+	white-space: normal; /* sermon series titles may be longer than sidebar */
+}
+
+/************** CT EVENTS WIDGET **************/
+
+/* Time */
+
+.resurrect-events-widget-entry-time {
+	font-style: italic;
+}
+
+/************* CT PEOPLE WIDGET ***************/
+
+/* Position */
+
+.resurrect-people-widget-entry-position {
+	font-weight: bold;
+}
+
+
+.resurrect-people-widget-entry-phone {
+	font-style: italic;
+}
+
+/************ CT LOCATIONS WIDGET *************/
+
+/* Address */
+
+.resurrect-locations-widget-entry-address {
+	font-weight: bold;
+}
+
+/* Phone */
+
+.resurrect-locations-widget-entry-phone {
+	font-style: italic;
+}
+
+/* Map */
+
+.resurrect-locations-widget-entry-map .ctfw-google-map-container {
+	margin-top: 20px;
+}
+
+/************* CT GIVING WIDGET ***************/
+
+/* Giving Widget */
+
+.resurrect-giving-widget-text p:first-child {
+	margin-top: 0;
+}
+
+.resurrect-giving-widget-button {
+	margin-top: 24px;
+	text-align: center;
+}
+
+/**********************************************
+ * 14. TWEAKS
+ **********************************************/
+
+/* Image height fix */
+
+.ie8 img {
+	width: auto;
+}
+
+/* No italic for Internet Explorer 8 on certain elements because it stretches Google Fonts awkwardly */
+
+.ie8 * {
+	font-style: normal !important;
+}
+
+/* Entry title/meta container */
+
+.ie8 .resurrect-entry-title-meta {
+	max-width: 60%; /* less than standard 65%; IE 8 needs less room */
+}
+
+/**********************************************
+ * 15. PLUGINS
+ **********************************************/
+
+/************** CONTACT FORM 7 ****************/
+
+div.wpcf7-mail-sent-ok,
+div.wpcf7-mail-sent-ng,
+div.wpcf7-spam-blocked,
+div.wpcf7-validation-errors {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-weight: bold;
+}
+
+span.wpcf7-not-valid-tip {
+	top: 30%;
+	left: 30%;
+	width: auto;
+	padding: 4px 8px;
+	border: 0;
+	font-size: 1em;
+	font-style: italic;
+}
+
+span.wpcf7-not-valid-tip-no-ajax {
+	padding-top: 4px;
+	font-size: 1em;
+	font-style: italic;
+}
+
+span.wpcf7-form-control-wrap textarea {
+	max-width: 100% !important;
+}
