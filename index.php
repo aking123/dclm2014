@@ -15,6 +15,11 @@
    <script type='text/javascript' src='js/jquery/jquery-migrate.js'></script>
 
 
+   <script type='text/javascript'>
+/* <![CDATA[ */
+var ctfw_ie_unsupported = {"default_version":"7","min_version":"5","max_version":"9","version":"7","message":"You are using an outdated version of Internet Explorer. Please upgrade your browser to use this site.","redirect_url":"http:\/\/browsehappy.com\/"};
+/* ]]> */
+   </script>
    <script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
 <script type='text/javascript' src='js/resurrect/framework/jquery.fitvids.js'></script>
 <script type='text/javascript' src='js/resurrect/framework/responsive-embeds.js'></script>
@@ -55,9 +60,9 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 }
 </script>
    <script type='text/javascript' src='js/hoverIntent.js'></script>
-   <script type='text/javascript' src='http://deeperlife-dc.org/wp-includes/js/jquery/jquery.masonry.min.js'></script>
+   <script type='text/javascript' src='http://deeperlifeonline.org/wp-includes/js/jquery/jquery.masonry.min.js'></script>
 </head>
-<body class="home page custom-background">
+<body class="home page page-template page-template-page-templateshomepage-php custom-background">
 
 <div id="resurrect-container">
 
@@ -74,12 +79,11 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 		<div id="resurrect-middle-content" class="resurrect-clearfix">
 		
 			<header id="resurrect-header" class="resurrect-header-text-dark">
-
 				
-	<!-- DCLM.org Head (common tags) -->
+	<!-- DCLM.org Logo (common tags) -->
   <?php include 'common/dclmweb-logo.php'; ?>
-	<!-- /head_inc -->
-										
+	<!-- /logo_inc -->
+
 				
 	<!-- DCLM.org Main navigation (menu common tags) -->
   <?php include 'common/dclmweb-nav.php'; ?>
@@ -98,24 +102,24 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 				<ul class="slides">
 			            <li class="resurrect-slide-no-description">
 					<div class="flex-image-container">
-					<img width="960" height="480" src="images/slides/deep01-copy-960x480.jpg" class="" alt="" title="" />
+					<img src="images/slides/deep01-copy-960x480.jpg" alt="" title="" />
 					</div>
 			       	    </li>
                         	    <li class="resurrect-slide-video resurrect-slide-no-description">
 					<div class="flex-image-container">
 					 <a href="https://www.youtube.com/watch?v=nR-oKZg1Sd4">
-					<img width="960" height="480" src="images/slides/deep04-copy-960x480.jpg" class="" alt="" title="" /><div class="flex-play-overlay"></div></a>
+					<img src="images/slides/deep04-copy-960x480.jpg" alt="" title="" /><div class="flex-play-overlay"></div></a>
 					</div>
                                     </li>
 				    <li class="resurrect-slide-no-description">
 
 					<div class="flex-image-container">
-					 <img width="960" height="480" src="images/slides/BST-960x480.jpg" class="" alt="" title="" />
+					 <img src="images/slides/BST-960x480.jpg" alt="" title="" />
 					</div>
 				    </li>
 				    <li class="resurrect-slide-linked resurrect-slide-no-description">
 					<div class="flex-image-container">
-					 <a href="/about-us-2/official-web-sites/"><img width="960" height="480" src="images/slides/daily-devotion-960x480.jpg" class="" alt="" title="" /></a>
+					 <a href="aboutus/official-web-sites/"><img src="images/slides/daily-devotion-960x480.jpg" alt="" title="" /></a>
 					</div>
 				    </li>
 				</ul>
@@ -163,204 +167,90 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 		
 <div id="resurrect-home-bottom-widgets">
 
-		<section id="ctfw-highlight-5" class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
-<div class="resurrect-caption-image resurrect-highlight">
+	<section class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
+		<div class="resurrect-caption-image resurrect-highlight">
+			<img src="images/events/RevivalBanner201406_600x410-600x410.jpg" class="resurrect-image" alt="RevivalBanner201406" />			
+		</div>
+	</section>
 
-	
-					<img width="600" height="410" src="http://deeperlife-dc.org/wp-content/uploads/2014/06/RevivalBanner201406_600x410-600x410.jpg" class="resurrect-image" alt="RevivalBanner201406_600x410" />			
-		
-			
-			
-				
-		
-</div>
+	<section class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
+		<div class="resurrect-caption-image resurrect-highlight">
+			<img src="images/highlights/dontForgetToPray-600x410.jpg" class="resurrect-image" alt="Dont Forget To Pray" />						</div>
 
-</section><section id="ctfw-highlight-8" class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
-<div class="resurrect-caption-image resurrect-highlight">
+	</section>
 
-	
-					<img width="600" height="410" src="http://deeperlife-dc.org/wp-content/uploads/2014/06/successful-600x410.jpg" class="resurrect-image" alt="successful" />			
+	<section class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
+		<div class="resurrect-caption-image resurrect-highlight">
+			<img src="images/highlights/successful-600x410.jpg" class="resurrect-image" alt="successful" />						</div>
+
+	</section>
+
+	<section class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
+		<div class="resurrect-caption-image resurrect-highlight">
+			<img src="images/highlights/holiness-600x410.jpg" class="resurrect-image" alt="Holiness" />						</div>
+
+	</section>
+
+<section class="resurrect-widget resurrect-home-widget">
+	<h1 class="resurrect-widget-title">Upcoming Events</h1>
+	<article class="resurrect-widget-entry resurrect-event-widget-entry resurrect-clearfix resurrect-widget-entry-first">
+
+	<header class="resurrect-clearfix">
+		<div class="resurrect-widget-entry-thumb">
+			<a href="events/sunday-services/" title="Sunday Worship Services"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/preacher-highlight-100x100.jpg" class="resurrect-image" alt="Preacher (Highlight)" /></a>
+		</div>
 		
-			
-			
-				
+		<h1 class="resurrect-widget-entry-title"><a href="http://demos.churchthemes.com/resurrect/events/sunday-services/" title="Sunday Worship Services">Sunday Worship Services</a></h1>
+
+		<ul class="resurrect-widget-entry-meta resurrect-clearfix">
+			<li class="resurrect-widget-entry-date resurrect-locations-widget-entry-date">
+				June 29, 2014								</li>
+		</ul>
+	</header>
+	</article>
+
+	<article class="resurrect-widget-entry resurrect-event-widget-entry resurrect-clearfix">
+	<header class="resurrect-clearfix">
+		<div class="resurrect-widget-entry-thumb">
+			<a href="http://demos.churchthemes.com/resurrect/events/new-members-class/" title="New Members Class"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/class-square-100x100.jpg" class="resurrect-image" alt="Class (Square)" /></a>
+		</div>
 		
-</div>
+		<h1 class="resurrect-widget-entry-title"><a href="http://demos.churchthemes.com/resurrect/events/new-members-class/" title="New Members Class">New Members Class</a></h1>
+
+		<ul class="resurrect-widget-entry-meta resurrect-clearfix">
+			<li class="resurrect-widget-entry-date resurrect-locations-widget-entry-date">
+				July 1, 2014
+			</li>
+		</ul>
+	</header>
+	</article>
+
+	<article class="resurrect-widget-entry resurrect-event-widget-entry resurrect-clearfix">
+	<header class="resurrect-clearfix">
+		<div class="resurrect-widget-entry-thumb">
+			<a href="events/" title="Vacation Bible School"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/kids-square-100x100.png" class="resurrect-image" alt="Kids (Square)" /></a>
+		</div>
+		
+		<h1 class="resurrect-widget-entry-title"><a href="http://demos.churchthemes.com/resurrect/events/vacation-bible-school/" title="Vacation Bible School">Vacation Bible School</a></h1>
+
+		<ul class="resurrect-widget-entry-meta resurrect-clearfix">
+			<li class="resurrect-widget-entry-date resurrect-locations-widget-entry-date">
+				June 20 &ndash; June 24, 2017
+			</li>
+		</ul>
+
+	</header>
+	</article>
 
 </section>
-<section id="ctfw-sermons-3" class="resurrect-widget resurrect-home-widget widget_ctfw-sermons"><h1 class="resurrect-widget-title">Sermons</h1>
-	<article class="ctc_sermon type-ctc_sermon status-publish hentry resurrect-widget-entry resurrect-sermons-widget-entry resurrect-clearfix resurrect-widget-entry-first ctfw-has-image">
-		
-		<header class="resurrect-clearfix">
 
-							<div class="resurrect-widget-entry-thumb">
-					<a href="http://deeperlife-dc.org/sermons/test/" title="Living In His Victory"><img width="100" height="100" src="http://deeperlife-dc.org/wp-content/uploads/2013/05/BackgroundLogo-100x100.jpg" class="resurrect-image wp-post-image" alt="Print" /></a>
-				</div>
-			
-			<h1 class="resurrect-widget-entry-title"><a href="http://deeperlife-dc.org/sermons/test/" title="Living In His Victory">Living In His Victory</a></h1>
+<section class="resurrect-widget resurrect-home-widget">
+<?php
+	include 'sermons/se_data.php';
 
-			<ul class="resurrect-widget-entry-meta resurrect-clearfix">
+	echo $rct_sermons ;
+?>
 
-									<li class="resurrect-widget-entry-date resurrect-sermons-widget-entry-date">
-						<time datetime="2014-06-07T21:21:47+00:00">June 7, 2014</time>
-					</li>
-				
-				
-				
-				
-				
-				
-					<li class="resurrect-widget-entry-icons resurrect-sermons-widget-entry-icons">
-
-						<ul class="resurrect-list-icons">
-
-							
-														
-														
-							
-						</ul>
-
-					</li>
-
-				
-			</ul>
-
-		</header>
-
-				
-	</article>
-
-
-	<article class="post-4019 ctc_sermon type-ctc_sermon status-publish hentry resurrect-widget-entry resurrect-sermons-widget-entry resurrect-clearfix ctfw-has-image">
-		
-		<header class="resurrect-clearfix">
-
-							<div class="resurrect-widget-entry-thumb">
-					<a href="http://deeperlife-dc.org/sermons/the-call-to-a-soul-winning-lifestyle/" title="The Call to a Soul-Winning Lifestyle"><img width="100" height="100" src="http://deeperlife-dc.org/wp-content/uploads/2014/05/sermons-100x100.png" class="resurrect-image wp-post-image" alt="sermons" /></a>
-				</div>
-			
-			<h1 class="resurrect-widget-entry-title"><a href="http://deeperlife-dc.org/sermons/the-call-to-a-soul-winning-lifestyle/" title="The Call to a Soul-Winning Lifestyle">The Call to a Soul-Winning Lifestyle</a></h1>
-
-			<ul class="resurrect-widget-entry-meta resurrect-clearfix">
-
-									<li class="resurrect-widget-entry-date resurrect-sermons-widget-entry-date">
-						<time datetime="2014-05-25T00:50:48+00:00">May 25, 2014</time>
-					</li>
-				
-				
-									<li class="resurrect-sermons-widget-entry-topics">
-						<a href="http://deeperlife-dc.org/sermon-topic/evangelism-2/" rel="tag">Evangelism</a>					</li>
-				
-				
-				
-				
-					<li class="resurrect-widget-entry-icons resurrect-sermons-widget-entry-icons">
-
-						<ul class="resurrect-list-icons">
-
-							
-														
-														
-							
-						</ul>
-
-					</li>
-
-				
-			</ul>
-
-		</header>
-
-				
-	</article>
-
-
-	<article class="post-4016 ctc_sermon type-ctc_sermon status-publish hentry resurrect-widget-entry resurrect-sermons-widget-entry resurrect-clearfix ctfw-has-image">
-		
-		<header class="resurrect-clearfix">
-
-							<div class="resurrect-widget-entry-thumb">
-					<a href="http://deeperlife-dc.org/sermons/the-power-of-god/" title="The Power of God"><img width="100" height="100" src="http://deeperlife-dc.org/wp-content/uploads/2014/05/ThePowerofGod672x378_lg-100x100.jpg" class="resurrect-image wp-post-image" alt="ThePowerofGod672x378_lg" /></a>
-				</div>
-			
-			<h1 class="resurrect-widget-entry-title"><a href="http://deeperlife-dc.org/sermons/the-power-of-god/" title="The Power of God">The Power of God</a></h1>
-
-			<ul class="resurrect-widget-entry-meta resurrect-clearfix">
-
-									<li class="resurrect-widget-entry-date resurrect-sermons-widget-entry-date">
-						<time datetime="2014-05-24T23:52:55+00:00">May 24, 2014</time>
-					</li>
-				
-				
-				
-				
-				
-				
-					<li class="resurrect-widget-entry-icons resurrect-sermons-widget-entry-icons">
-
-						<ul class="resurrect-list-icons">
-
-							
-															<li><a href="http://deeperlife-dc.org/sermons/the-power-of-god/?player=video" class="el-icon-video" title="Watch Video"></a></li>
-														
-														
-							
-						</ul>
-
-					</li>
-
-				
-			</ul>
-
-		</header>
-
-				
-	</article>
-
-</section><section id="ctfw-gallery-2" class="resurrect-widget resurrect-home-widget widget_ctfw-gallery"><h1 class="resurrect-widget-title">Gallery</h1>
-
-	
-		<div id='gallery-1' class='gallery galleryid-3970 gallery-columns-2 gallery-size-resurrect-rect-large'><dl class='gallery-item'>
-			<dt class='gallery-icon landscape'>
-				<a href='http://deeperlife-dc.org/announcements/blog-post-with-native-wordpress-gallery/attachment/youth-2/'><img width="600" height="410" src="http://deeperlife-dc.org/wp-content/uploads/2013/05/youth-600x410.jpg" class="attachment-resurrect-rect-large" alt="Encourage Our Youth" /></a>
-			</dt>
-				<dd class='wp-caption-text gallery-caption'>
-				Encourage Our Youth
-				</dd></dl><dl class='gallery-item'>
-			<dt class='gallery-icon landscape'>
-				<a href='http://deeperlife-dc.org/announcements/blog-post-with-native-wordpress-gallery/attachment/bible-study-2/'><img width="600" height="410" src="http://deeperlife-dc.org/wp-content/uploads/2013/05/bible-study-600x410.jpg" class="attachment-resurrect-rect-large" alt="Attend Bible Studies" /></a>
-			</dt>
-				<dd class='wp-caption-text gallery-caption'>
-				Attend Bible Studies
-				</dd></dl><br style="clear: both" /><dl class='gallery-item'>
-			<dt class='gallery-icon landscape'>
-				<a href='http://deeperlife-dc.org/announcements/blog-post-with-native-wordpress-gallery/attachment/devotions-2/'><img width="600" height="410" src="http://deeperlife-dc.org/wp-content/uploads/2013/05/Devotions1-600x410.jpg" class="attachment-resurrect-rect-large" alt="Start your day with God" /></a>
-			</dt>
-				<dd class='wp-caption-text gallery-caption'>
-				Start your day with God
-				</dd></dl><dl class='gallery-item'>
-			<dt class='gallery-icon landscape'>
-				<a href='http://deeperlife-dc.org/about-us-2/our-ministries/life-press/attachment/lifepress_books/'><img width="600" height="410" src="http://deeperlife-dc.org/wp-content/uploads/2014/05/LifePress_Books-600x410.png" class="attachment-resurrect-rect-large" alt="Life Transforming Books" /></a>
-			</dt>
-				<dd class='wp-caption-text gallery-caption'>
-				Life Transforming Books
-				</dd></dl><br style="clear: both" /><dl class='gallery-item'>
-			<dt class='gallery-icon landscape'>
-				<a href='http://deeperlife-dc.org/?attachment_id=3993'><img width="600" height="410" src="http://deeperlife-dc.org/wp-content/uploads/2014/05/deep5-copy-600x410.jpg" class="attachment-resurrect-rect-large" alt="Watch Sermons Online" /></a>
-			</dt>
-				<dd class='wp-caption-text gallery-caption'>
-				Watch Sermons Online
-				</dd></dl><dl class='gallery-item'>
-			<dt class='gallery-icon landscape'>
-				<a href='http://deeperlife-dc.org/?attachment_id=3970'><img width="600" height="410" src="http://deeperlife-dc.org/wp-content/uploads/2014/05/BackgroundLogo-600x410.jpg" class="attachment-resurrect-rect-large" alt="Be Encouraged" /></a>
-			</dt>
-				<dd class='wp-caption-text gallery-caption'>
-				Be Encouraged
-				</dd></dl><br style="clear: both" />
-			<br style='clear: both;' />
-		</div>
-
-	
 </section>	
 	</div>
 

@@ -4,7 +4,7 @@
 <div id="resurrect-logo">	
 	<div id="resurrect-logo-content">
 		<div id="resurrect-logo-image">
-			<a href="http://deeperlife-dc.org/">
+			<a href="./">
 				<img src="images/deeperlifelogo3.png" alt="Deeper Life Bible Church" id="resurrect-logo-regular">		</a>
 		</div>
 	</div>

@@ -2152,7 +2152,7 @@ IMPORTANT: Same code is copied (without parent .resurrect-no-slider) in responsi
 	/* Container Adjustment */
 
 	.resurrect-home-widget { /* .resurrect-widget */
-		width: 40.2%;
+		width: 30.2%;
 		-webkit-box-sizing:	border-box;
 		-moz-box-sizing:	border-box;
 		box-sizing:			border-box;

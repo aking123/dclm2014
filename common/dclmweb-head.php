@@ -1,6 +1,6 @@
 <?php
   $sitename = "localhost";
-  $site_basename = "dclm2014b";
+  $site_basename = "dclm2014";
 ?>
   <meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

@@ -1,0 +1,8 @@
+# Vim droopings
+*.swp
+*.swo
+
+# Auto-backups
+*~
+*.*~
+.*~
