@@ -25,7 +25,7 @@ sermon_data = array ("Sdate" => "yyyymmdd",
           )
 
 */
-$sermons[] = array("Sdate" => "20140701",
+$sermons[] = array("Sdate" => "20140707",
                  "Title" => "Special Study: God&rsquo;s Faithfulness Releases us from Worry and Anxiety",
                  "Category" => "BST",
                  "Desc" => "Weekly Bible Study",
