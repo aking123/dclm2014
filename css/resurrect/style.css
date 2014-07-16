@@ -2427,6 +2427,10 @@ IMPORTANT: Same code is copied (without parent .resurrect-no-slider) in responsi
 .resurrect-location-address {
 	font-weight: bold;
 }
+.resurrect-location-webaddress {
+	font-weight: bold;
+	font-style: italic;
+}
 
 /* Phone */
 

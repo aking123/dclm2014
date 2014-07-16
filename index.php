@@ -60,7 +60,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 }
 </script>
    <script type='text/javascript' src='js/hoverIntent.js'></script>
-   <script type='text/javascript' src='http://deeperlifeonline.org/wp-includes/js/jquery/jquery.masonry.min.js'></script>
+   <script type='text/javascript' src='js/jquery.masonry.min.js'></script>
 </head>
 <body class="home page page-template page-template-page-templateshomepage-php custom-background">
 
@@ -100,26 +100,31 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 		<div id="resurrect-slider-inner">
 			<div class="flexslider">
 				<ul class="slides">
-			            <li class="resurrect-slide-no-description">
-					<div class="flex-image-container">
-					<img src="images/slides/deep01-copy-960x480.jpg" alt="" title="" />
-					</div>
-			       	    </li>
-                        	    <li class="resurrect-slide-video resurrect-slide-no-description">
-					<div class="flex-image-container">
-					 <a href="https://www.youtube.com/watch?v=nR-oKZg1Sd4">
-					<img src="images/slides/deep04-copy-960x480.jpg" alt="" title="" /><div class="flex-play-overlay"></div></a>
-					</div>
-                                    </li>
 				    <li class="resurrect-slide-no-description">
 
 					<div class="flex-image-container">
 					 <img src="images/slides/BST-960x480.jpg" alt="" title="" />
 					</div>
 				    </li>
+                        	    <li class="resurrect-slide-video resurrect-slide-no-description">
+					<div class="flex-image-container">
+					 <a href="https://www.youtube.com/watch?v=nR-oKZg1Sd4">
+					<img src="images/slides/deep04-copy-960x480.jpg" alt="" title="" /><div class="flex-play-overlay"></div></a>
+					</div>
+                                    </li>
 				    <li class="resurrect-slide-linked resurrect-slide-no-description">
 					<div class="flex-image-container">
-					 <a href="aboutus/official-web-sites/"><img src="images/slides/daily-devotion-960x480.jpg" alt="" title="" /></a>
+					 <a href="events/"><img src="images/slides/loosed-960x480.jpg" alt="" title="" /></a>
+					</div>
+				    </li>
+			            <li class="resurrect-slide-no-description">
+					<div class="flex-image-container">
+					<img src="images/slides/deep01-copy-960x480.jpg" alt="" title="" />
+					</div>
+			       	    </li>
+				    <li class="resurrect-slide-linked resurrect-slide-no-description">
+					<div class="flex-image-container">
+					 <a href="members/"><img src="images/slides/daily-devotion-960x480.jpg" alt="" title="" /></a>
 					</div>
 				    </li>
 				</ul>
@@ -143,14 +148,15 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 			</div>
 
 		<div class="resurrect-caption-image resurrect-highlight">
-			<img width="600" height="410" src="images/sermon-archives-600x410.jpg" class="resurrect-image" alt="Sermons" />			
+			<a href="sermons/biblestudies/"><img width="600" height="410" src="images/sermon-archives-600x410.jpg" class="resurrect-image" alt="Sermons" />			
 			    <div class="resurrect-caption-image-caption">
 				<div class="resurrect-caption-image-title">
-					Sermon Archive								</div>
+					Bible Study								</div>
 				<div class="resurrect-caption-image-description">
 					Listen or Watch Online
 				</div>
 			    </div>
+                         </a>
 		</div>
 	</div>
 
@@ -158,9 +164,9 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	
 <section id="resurrect-intro" class="resurrect-intro-has-heading">
-	<h1 id="resurrect-intro-heading">Welcome to Our Church</h1>
+	<h1 id="resurrect-intro-heading">Invite Jesus Into Your Heart</h1>
 		<div id="resurrect-intro-content">		
-			<p>Our mission is to guide people of all backgrounds into a personal relationship with Jesus Christ.</p>
+			<p>Your spiritual welfare is our focus and concern. Jesus died for your sins on the Cross at Calvary, He was buried and He rose from the dead on the third day. Repent of your sins and invite him into your heart. Accept Him today as your Lord and Savior and He will save you (1 Corinthians 15:1-3). God loves you!  - Pastor William Kumuyi.</p>
 		</div>
 </section>
 
@@ -169,7 +175,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	<section class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
 		<div class="resurrect-caption-image resurrect-highlight">
-			<img src="images/events/RevivalBanner201406_600x410-600x410.jpg" class="resurrect-image" alt="RevivalBanner201406" />			
+			<img src="images/events/SoaringOnEaglesWing-600x410.jpg" class="resurrect-image" alt="RevivalBanner201407" />			
 		</div>
 	</section>
 
@@ -181,7 +187,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	<section class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
 		<div class="resurrect-caption-image resurrect-highlight">
-			<img src="images/highlights/successful-600x410.jpg" class="resurrect-image" alt="successful" />						</div>
+			<img src="images/highlights/successful-600x410.jpg" class="resurrect-image" alt="successful" />								</div>
 
 	</section>
 
@@ -200,7 +206,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 			<a href="events/sunday-services/" title="Sunday Worship Services"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/preacher-highlight-100x100.jpg" class="resurrect-image" alt="Preacher (Highlight)" /></a>
 		</div>
 		
-		<h1 class="resurrect-widget-entry-title"><a href="http://demos.churchthemes.com/resurrect/events/sunday-services/" title="Sunday Worship Services">Sunday Worship Services</a></h1>
+		<h1 class="resurrect-widget-entry-title"><a href="events/sunday-services/" title="Sunday Worship Services">Sunday Worship Services</a></h1>
 
 		<ul class="resurrect-widget-entry-meta resurrect-clearfix">
 			<li class="resurrect-widget-entry-date resurrect-locations-widget-entry-date">
@@ -212,10 +218,10 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	<article class="resurrect-widget-entry resurrect-event-widget-entry resurrect-clearfix">
 	<header class="resurrect-clearfix">
 		<div class="resurrect-widget-entry-thumb">
-			<a href="http://demos.churchthemes.com/resurrect/events/new-members-class/" title="New Members Class"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/class-square-100x100.jpg" class="resurrect-image" alt="Class (Square)" /></a>
+			<a href="events/new-members-class/" title="New Members Class"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/class-square-100x100.jpg" class="resurrect-image" alt="Class (Square)" /></a>
 		</div>
 		
-		<h1 class="resurrect-widget-entry-title"><a href="http://demos.churchthemes.com/resurrect/events/new-members-class/" title="New Members Class">New Members Class</a></h1>
+		<h1 class="resurrect-widget-entry-title"><a href="events/new-members-class/" title="New Members Class">New Members Class</a></h1>
 
 		<ul class="resurrect-widget-entry-meta resurrect-clearfix">
 			<li class="resurrect-widget-entry-date resurrect-locations-widget-entry-date">
@@ -231,7 +237,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 			<a href="events/" title="Vacation Bible School"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/kids-square-100x100.png" class="resurrect-image" alt="Kids (Square)" /></a>
 		</div>
 		
-		<h1 class="resurrect-widget-entry-title"><a href="http://demos.churchthemes.com/resurrect/events/vacation-bible-school/" title="Vacation Bible School">Vacation Bible School</a></h1>
+		<h1 class="resurrect-widget-entry-title"><a href="events/" title="Vacation Bible School">Vacation Bible School</a></h1>
 
 		<ul class="resurrect-widget-entry-meta resurrect-clearfix">
 			<li class="resurrect-widget-entry-date resurrect-locations-widget-entry-date">
