@@ -7,13 +7,13 @@
   <?php include '../../common/dclmweb-head.php'; ?>
 	<!-- /head_inc -->
 
-   <title>Europe Locations - Deeper Christian Life Ministry</title>
+   <title>Crusades Archive - Deeper Christian Life Ministry</title>
 
 
-   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-   <script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
+<script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
 
 	<!-- Nav_menu_scripts -->
    <script type='text/javascript' src='js/resurrect/framework/jquery.fitvids.js'></script>
@@ -52,7 +52,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 }
 </script>
-
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 
 </head>
 
@@ -84,58 +84,54 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	<!-- /nav_inc -->
 				
 
-	<div id="resurrect-banner">
-
-		<img width="960" height="250" src="images/banners/europeloc.jpg" class="attachment-resurrect-banner" alt="Europe (Banner)" />
-		
-			<!-- <h1><a href="locations/" title="Europe">Locations - Europe</a>	</h1> -->
-
-			<div class="ctfw-breadcrumbs"><a href="./">Home</a> > <a href="locations/">Locations</a> > <a href="locations/europe/">Europe</a></div>
-		
-	</div>
-
-
 			</header>
 
-<div id="resurrect-content" class="resurrect-has-sidebar">
+<div id="resurrect-content" class="resurrect-no-sidebar">
 
 	<div id="resurrect-content-inner">
 
+		<div class="ctfw-breadcrumbs"><a href="./">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/crusades/">Crusades</a></div>
+
+        	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
+			<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">
+				<h1 class="resurrect-entry-title resurrect-main-title">Crusade Sermons and Testimonies</h1>
 		
-	</div>
+				<div class="resurrect-entry-content resurrect-clearfix">
+					<div class="resurrect-galleries-list gallery gallery-columns-3">
 
-</div>
+	<!-- DCLM.org Crusade Sermons common data -->
+<?php 
+	include 'crusade_list.php';
 
-
-<div id="resurrect-sidebar-right" role="complementary">
-	
-	<aside class="resurrect-widget resurrect-sidebar-widget widget_ctfw-highlight">
-		<div class="resurrect-caption-image resurrect-highlight">
-
-			<img width="600" height="410" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/man5-highlight-600x410.jpg" class="resurrect-image" alt="Man 5 (Highlight)" />						<div class="resurrect-caption-image-caption">
-			    <div class="resurrect-caption-image-title">
-				<h1 class="resurrect-widget-title"><a href="contact/">Contact Us</a></h1>
-			    </div>
-			    <div class="resurrect-caption-image-description">
-				<a href="contact/">Have questions?</a>	
-			    </div>
-			</div>
-	
-		</div>
-	</aside>
-
-	<aside class="resurrect-widget resurrect-sidebar-widget widget_ctfw-sermons">
-	<!-- DCLM.org Recent_sermons -->
-<?php
-		include '../../sermons/se_data.php';
-		echo $rct_sermons ;
+ for ($ct=1; $ct < count($crusades); $ct++) {
+	 echo'		<div class="resurrect-galleries-item gallery-item resurrect-caption-image">';
+	$dirname = str_replace("'", "", $crusades[$ct]["Title"]);
+	$dirname = str_replace(" ", "-", $dirname);
+        $json_enc = str_replace("'", "$$", json_encode($crusades[$ct]));
+//	echo'			<a class="crusade-json" href="sermons/crusades/' . $dirname .'" var=\'' . $json_enc . '\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
+	echo'			<a href="sermons/crusades/' . $dirname .'" onclick=\'loadCrusade(' . $json_enc . ')\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
+	echo'			<img src="images/crusades/' . $crusades[$ct]["Flyer"] . '" class="resurrect-image" alt="' . htmlspecialchars($crusades[$ct]["Title"]) . '" />';
+	echo'			<div class="resurrect-caption-image-caption">';
+	echo'					<div class="resurrect-caption-image-title">' . htmlspecialchars($crusades[$ct]["Title"]) . '</div>';
+	echo'					<div class="resurrect-caption-image-description">' . $crusades[$ct]["Date"] . '</div>';
+	echo'			</div>';
+	echo'			</a>';
+	echo'		</div>';
+	echo'	'; 
+ }
 ?>
-	<!-- /DCLM.org Recent_sermons -->
-	</aside>
+				
+					</div>
+				</div>
+			</article>
 
+		</div>
+	</div>
 </div>
 
-	</div>
+
+
+		</div>
 
 	</div>
 
@@ -156,7 +152,39 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 </div>
 
 <!-- Container End -->
+<script type='text/javascript'>
+function loadCrusade(str) {	
+	var str;
+	var request = $.ajax({
+	url: "sermons/crusades/crusade_script.php",
+	type: "POST",
+	data: str,
+	dataType: "html"
+	});
 
+ 	return false; // this is so the browser doesn't follow the link
+}
+
+$(function() {
+	$(".crusade-json").click(function(){
+		var crusadeData = $.parseJSON(($(this).attr("var")));
+
+        	var request = $.ajax({
+			type: "POST",
+			url: "sermons/crusades/crusade_script.php",
+			data: crusadeData,
+			dataType: "html"
+		});
+
+//		$.each(crusadeData, function(key,value) {
+//			alert(key + ": " + value);
+//		});
+
+	});
+});
+
+
+</script>
 
 </body>
 </html>

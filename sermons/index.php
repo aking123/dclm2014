@@ -10,9 +10,8 @@
    <title>Sermon Archive - Deeper Christian Life Ministry</title>
 
 
-<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
-   <script type='text/javascript' src='js/jquery/jquery.js'></script>
-   <script type='text/javascript' src='js/jquery/jquery-migrate.js'></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
 
 <script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
 
@@ -130,20 +129,20 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
     echo '			<header class="resurrect-entry-header resurrect-clearfix">';
     if (($sermons[$s_ct]["Thumbs"]) != "") {
     echo '			<div class="resurrect-entry-image">';
-    echo '			<a href="sermons/" title="' . $sermons[$s_ct]["Title"] .'"><img width="400" height="400" src="' . $sermons[$s_ct]["Thumbs"] . '" class="resurrect-image" alt="" /></a>		</div>';
+    echo '			<a href="sermons/" title="' . htmlspecialchars($sermons[$s_ct]["Title"]) .'"><img width="400" height="400" src="' . $sermons[$s_ct]["Thumbs"] . '" class="resurrect-image" alt="" /></a>		</div>';
     }
 	
     echo '		<div class="resurrect-entry-title-meta">';
 
     echo '				<h1 class="resurrect-entry-title">';
-    echo '				<a href="sermons/" title="' . $sermons[$s_ct]["Desc"] . '">' . $sermons[$s_ct]["Title"] . '</a>';
+    echo '				<a href="sermons/" title="' . htmlspecialchars($sermons[$s_ct]["Desc"]) . '">' . htmlspecialchars($sermons[$s_ct]["Title"]) . '</a>';
     echo '				</h1>';
 		
     echo '		<ul class="resurrect-entry-meta">';
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
     echo '				<span class="el-icon-folder-open"></span>';
-    echo '				<a class="dclm-sermon-category" href="sermons/biblestudies/" rel="tag">' . $sermons[$s_ct]["Desc"] . '</a>';
+    echo '				<a class="dclm-sermon-category" href="sermons/biblestudies/" rel="tag">' . htmlspecialchars($sermons[$s_ct]["Desc"]) . '</a>';
     echo '			</li>';
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
@@ -211,7 +210,16 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 }
 
 ?>
-		
+	<nav class="resurrect-pagination resurrect-content-block resurrect-content-block-compact resurrect-clearfix">
+		<ul class='page-numbers'>
+			<li><span class='page-numbers current'>1</span></li>
+			<li><a class='page-numbers' href='sermons/page/2/'>2</a></li>
+			<li><a class='page-numbers' href='sermons/page/3/'>3</a></li>
+			<li><a class="next page-numbers" href="sermons/page/2/">Next <span class="resurrect-button-icon el-icon-arrow-right"></span></a></li>
+		</ul>
+	</nav>
+
+
 	</div>
 
 </div>
@@ -222,9 +230,9 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	    <aside id="ctfw-categories-1" class="resurrect-widget resurrect-sidebar-widget widget_ctfw-categories">
 			<h1 class="resurrect-widget-title">Services and Programs</h1>
 			<ul>
-				<li class="cat-item"><a href="sermons/bible-study/" title="View Bible Study Teachings">Bible Study</a>	</li>
-				<li class="cat-item"><a href="sermons/sunday-service/" title="View Sunday Services' sermons">Sunday Worship Service</a>	</li>
-				<li class="cat-item"><a href="sermons/thursday-service/" title="View Thursday Revival Services' sermons">Thursday Revival Service</a></li>
+				<li class="cat-item"><a href="sermons/biblestudies/" title="View Bible Study Teachings">Bible Study</a>	</li>
+				<li class="cat-item"><a href="sermons/sundayservices/" title="View Sunday Services' sermons">Sunday Worship Service</a>	</li>
+				<li class="cat-item"><a href="sermons/revivalservices/" title="View Thursday Revival Services' sermons">Thursday Revival Service</a></li>
 				<li class="cat-item"><a href="sermons/crusades/" title="You can optionally write a description for the topic here.">Monthly Revival Programs / Crusades</a></li>
 				<li class="cat-item"><a href="sermons/retreats/" title="View all posts filed under Worship">Retreats</a></li>
 			</ul>

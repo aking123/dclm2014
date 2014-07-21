@@ -6,7 +6,7 @@
 		<li><a href="sermons/"><div class="ctfw-header-menu-link-inner"><div class="ctfw-header-menu-link-title">Sermons</div><div class="ctfw-header-menu-link-description">Hear God</div></div></a>
 			<ul class="sub-menu">
 	<li><a href="sermons/biblestudies/">Bible Studies</a></li>
-	<li><a href="sermons/services/">Sunday and Revival Services</a></li>
+	<li><a href="sermons/sundayservices/">Sunday and Revival Services</a></li>
 	<li><a href="sermons/retreats/">Retreats</a></li>
 	<li><a href="sermons/crusades/">Crusades and Revival Programs</a></li>
 	<li><a href="sermons/youthcamp/">Youth Camps and Summits</a></li>

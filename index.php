@@ -10,9 +10,9 @@
 
 <!-- jQuery -->
 
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-   <script type='text/javascript' src='js/jquery/jquery.js'></script>
-   <script type='text/javascript' src='js/jquery/jquery-migrate.js'></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
+   <script type='text/javascript' src='js/jquery-migrate-1.2.1.js'></script>
 
 
    <script type='text/javascript'>

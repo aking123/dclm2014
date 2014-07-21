@@ -1,6 +1,5 @@
 <?php
 
-// BST, SWS, REV, CRU, RET, YTH
 // Define Continental location info (multi-dimensional) arrays
 $us_regions = array(array());
 

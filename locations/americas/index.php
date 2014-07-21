@@ -10,9 +10,9 @@
    <title>North American / Caribbean Locations - Deeper Christian Life Ministry</title>
 
 
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
-   <script type='text/javascript' src='js/jquery/jquery.js'></script>
-   <script type='text/javascript' src='js/jquery/jquery-migrate.js'></script>
+
    <script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
 
 	<!-- Nav_menu_scripts -->

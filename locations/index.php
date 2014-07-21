@@ -11,8 +11,7 @@
 
 
    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
-   <script type='text/javascript' src='js/jquery/jquery.js'></script>
-   <script type='text/javascript' src='js/jquery/jquery-migrate.js'></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
    <script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
 
@@ -150,7 +149,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 
 <div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
-	<article class="page hentry resurrect-entry-full ctfw-no-image">
+	<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-no-image">
 
 		<div class="resurrect-entry-content resurrect-clearfix">
 

@@ -25,8 +25,8 @@ sermon_data = array ("Sdate" => "yyyymmdd",
           )
 
 */
-$sermons[] = array("Sdate" => "20140707",
-                 "Title" => "Special Study: God&rsquo;s Faithfulness Releases us from Worry and Anxiety",
+$sermons[] = array("Sdate" => "20140714",
+                 "Title" => "Special Study: Unlimited Blessings for Christ Indwelt-Believers",
                  "Category" => "BST",
                  "Desc" => "Weekly Bible Study",
                  "High" => "https://s3.amazonaws.com/2014Services/MBS/HQMBS20140714Me.mp4",
@@ -37,7 +37,7 @@ $sermons[] = array("Sdate" => "20140707",
                  "Thumbs" => "http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/prodigal-square-400x400.jpg",
               );
 
-$sermons[] = array("Sdate" => "20140701",
+$sermons[] = array("Sdate" => "20140707",
                  "Title" => "Special Study: God&rsquo;s Faithfulness Releases us from Worry and Anxiety",
                  "Category" => "BST",
                  "Desc" => "Weekly Bible Study",
@@ -284,10 +284,10 @@ for ($s_ct=1; $s_ct < $sermon_nums; $s_ct++) {
     $rct_sermons .= '	<article class="ctc_sermon type-ctc_sermon has-post-thumbnail hentry resurrect-widget-entry resurrect-sermons-widget-entry resurrect-clearfix resurrect-widget-entry-first ctfw-has-image">';
     $rct_sermons .= '		<header class="resurrect-clearfix">';
     $rct_sermons .= '			<div class="resurrect-widget-entry-thumb">';
-    $rct_sermons .= '				<a href="' . $sermons[$rct]["Active"] . '" title="' . $sermons[$rct]["Title"] . '"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/prodigal-square-100x100.jpg" class="resurrect-image" alt="" /></a>';
+    $rct_sermons .= '				<a href="' . $sermons[$rct]["Active"] . '" title="' . htmlspecialchars($sermons[$rct]["Title"]) . '"><img width="100" height="100" src="http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/prodigal-square-100x100.jpg" class="resurrect-image" alt="" /></a>';
     $rct_sermons .= '			</div>';
 			
-    $rct_sermons .= '			<h1 class="resurrect-widget-entry-title"><a href="' . $sermons[$rct]["Active"] . '" title="' . $sermons[$rct]["Title"] . '">' . $sermons[$rct]["Title"] . '</a></h1>';
+    $rct_sermons .= '			<h1 class="resurrect-widget-entry-title"><a href="' . $sermons[$rct]["Active"] . '" title="' . htmlspecialchars($sermons[$rct]["Title"]) . '">' . htmlspecialchars($sermons[$rct]["Title"]) . '</a></h1>';
 
     $rct_sermons .= '				<ul class="resurrect-widget-entry-meta resurrect-clearfix">';
     $rct_sermons .= '					<li class="resurrect-widget-entry-date resurrect-sermons-widget-entry-date">';
