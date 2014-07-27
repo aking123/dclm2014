@@ -242,7 +242,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	<aside class="resurrect-widget resurrect-sidebar-widget widget_ctfw-sermons">
 	<!-- DCLM.org Recent_sermons -->
 <?php
-		include '../sermons/se_data.php';
+		include dirname(__FILE__) . '/../rct_sermons.php';
 		echo $rct_sermons ;
 ?>
 	<!-- /DCLM.org Recent_sermons -->

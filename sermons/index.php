@@ -106,13 +106,33 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 		
 	<!-- DCLM.org Sermons common data -->
 <?php 
-	include 'se_data.php';
+	include 'sermon_query.php';
 ?>
 	<!-- /sermon_main -->
 <?php
+//output data
+ $samon->getAll();
+ while($row = mysqli_fetch_array($samon->Result)) 
+ {
+	 // TODO: This foreach segment can be totally avoided if date transformation (as done below) is performed during sermon data insertion
+	foreach ( $row as $key => $value ) {
+		if ($key == "Sdate") {
+	   		$timestamp = strtotime($value);
+	   		$value = date('F dS \, Y', $timestamp);
+	  		$row[$key] = $value ; 
+		}
 
- for ($s_ct=1; $s_ct < $sermon_nums; $s_ct++) {
-    if (($s_ct == 1) || ($sermons[$s_ct]["Category"] != $sermons[$s_ct - 1]["Category"])) {
+	}
+	$sermons[] = $row;
+ }
+
+
+ $ndisplay = min(5, count($sermons)-1);
+ for ($s_ct=0; $s_ct <= $ndisplay; $s_ct++) {
+    //TODO: $Thumb should be different images for different sermon categories.
+    $Thumb = "http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/prodigal-square-400x400.jpg";
+
+    if (($s_ct == 0) || ($sermons[$s_ct]["Categ"] != $sermons[$s_ct - 1]["Categ"])) {
         echo '	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">';
 	echo '		<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">';
         echo '		<div class="resurrect-entry-content resurrect-clearfix">
@@ -121,28 +141,28 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	echo '		<section id="resurrect-loop-after-content" class="resurrect-loop-after-content">';
     }
 	
-    if (($sermons[$s_ct]["Thumbs"]) != "")
+    if (($Thumb) != "")
 	    echo '			<article class="ctc_sermon type-ctc_sermon hentry resurrect-entry-short resurrect-sermon-short">';
     else
 	    echo '			<article class="ctc_sermon type-ctc_sermon hentry resurrect-entry-short resurrect-sermon-short ctfw-no-image">';
 		
     echo '			<header class="resurrect-entry-header resurrect-clearfix">';
-    if (($sermons[$s_ct]["Thumbs"]) != "") {
+    if (($Thumb) != "") {
     echo '			<div class="resurrect-entry-image">';
-    echo '			<a href="sermons/" title="' . htmlspecialchars($sermons[$s_ct]["Title"]) .'"><img width="400" height="400" src="' . $sermons[$s_ct]["Thumbs"] . '" class="resurrect-image" alt="" /></a>		</div>';
+    echo '			<a href="sermons/" title="' . htmlspecialchars($sermons[$s_ct]["Title"]) .'"><img width="400" height="400" src="' . $Thumb . '" class="resurrect-image" alt="" /></a>		</div>';
     }
 	
     echo '		<div class="resurrect-entry-title-meta">';
 
     echo '				<h1 class="resurrect-entry-title">';
-    echo '				<a href="sermons/" title="' . htmlspecialchars($sermons[$s_ct]["Desc"]) . '">' . htmlspecialchars($sermons[$s_ct]["Title"]) . '</a>';
+    echo '				<a href="sermons/" title="' . htmlspecialchars($sermons[$s_ct]["Descr"]) . '">' . htmlspecialchars($sermons[$s_ct]["Title"]) . '</a>';
     echo '				</h1>';
 		
     echo '		<ul class="resurrect-entry-meta">';
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
     echo '				<span class="el-icon-folder-open"></span>';
-    echo '				<a class="dclm-sermon-category" href="sermons/biblestudies/" rel="tag">' . htmlspecialchars($sermons[$s_ct]["Desc"]) . '</a>';
+    echo '				<a class="dclm-sermon-category" href="sermons/biblestudies/" rel="tag">' . htmlspecialchars($sermons[$s_ct]["Descr"]) . '</a>';
     echo '			</li>';
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
@@ -200,7 +220,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
     echo '</footer> ';
  
     echo '	</article> ';
-    if (($s_ct == ($sermon_nums - 1)) || ($sermons[$s_ct]["Category"] != $sermons[$s_ct + 1]["Category"])) {
+    if (($s_ct == $ndisplay) || ($sermons[$s_ct]["Categ"] != $sermons[$s_ct + 1]["Categ"])) {
        echo '</section>'; 
        echo '		</div> ';
        echo '	</article> ';
@@ -208,18 +228,9 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
     }
 
 }
+ mysqli_close($samon->sto_rec);
 
 ?>
-	<nav class="resurrect-pagination resurrect-content-block resurrect-content-block-compact resurrect-clearfix">
-		<ul class='page-numbers'>
-			<li><span class='page-numbers current'>1</span></li>
-			<li><a class='page-numbers' href='sermons/page/2/'>2</a></li>
-			<li><a class='page-numbers' href='sermons/page/3/'>3</a></li>
-			<li><a class="next page-numbers" href="sermons/page/2/">Next <span class="resurrect-button-icon el-icon-arrow-right"></span></a></li>
-		</ul>
-	</nav>
-
-
 	</div>
 
 </div>
@@ -227,43 +238,10 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	<div id="resurrect-sidebar-right" role="complementary">
 		
-	    <aside id="ctfw-categories-1" class="resurrect-widget resurrect-sidebar-widget widget_ctfw-categories">
-			<h1 class="resurrect-widget-title">Services and Programs</h1>
-			<ul>
-				<li class="cat-item"><a href="sermons/biblestudies/" title="View Bible Study Teachings">Bible Study</a>	</li>
-				<li class="cat-item"><a href="sermons/sundayservices/" title="View Sunday Services' sermons">Sunday Worship Service</a>	</li>
-				<li class="cat-item"><a href="sermons/revivalservices/" title="View Thursday Revival Services' sermons">Thursday Revival Service</a></li>
-				<li class="cat-item"><a href="sermons/crusades/" title="You can optionally write a description for the topic here.">Monthly Revival Programs / Crusades</a></li>
-				<li class="cat-item"><a href="sermons/retreats/" title="View all posts filed under Worship">Retreats</a></li>
-			</ul>
-	    </aside>
-	    <aside id="ctfw-categories-3" class="resurrect-widget resurrect-sidebar-widget widget_ctfw-categories">
-		<h1 class="resurrect-widget-title">Conferences and Summits</h1>
-		<ul>
-			<li class="cat-item"><a href="sermons/youths/" title="Youth Summit">Youth Empowerment Summits</a>
-</li>
-			<li class="cat-item"><a href="sermons/youths/" title="Youth Camps">Success Academy For Youths</a>
-</li>
-			<li class="cat-item"><a href="sermons/europe/" title="European Program and Events">European Conferences</a>
-</li>
-			<li class="cat-item"><a href="sermons/americas/" title="European Program and Events">U.S. Conventions</a>
-</li>
-		</ul>
-	    </aside>
-	    <aside id="ctfw-categories-3" class="resurrect-widget resurrect-sidebar-widget widget_ctfw-categories">
-		<h1 class="resurrect-widget-title">Special Occasions</h1>
-		<ul>
-			<li class="cat-item"><a href="sermons/youths/" title="Youth Summit">Singles Seminars</a>
-</li>
-			<li class="cat-item"><a href="sermons/youths/" title="Youth Camps">Marriage and Family Seminars</a>
-</li>
-			<li class="cat-item"><a href="sermons/europe/" title="European Program and Events">Independence Program</a>
-</li>
-			<li class="cat-item"><a href="sermons/americas/" title="European Program and Events">Watch Night Services</a>
-</li>
-		</ul>
-	    </aside>
-	<aside id="tag_cloud-1" class="resurrect-widget resurrect-sidebar-widget widget_tag_cloud"><h1 class="resurrect-widget-title">Tags</h1><div class="tagcloud"><a href='http://demos.churchthemes.com/resurrect/sermon-tag/creation/' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>creation</a>
+<?php 
+	include 'sidebar-common.php';
+?>
+	    <aside id="tag_cloud-1" class="resurrect-widget resurrect-sidebar-widget widget_tag_cloud"><h1 class="resurrect-widget-title">Tags</h1><div class="tagcloud"><a href='http://demos.churchthemes.com/resurrect/sermon-tag/creation/' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>creation</a>
 <a href='http://demos.churchthemes.com/resurrect/sermon-tag/death/' class='tag-link-22' title='1 topic' style='font-size: 8pt;'>death</a>
 <a href='http://demos.churchthemes.com/resurrect/sermon-tag/evangelism/' class='tag-link-7' title='1 topic' style='font-size: 8pt;'>evangelism</a>
 <a href='http://demos.churchthemes.com/resurrect/sermon-tag/evil/' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>evil</a>
@@ -285,12 +263,10 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 <a href='http://demos.churchthemes.com/resurrect/sermon-tag/soul/' class='tag-link-52' title='1 topic' style='font-size: 8pt;'>soul</a>
 <a href='http://demos.churchthemes.com/resurrect/sermon-tag/temptation/' class='tag-link-54' title='1 topic' style='font-size: 8pt;'>temptation</a>
 <a href='http://demos.churchthemes.com/resurrect/sermon-tag/worship/' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>worship</a></div>
-</aside>		
+	    </aside>		
 
 
 	</div>
-
-
 
 		</div>
 

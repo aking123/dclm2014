@@ -52,7 +52,6 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 }
 </script>
-	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 
 </head>
 

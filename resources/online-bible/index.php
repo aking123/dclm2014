@@ -6,12 +6,11 @@
 	<!-- DCLM.org Head (common tags) -->
   <?php include '../../common/dclmweb-head.php'; ?>
 	<!-- /head_inc -->
+   <title>Online Bible - Deeper Christian Life Ministry</title>
 
-   <title>Crusades Archive - Deeper Christian Life Ministry</title>
 
-
-   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
 
 <script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
 
@@ -82,51 +81,61 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
   <?php include '../../common/dclmweb-nav.php'; ?>
 	<!-- /nav_inc -->
 				
-
 			</header>
 
-<div id="resurrect-content" class="resurrect-no-sidebar">
+
+<div id="resurrect-content" class="resurrect-has-sidebar">
 
 	<div id="resurrect-content-inner">
-
-		<div class="ctfw-breadcrumbs"><a href="./">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/crusades/">Crusades</a></div>
-
-        	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
-			<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">
-				<h1 class="resurrect-entry-title resurrect-main-title">Crusade Sermons and Testimonies</h1>
+<!-- Start_onlineBible --> 
+		<div class="ctfw-breadcrumbs"><a href="http://dclm.org/">Home</a> > <a href="resources/">Resources</a> > <a href="resources/online-bible/">Online Bible</a>
+		</div>
 		
-				<div class="resurrect-entry-content resurrect-clearfix">
-					<div class="resurrect-galleries-list gallery gallery-columns-3">
 
-	<!-- DCLM.org Crusade Sermons common data -->
-<?php 
-	include 'crusade_list.php';
+		<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
 
- for ($ct=1; $ct < count($crusades); $ct++) {
-	 echo'		<div class="resurrect-galleries-item gallery-item resurrect-caption-image">';
-	$dirname = str_replace("'", "", $crusades[$ct]["Title"]);
-	$dirname = str_replace(" ", "-", $dirname);
-        $json_enc = str_replace("'", "$$", json_encode($crusades[$ct]));
-//	echo'			<a class="crusade-json" href="sermons/crusades/' . $dirname .'" var=\'' . $json_enc . '\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
-	echo'			<a href="sermons/crusades/' . $dirname .'" onclick=\'loadCrusade(' . $json_enc . ')\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
-	echo'			<img src="images/crusades/' . $crusades[$ct]["Flyer"] . '" class="resurrect-image" alt="' . htmlspecialchars($crusades[$ct]["Title"]) . '" />';
-	echo'			<div class="resurrect-caption-image-caption">';
-	echo'					<div class="resurrect-caption-image-title">' . htmlspecialchars($crusades[$ct]["Title"]) . '</div>';
-	echo'					<div class="resurrect-caption-image-description">' . $crusades[$ct]["Date"] . '</div>';
-	echo'			</div>';
-	echo'			</a>';
-	echo'		</div>';
-	echo'	'; 
- }
-?>
-				
-					</div>
-				</div>
-			</article>
+		<article class="page type-page hentry resurrect-entry-full ctfw-no-image">
+			<h1 class="resurrect-entry-title resurrect-main-title">Online Bible</h1>
+
+		<div class="resurrect-entry-content resurrect-clearfix">
+
+			<p>
+		<script id="bw-widget-src" type="text/javascript" src="//bibles.org/widget/client"></script>
+		<script type="text/javascript">//
+		<![CDATA[
+		BIBLESEARCH.widget({
+			"background": "7F0E0E",
+			"placeholder": "Search for Bible passages and keywords ",
+			"selected": "eng-KJV",
+			"versions": "eng-KJV"
+		});
+		// ]]&gt;</script></p>
+		<p><strong>Listen to the Bible Online</strong><br />
+		<iframe src="http://www.faithcomesbyhearing.com/projects/streaming_player/widget-iframe.php?bible_id=ENGKJVC2DA&amp;size=600X150&amp;c_head_bg=820127&amp;c_head_border_bg=f6b149&amp;c_main_bg=e6e0c7&amp;c_head_txt=ffffff&amp;c_dl_txt=8b8265&amp;c_dl_bg=f6b149" height="150" width="600" frameborder="0" scrolling="no"></iframe></p>
 
 		</div>
+
+		</article>		
+		</div>
+<!-- End /onlineBible -->
 	</div>
 </div>
+
+
+	<div id="resurrect-sidebar-right" role="complementary">
+		
+		<aside class="resurrect-widget resurrect-sidebar-widget widget_ctfw-sermons">
+	<!-- DCLM.org Recent_sermons -->
+<?php
+	include dirname(__FILE__) . '/../../rct_sermons.php';
+
+	echo $rct_sermons ;
+?>
+	<!-- /DCLM.org Recent_sermons -->
+
+		</aside>
+
+	</div>
 
 
 
@@ -151,40 +160,6 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 </div>
 
 <!-- Container End -->
-<script type='text/javascript'>
-function loadCrusade(str) {	
-	var str;
-	var request = $.ajax({
-	url: "sermons/crusades/crusade_script.php",
-	type: "POST",
-	data: str,
-	async: false,
-	dataType: "html"
-	});
-
- 	return false; // this is so the browser doesn't follow the link
-}
-
-$(function() {
-	$(".crusade-json").click(function(){
-		var crusadeData = $.parseJSON(($(this).attr("var")));
-
-        	var request = $.ajax({
-			type: "POST",
-			url: "sermons/crusades/crusade_script.php",
-			data: crusadeData,
-			dataType: "html"
-		});
-
-//		$.each(crusadeData, function(key,value) {
-//			alert(key + ": " + value);
-//		});
-
-	});
-});
-
-
-</script>
 
 </body>
 </html>

@@ -106,14 +106,26 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 		
 	<!-- DCLM.org Sermons common data -->
 <?php
-   /*
-	include '../se_data.php';
-   */
-?>
-	<!-- /sermon_main -->
-<?php
-/*
- for ($s_ct=1; $s_ct < count($crusades); $s_ct++) {
+
+	include dirname(__FILE__) . '/../sermon_query.php';
+//  	<!-- /sermon_main -->
+
+//  	<!-- Crusade sermons -->
+ $samon->getCrusade("CRU");
+ while($row = mysqli_fetch_array($samon->Result)) 
+ {
+	 // TODO: This foreach segment can be totally avoided if date transformation (as done below) is performed during sermon data insertion
+	foreach ( $row as $key => $value ) {
+		if ($key == "Sdate") {
+	   		$timestamp = strtotime($value);
+	   		$value = date('F dS \, Y', $timestamp);
+	  		$row[$key] = $value ; 
+		}
+
+	}
+	$crusades[] = $row;
+ }
+ for ($s_ct=0; $s_ct <= (count($crusades) - 1); $s_ct++) { 
         echo '	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">';
 	echo '		<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">';
         echo '		<div class="resurrect-entry-content resurrect-clearfix">
@@ -127,14 +139,14 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
     echo '		<div class="resurrect-entry-title-meta">';
 
     echo '				<h1 class="resurrect-entry-title">';
-    echo '				<a href="sermons/" title="' . $crusades[$s_ct]["Desc"] . '">' . $crusades[$s_ct]["Title"] . '</a>';
+    echo '				<a href="sermons/" title="' . $crusades[$s_ct]["Descr"] . '">' . $crusades[$s_ct]["Title"] . '</a>';
     echo '				</h1>';
 		
     echo '		<ul class="resurrect-entry-meta">';
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
     echo '				<span class="el-icon-folder-open"></span>';
-    echo '				<a class="dclm-sermon-category" href="sermons/biblestudies/" rel="tag">' . $crusades[$s_ct]["Desc"] . '</a>';
+    echo '				<a class="dclm-sermon-category" href="sermons/biblestudies/" rel="tag">' . $crusades[$s_ct]["Descr"] . '</a>';
     echo '			</li>';
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
@@ -199,7 +211,8 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 }
 
-*/
+ mysqli_close($samon->sto_rec);
+
 ?>		
 	</div>
 
@@ -208,42 +221,9 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	<div id="resurrect-sidebar-right" role="complementary">
 		
-	    <aside id="ctfw-categories-1" class="resurrect-widget resurrect-sidebar-widget widget_ctfw-categories">
-			<h1 class="resurrect-widget-title">Services and Programs</h1>
-			<ul>
-				<li class="cat-item"><a href="sermons/biblestudies/" title="View Bible Study Teachings">Bible Study</a>	</li>
-				<li class="cat-item"><a href="sermons/sundayservices/" title="View Sunday Services' sermons">Sunday Worship Service</a>	</li>
-				<li class="cat-item"><a href="sermons/revivalservices/" title="View Thursday Revival Services' sermons">Thursday Revival Service</a></li>
-				<li class="cat-item"><a href="sermons/retreats/" title="View all posts filed under Worship">Retreats</a></li>
-			</ul>
-	    </aside>
-	    <aside id="ctfw-categories-3" class="resurrect-widget resurrect-sidebar-widget widget_ctfw-categories">
-		<h1 class="resurrect-widget-title">Conferences and Summits</h1>
-		<ul>
-			<li class="cat-item"><a href="sermons/youths/" title="Youth Summit">Youth Empowerment Summits</a>
-</li>
-			<li class="cat-item"><a href="sermons/youths/" title="Youth Camps">Success Academy For Youths</a>
-</li>
-			<li class="cat-item"><a href="sermons/europe/" title="European Program and Events">European Conferences</a>
-</li>
-			<li class="cat-item"><a href="sermons/americas/" title="European Program and Events">U.S. Conventions</a>
-</li>
-		</ul>
-	    </aside>
-	    <aside id="ctfw-categories-3" class="resurrect-widget resurrect-sidebar-widget widget_ctfw-categories">
-		<h1 class="resurrect-widget-title">Special Occasions</h1>
-		<ul>
-			<li class="cat-item"><a href="sermons/youths/" title="Youth Summit">Singles Seminars</a>
-</li>
-			<li class="cat-item"><a href="sermons/youths/" title="Youth Camps">Marriage and Family Seminars</a>
-</li>
-			<li class="cat-item"><a href="sermons/europe/" title="European Program and Events">Independence Program</a>
-</li>
-			<li class="cat-item"><a href="sermons/americas/" title="European Program and Events">Watch Night Services</a>
-</li>
-		</ul>
-	    </aside>
-
+<?php 
+	include dirname(__FILE__) . '/../sidebar-common.php';
+?>
 
 	</div>
 

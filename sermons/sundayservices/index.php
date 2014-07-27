@@ -2,6 +2,6 @@
 
  $thisPage = 1;
 
- include 'rev_template.php';
+ include 'sws_template.php';
 
 ?>
