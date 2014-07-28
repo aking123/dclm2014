@@ -179,37 +179,34 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	echo'	<div class="resurrect-entry-title-meta">';
 	echo'		<h3 class="resurrect-entry-title">' . $us_regions[$u_ct]["Name"] . ':</h3>';
-	echo'		<p>' .  $us_regions[$u_ct]["LocalChurches"] . '</p>';
+	if ($us_regions[$u_ct]["LocalChurches"] != ''){
+	echo'		<span>' .  $us_regions[$u_ct]["LocalChurches"] . '</span>';
+	}
 	echo'		<ul class="resurrect-entry-meta">';
 	if ($us_regions[$u_ct]["Address1"] != ''){
 	echo'			<li class="resurrect-location-address resurrect-content-icon">';
 	echo'				<span class="el-icon-map-marker"></span>';
-	echo' ';
 	echo'				' . $us_regions[$u_ct]["Address1"] . '<br/>';
-	echo'				' . $us_regions[$u_ct]["Address2"] ;
+		if ($us_regions[$u_ct]["Address2"] != '') echo'				' . $us_regions[$u_ct]["Address2"] ;
 	echo'			</li>';
-	echo'			';
 	}
 	if ($us_regions[$u_ct]["Phone"] != ''){
 	echo'			<li class="resurrect-location-phone resurrect-content-icon">';
 	echo'				<span class="el-icon-phone-alt"></span>';
 	echo'					' . $us_regions[$u_ct]["Phone"] ;
 	echo'			</li>';
-	echo'			';
 	}
 	if ($us_regions[$u_ct]["WebAddress"] != ''){
 	echo'			<li class="resurrect-location-webaddress resurrect-content-icon">';
 	echo'				<span class="el-icon-website-alt"></span>';
 	echo'				<a href="http://' . $us_regions[$u_ct]["WebAddress"] . '">' . $us_regions[$u_ct]["WebAddress"] . ' (Follow link for detailed location information)</a>';
 	echo'			</li>';
-	echo'';
 	}
 	if ($us_regions[$u_ct]["Email"] != ''){
 	echo'			<li class="resurrect-person-email resurrect-content-icon">';
 	echo'				<span class="el-icon-envelope"></span>';
 	echo'				<a href="mailto:' . $us_regions[$u_ct]["Email"] . '">' . $us_regions[$u_ct]["Email"] . '</a>';
 	echo'			</li>';
-	echo'';
 	}
 	if ($us_regions[$u_ct]["Pastor"] != ''){
 	echo'			<li class="resurrect-person-position resurrect-content-icon">';
@@ -220,9 +217,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	echo'		</ul>';
 	echo'	</div>';
 	echo'</header>';
-	echo'';
 	echo'</article>';
-	echo'';
 }
 ?>
 

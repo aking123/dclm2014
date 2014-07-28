@@ -1,7 +1,10 @@
 <?php
 
 //output data
- $samon->getCategory($categ);
+ if (($categ == 'BST') || ($categ == 'SWS') || ($categ == 'REV')) 
+	 $samon->getCategory($categ);
+ else
+	 $samon->getEvent($categ);
  while($row = mysqli_fetch_array($samon->Result)) 
  {
 	 // TODO: This foreach segment can be totally avoided if date transformation (as done below) is performed during sermon data insertion
@@ -15,6 +18,8 @@
 	}
 	$sermons[] = $row;
  }
+
+ $categ_link = dirname($tpl);
 
  $sermonTotal = count($sermons);
  if (fmod($sermonTotal,6) == 0)
@@ -47,7 +52,7 @@
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
     echo '				<span class="el-icon-folder-open"></span>';
-    echo '				<a class="dclm-sermon-category" href="sermons/biblestudies/" rel="tag">' . $sermons[$s_ct]["Descr"] . '</a>';
+    echo '				<a class="dclm-sermon-category" href="' . $categ_link .'" rel="tag">' . $sermons[$s_ct]["Descr"] . '</a>';
     echo '			</li>';
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';

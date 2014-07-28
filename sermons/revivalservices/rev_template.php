@@ -106,7 +106,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	include dirname(__FILE__) . '/../sermon_query.php';
 
 	$categ = "REV";
-	$page_link  = 'sermons/revivalservices/';
+	$tpl  = 'sermons/revivalservices/rev_template.php';
         include dirname(__FILE__) . '/../sermon_generic.php';  
 	//<!-- /sermon_main -->
 ?>

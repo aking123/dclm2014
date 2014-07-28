@@ -101,14 +101,13 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	<!-- DCLM.org Crusade Sermons common data -->
 <?php 
 	include 'crusade_list.php';
-
+ $tpl = "sermons/crusades/crusade_template.php";
  for ($ct=1; $ct < count($crusades); $ct++) {
 	 echo'		<div class="resurrect-galleries-item gallery-item resurrect-caption-image">';
-	$dirname = str_replace("'", "", $crusades[$ct]["Title"]);
-	$dirname = str_replace(" ", "-", $dirname);
-        $json_enc = str_replace("'", "$$", json_encode($crusades[$ct]));
-//	echo'			<a class="crusade-json" href="sermons/crusades/' . $dirname .'" var=\'' . $json_enc . '\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
-	echo'			<a href="sermons/crusades/' . $dirname .'" onclick=\'loadCrusade(' . $json_enc . ')\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
+	$linkname = str_replace("'", "", $crusades[$ct]["Title"]);
+	$linkname = str_replace(" ", "_", $linkname);
+	$page_link = "sermons/crusades/" . $linkname ;
+	echo'			<a href="' . $page_link .'" onclick=\'loadSermon("1", "' . $linkname . '", "' .$tpl. '")\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
 	echo'			<img src="images/crusades/' . $crusades[$ct]["Flyer"] . '" class="resurrect-image" alt="' . htmlspecialchars($crusades[$ct]["Title"]) . '" />';
 	echo'			<div class="resurrect-caption-image-caption">';
 	echo'					<div class="resurrect-caption-image-title">' . htmlspecialchars($crusades[$ct]["Title"]) . '</div>';
@@ -151,40 +150,6 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 </div>
 
 <!-- Container End -->
-<script type='text/javascript'>
-function loadCrusade(str) {	
-	var str;
-	var request = $.ajax({
-	url: "sermons/crusades/crusade_script.php",
-	type: "POST",
-	data: str,
-	async: false,
-	dataType: "html"
-	});
-
- 	return false; // this is so the browser doesn't follow the link
-}
-
-$(function() {
-	$(".crusade-json").click(function(){
-		var crusadeData = $.parseJSON(($(this).attr("var")));
-
-        	var request = $.ajax({
-			type: "POST",
-			url: "sermons/crusades/crusade_script.php",
-			data: crusadeData,
-			dataType: "html"
-		});
-
-//		$.each(crusadeData, function(key,value) {
-//			alert(key + ": " + value);
-//		});
-
-	});
-});
-
-
-</script>
 
 </body>
 </html>

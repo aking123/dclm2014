@@ -483,3 +483,22 @@ function resurrect_activate_menu() {
 
 }
 
+/******************************************
+ * NEW PAGE CREATION
+ *******************************************/
+// Ajax call to dynamically create new pages in sermons/
+
+function loadSermon(num, str1, str2) {	
+	var num, str1, str2;
+	if (str1 == 1) return true;
+	var request = $.ajax({
+	url: "sermons/sermons_pages.php",
+	type: "POST",
+	data: { pageNum: num, pageLink: str1, ptemplate: str2 },
+	async: false,
+	dataType: "html"
+	});
+
+ 	return false; // this is so the browser doesn't follow the link
+}
+

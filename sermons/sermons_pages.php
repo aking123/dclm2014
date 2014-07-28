@@ -4,11 +4,12 @@ session_start();
   if (isset($_SESSION["se_Page"]))
 	  unset($_SESSION["se_Page"]);
   $_SESSION["se_Page"] = $_POST;
-//  header('Location: ../test.php');
+  $pageParent = dirname($_POST["ptemplate"]);
+  $pageTemplate = basename($_POST["ptemplate"]);
 
 
   /* NOTE: PageDir is relative to the sermons directory */
-  $pageDir = '../' . $_SESSION["se_Page"]["pageParent"] . '/' . $_SESSION["se_Page"]["pageNum"];
+  $pageDir = '../' . $pageParent . '/' . $_POST["pageLink"];
   if (! is_dir($pageDir)) {
 	//echo "The directory $crusadeFile does not exist";
 	////Test with perm 0755
@@ -24,11 +25,9 @@ session_start();
   //}
 	
 //  fwrite($fp, 'if (!isset($_SESSION)) { session_start(); }'.PHP_EOL);
-  $stringData = '$thisPage = '. $_SESSION["se_Page"]["pageNum"] . ';'.PHP_EOL;
+  $stringData = '$thisPage = '. $_POST["pageNum"] . ';'.PHP_EOL;
   fwrite($fp, $stringData);
-//  $stringData = 'include dirname(__FILE__)."../../sermon_query.php";'.PHP_EOL;
-//  fwrite($fp, $stringData);
-  $stringData = 'include "../bst_template.php";'.PHP_EOL;
+  $stringData = 'include "../'. $pageTemplate. '";'.PHP_EOL;
   fwrite($fp, $stringData);
 //  fwrite($fp, 'session_destroy();'.PHP_EOL);
   fwrite($fp, '?>'.PHP_EOL);

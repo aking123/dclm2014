@@ -100,6 +100,99 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	<div id="resurrect-content-inner">
 
+<!-- Start Canada Locations main -->
+<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
+	<article class="page type-page hentry resurrect-entry-full">
+		<div class="resurrect-entry-content resurrect-clearfix">
+
+			<section id="resurrect-loop-after-content" class="resurrect-loop-after-content">
+		
+	<article class="ctc_location type-ctc_location hentry resurrect-entry-short resurrect-location-short ctfw-no-image">
+
+		
+<header class="resurrect-entry-header resurrect-clearfix">
+
+	<div class="resurrect-entry-title-meta">
+		<h1 class="resurrect-entry-title">Australia</h1>
+		<ul class="resurrect-entry-meta">
+			
+			<li class="resurrect-location-phone resurrect-content-icon">
+				<span class="el-icon-phone-alt"></span>
+					61 3 5443 8707 , 61 450191555
+			</li>
+			
+
+			<li class="resurrect-person-position resurrect-content-icon">
+				<span class="el-icon-adult"></span>
+				Contact: Bro Segun Adelana
+			</li>
+		</ul>
+	</div>
+</header>
+</article>
+
+<?php 
+	include 'aus_regions_list.php';
+
+ for ($u_ct=1; $u_ct < count($aus_regions); $u_ct++) {
+
+	echo'	<article class="resurrect-entry-short resurrect-location-short ctfw-no-image">';
+	
+//	echo'	<header class="resurrect-entry-header resurrect-clearfix">';
+	echo'	<div class="resurrect-entry-title-meta">';
+	echo'		<h3 class="resurrect-entry-title">' . $aus_regions[$u_ct]["Name"] . ':</h3>';
+	if ($aus_regions[$u_ct]["LocalChurches"] != ''){
+	echo'		<p>' .  $aus_regions[$u_ct]["LocalChurches"] . '</p>';
+	}
+	echo'		<ul class="resurrect-entry-meta">';
+	if ($aus_regions[$u_ct]["Address1"] != ''){
+	echo'			<li class="resurrect-location-address resurrect-content-icon">';
+	echo'				<span class="el-icon-map-marker"></span>';
+	echo' ';
+	echo'				' . $aus_regions[$u_ct]["Address1"] . '<br/>';
+		if ($aus_regions[$u_ct]["Address2"] != '') echo'				' . $aus_regions[$u_ct]["Address2"] . '<br/>';
+		if ($aus_regions[$u_ct]["Address3"] != '') echo'				' . $aus_regions[$u_ct]["Address3"] ;
+	echo'			</li>';
+	}
+	if ($aus_regions[$u_ct]["Phone"] != ''){
+	echo'			<li class="resurrect-location-phone resurrect-content-icon">';
+	echo'				<span class="el-icon-phone-alt"></span>';
+	echo'					' . $aus_regions[$u_ct]["Phone"] ;
+	echo'			</li>';
+	}
+	if ($aus_regions[$u_ct]["WebAddress"] != ''){
+	echo'			<li class="resurrect-location-webaddress resurrect-content-icon">';
+	echo'				<span class="el-icon-website-alt"></span>';
+	echo'				<a href="http://' . $aus_regions[$u_ct]["WebAddress"] . '">' . $aus_regions[$u_ct]["WebAddress"] . ' (Follow link for detailed location information)</a>';
+	echo'			</li>';
+	}
+	if ($aus_regions[$u_ct]["Email"] != ''){
+	echo'			<li class="resurrect-person-email resurrect-content-icon">';
+	echo'				<span class="el-icon-envelope"></span>';
+	echo'				<a href="mailto:' . $aus_regions[$u_ct]["Email"] . '">' . $aus_regions[$u_ct]["Email"] . '</a>';
+	echo'			</li>';
+	}
+	if ($aus_regions[$u_ct]["Pastor"] != ''){
+	echo'			<li class="resurrect-person-position resurrect-content-icon">';
+	echo'				<span class="el-icon-adult"></span>';
+	echo'				Regional Overseer: Pastor ' . $aus_regions[$u_ct]["Pastor"]  ;
+	echo'			</li>';
+	}
+	echo'		</ul>';
+	echo'	</div>';
+//	echo'</header>';
+	echo'';
+	echo'</article>';
+	echo'';
+}
+?>
+	
+</section>
+		</div>		
+
+	</article>
+</div>
+<!-- End Australia Location main -->
 		
 	</div>
 

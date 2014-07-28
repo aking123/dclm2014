@@ -38,7 +38,7 @@ $us_regions[] = array ("Name" => "Mid-Atlantic / South I",
           );
 	  
 $us_regions[] = array ("Name" => "Queens & Suburbs / South II",
-	         "LocalChurches" => "Queens, Nassau & Suffolk, Allegany, Cattaraugus, Chautauqua, Chemung, Erie, Genesee, Livingston, Monroe, Niagara, Ontario, Orleans, Seneca, Steuben, Wayne, Wyoming, Yates/ Tennessee, Louisiana, Kentucky, Arkansas, Mississippi, Virginia,Â District of Columbia, Maryland, Pennsylvania, Delaware/ Georgia, North Carolina, Alabama, Florida, South Carolina.",
+	         "LocalChurches" => "Queens, Nassau & Suffolk, Allegany, Cattaraugus, Chautauqua, Chemung, Erie, Genesee, Livingston, Monroe, Niagara, Ontario, Orleans, Seneca, Steuben, Wayne, Wyoming, Yates/ Tennessee, Louisiana, Kentucky, Arkansas, Mississippi, Virginia, District of Columbia, Maryland, Pennsylvania, Delaware/ Georgia, North Carolina, Alabama, Florida, South Carolina.",
                  "Address1" => "",
                  "Address2" => "",
                  "WebAddress" => "",

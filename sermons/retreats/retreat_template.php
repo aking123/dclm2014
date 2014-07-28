@@ -1,3 +1,4 @@
+<?php if (!isset($_SESSION)) { session_start(); } ?>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie8 no-js" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en-US"> <!--<![endif]-->
@@ -7,7 +8,8 @@
   <?php include '../../../common/dclmweb-head.php'; ?>
 	<!-- /head_inc -->
   <?php
-   echo '<title>'. $_SESSION["thisCrusade"]["Title"] .' - Deeper Christian Life Ministry</title>';
+	$pageTitle = str_replace("_", " ", $_SESSION["se_Page"]["pageLink"]);
+	echo '<title>'. htmlspecialchars($pageTitle) .' - Deeper Christian Life Ministry</title>';
   ?>
 
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -88,10 +90,10 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 		<img width="960" height="250" src="images/bible2-banner-960x250.jpg" class="attachment-resurrect-banner" alt="Bible 2 (Banner)" />
 		
 			<h1>
-				<a href="sermons/" title="Sermon Archive">Sermon Archive</a>
+				<a href="sermons/" title="Sermon Archive">Sermon Archive - Retreats</a>
 			</h1>
 
-			<div class="ctfw-breadcrumbs"><a href="http://dclm.org/">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/crusades/">Crusades</a></div>
+			<div class="ctfw-breadcrumbs"><a href="http://dclm.org/">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/retreats/">Retreats</a></div>
 		
 	</div>
 
@@ -105,101 +107,15 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 		
 	<!-- DCLM.org Sermons common data -->
 <?php
-   /*
-	include '../se_data.php';
-   */
-?>
-	<!-- /sermon_main -->
-<?php
-/*
- for ($s_ct=1; $s_ct < count($crusades); $s_ct++) {
-        echo '	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">';
-	echo '		<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">';
-        echo '		<div class="resurrect-entry-content resurrect-clearfix">
-';
-	echo '		<section id="resurrect-loop-after-content" class="resurrect-loop-after-content">';
-	
-    echo '			<article class="ctc_sermon type-ctc_sermon hentry resurrect-entry-short resurrect-sermon-short ctfw-no-image">';
-		
-    echo '			<header class="resurrect-entry-header resurrect-clearfix">';
-	
-    echo '		<div class="resurrect-entry-title-meta">';
+	include dirname(__FILE__) . '/../sermon_query.php';
 
-    echo '				<h1 class="resurrect-entry-title">';
-    echo '				<a href="sermons/" title="' . $crusades[$s_ct]["Desc"] . '">' . $crusades[$s_ct]["Title"] . '</a>';
-    echo '				</h1>';
-		
-    echo '		<ul class="resurrect-entry-meta">';
-
-    echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
-    echo '				<span class="el-icon-folder-open"></span>';
-    echo '				<a class="dclm-sermon-category" href="sermons/biblestudies/" rel="tag">' . $crusades[$s_ct]["Desc"] . '</a>';
-    echo '			</li>';
-
-    echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
-    echo '				<span class="el-icon-calendar"></span>';
-    echo '				<time datetime="2014-06-23T14:09:39+00:00">' . $crusades[$s_ct]["Sdate"] . '</time>';
-    echo '			</li> ';
-    echo '		</ul> ';
-
-    echo '	</div>';
-
-    echo '</header>';
-
-    echo '<footer class="resurrect-entry-footer resurrect-clearfix">';
-    echo '		<ul class="resurrect-entry-footer-item resurrect-list-buttons"> ';
-    if (($crusades[$s_ct]["High"] != "") && ($crusades[$s_ct]["Low"] != "")) {
-	echo '			<li> ';
-	echo '			<a href="'  . $crusades[$s_ct]["High"] . '" title="Download High Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>High</a>';
-	echo '	</li> ';
-	echo '			<li> ';
-	echo '			<a href="'  . $crusades[$s_ct]["Low"] . '" title="Download Low Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>Low</a>';
-	echo '	</li> ';
-    }	
-    else if ($crusades[$s_ct]["High"] != "") {
-	echo '			<li> ';
-	echo '			<a href="'  . $crusades[$s_ct]["High"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
-	echo '	</li> ';
-    }
-    else if ($crusades[$s_ct]["Low"] != "") {
-	echo '			<li> ';
-	echo '			<a href="'  . $crusades[$s_ct]["Low"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
-	echo '	</li> ';
-    }
-    if ($crusades[$s_ct]["Outline"] != "") {
-        echo '		<li>';
-        echo '			<a href="'  . $crusades[$s_ct]["Outline"] . '" title="Read Sermon Outline"><span class="resurrect-button-icon el-icon-book"></span>	Outline	</a>';
-	echo '		</li> ';
-    }
-    if (($crusades[$s_ct]["High"] != "") || ($crusades[$s_ct]["Low"] != "")) {
-	if ($crusades[$s_ct]["High"] != "")
-		$video_to_show = $crusades[$s_ct]["High"] ;
-	else
-		$video_to_show = $crusades[$s_ct]["Low"] ;
-        echo '	        <li>  ';
-	echo '		<a href="' . $video_to_show . '?player=video"><span class="resurrect-button-icon el-icon-video"></span>Watch</a> ';
-        echo ' 		</li> ';
-    }
-    if ($crusades[$s_ct]["Audio"] != "") {
-        echo '		<li>';
-        echo '			<a href="' . $crusades[$s_ct]["Audio"] . '?player=audio"><span class="resurrect-button-icon el-icon-headphones"></span>Listen</a> ';
-        echo '		</li> ';
-    }    
-    echo '	</ul> ';
-
-    echo '</footer> ';
- 
-    echo '	</article> ';
-
-       echo '</section>'; 
-       echo '		</div> ';
-       echo '	</article> ';
-       echo '		</div>';
-
-}
-
-*/
+//  	<!-- Crusade sermons -->
+	$categ = "RET";
+	$tpl  = 'sermons/retreats/retreat_template.php' ;
+        include dirname(__FILE__) . '/../sermon_generic.php';  
+	//<!-- /sermon_main -->
 ?>		
+	
 	</div>
 
 </div>

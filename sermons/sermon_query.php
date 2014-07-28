@@ -52,9 +52,9 @@ class sermon
 		$this->conn();		
 	}
 		
-	function getCrusade($searchTerm)
+	function getEvent($thisEvent)
 	{
-		$this->query = 'SELECT * FROM sermon_data WHERE Categ="'. $searchTerm .'" ORDER BY Sdate DESC LIMIT 5';
+		$this->query = 'SELECT * FROM sermon_data WHERE Categ="'. $thisEvent .'" ORDER BY Sdate DESC LIMIT 5';
 		$this->conn();		
 	}
 		

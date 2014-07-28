@@ -101,6 +101,93 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	<div id="resurrect-content-inner">
 
+<!-- Start Canada Locations main -->
+<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
+	<article class="page type-page hentry resurrect-entry-full">
+		<div class="resurrect-entry-content resurrect-clearfix">
+
+			<section id="resurrect-loop-after-content" class="resurrect-loop-after-content">
+		
+	<article class="ctc_location type-ctc_location hentry resurrect-entry-short resurrect-location-short ctfw-no-image">
+
+		
+<header class="resurrect-entry-header resurrect-clearfix">
+
+	<div class="resurrect-entry-title-meta">
+		<h1 class="resurrect-entry-title">United Kingdom</h1>
+		<span> We have multiple churches in the U.K. organized into Regions to better serve you. Please visit one of our regional sites below for more detailed information.</span>
+		<ul class="resurrect-entry-meta">
+			
+			<li class="resurrect-location-webaddress resurrect-content-icon">
+				<span class="el-icon-website-alt"></span>
+				<a href="http://dclm-liverpool.org.uk/DCLMUK/CHURCH%20LOCATIONS%20AND%20ADDRESSES.pdf">DOWNLOAD FULL LIST OF OUR CHURCHES HERE</a> 
+			</li>
+		</ul>
+	</div>
+</header>
+</article>
+<?php 
+	include 'uk_regions_list.php';
+
+ for ($u_ct=1; $u_ct < count($uk_regions); $u_ct++) {
+
+	echo'	<article class="resurrect-entry-short resurrect-location-short ctfw-no-image">';
+	
+//	echo'	<header class="resurrect-entry-header resurrect-clearfix">';
+	echo'	<div class="resurrect-entry-title-meta">';
+	echo'		<h3 class="resurrect-entry-title">' . $uk_regions[$u_ct]["Name"] . ':</h3>';
+	if ($uk_regions[$u_ct]["LocalChurches"] != ''){
+	echo'		<span>' .  $uk_regions[$u_ct]["LocalChurches"] . '</span>';
+	}
+	echo'		<ul class="resurrect-entry-meta">';
+	if ($uk_regions[$u_ct]["Address1"] != ''){
+	echo'			<li class="resurrect-location-address resurrect-content-icon">';
+	echo'				<span class="el-icon-map-marker"></span>';
+	echo' ';
+	echo'				' . $uk_regions[$u_ct]["Address1"] . '<br/>';
+		if ($uk_regions[$u_ct]["Address2"] != '') echo'				' . $uk_regions[$u_ct]["Address2"] . '<br/>';
+		if ($uk_regions[$u_ct]["Address3"] != '') echo'				' . $uk_regions[$u_ct]["Address3"] ;
+	echo'			</li>';
+	}
+	if ($uk_regions[$u_ct]["Phone"] != ''){
+	echo'			<li class="resurrect-location-phone resurrect-content-icon">';
+	echo'				<span class="el-icon-phone-alt"></span>';
+	echo'					' . $uk_regions[$u_ct]["Phone"] ;
+	echo'			</li>';
+	}
+	if ($uk_regions[$u_ct]["WebAddress"] != ''){
+	echo'			<li class="resurrect-location-webaddress resurrect-content-icon">';
+	echo'				<span class="el-icon-website-alt"></span>';
+	echo'				<a href="http://' . $uk_regions[$u_ct]["WebAddress"] . '">' . $uk_regions[$u_ct]["WebAddress"] . ' </a>';
+	echo'			</li>';
+	}
+	if ($uk_regions[$u_ct]["Email"] != ''){
+	echo'			<li class="resurrect-person-email resurrect-content-icon">';
+	echo'				<span class="el-icon-envelope"></span>';
+	echo'				<a href="mailto:' . $uk_regions[$u_ct]["Email"] . '">' . $uk_regions[$u_ct]["Email"] . '</a>';
+	echo'			</li>';
+	}
+	if ($uk_regions[$u_ct]["Pastor"] != ''){
+	echo'			<li class="resurrect-person-position resurrect-content-icon">';
+	echo'				<span class="el-icon-adult"></span>';
+	echo'				Regional Overseer: Pastor ' . $uk_regions[$u_ct]["Pastor"]  ;
+	echo'			</li>';
+	}
+	echo'		</ul>';
+	echo'	</div>';
+//	echo'</header>';
+	echo'';
+	echo'</article>';
+	echo'';
+}
+?>
+
+</section>
+		</div>		
+
+	</article>
+</div>
+<!-- End Australia Location main -->
 		
 	</div>
 
