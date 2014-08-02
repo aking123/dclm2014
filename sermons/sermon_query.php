@@ -59,7 +59,6 @@ class sermon
 	}
 		
 	function conn(){
-		mysqli_select_db($this->sto_rec, "dclm_sermon2") or die("could not connect");
 		$this->Result = mysqli_query($this->sto_rec, $this->encodeChar($this->query));
 	}	
 	

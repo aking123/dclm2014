@@ -7,21 +7,27 @@
  $db = new database(); // Initiate a new database connection
  $link = $db->get_link();
 
- function insertArr($tableName, $insData)
+ function insertArr($tableName, $insData, $mylink)
  {
 	//$db = new database();
 	$columns = implode(", ",array_keys($insData));
-	$escaped_values = array_map('mysql_real_escape_string', array_values($insData));
-	foreach ($escaped_values as $idx=>$data) $escaped_values[$idx] = "'".$data."'";
+
+        array_walk(array_values($insData), function(&$string) use ($mylink) { 
+        $string = mysqli_real_escape_string($mylink, $string);
+        });
+	$escaped_values = array_values($insData);
+
+	foreach ($escaped_values as $idx=>$data) $escaped_values[$idx] = '"'.$data.'"';
 	$values  = implode(", ", $escaped_values);
 	return $query = "INSERT INTO $tableName ($columns) VALUES ($values)";
  }
 
 //$link = connect_to_db();
 
-$whatToDo = 'insert_sermons'; 
+$whatToDo = 'sermons'; 
 
 if ($whatToDo == 'sermons') {
+   /* ****  
    $my_db = "dclm_sermon2";
    $db_selected = mysqli_select_db($link, $my_db);
    if (!$db_selected) {
@@ -34,7 +40,8 @@ if ($whatToDo == 'sermons') {
           echo 'Error creating database: ' . mysqli_error($link) . "\n";
       }
    }
-	
+   */
+
 // -----------------Create Sermon categories ---------------------------------
   $dbtable = 'category';
 
@@ -79,18 +86,16 @@ if ($whatToDo == 'sermons') {
   }
   echo $dbtable.' table successfully created. <br>';
 
-} // End dclm_sermon DB 
+//} // End dclm_sermon DB 
 
 
-if ($whatToDo == 'insert_sermons') {
+//if ($whatToDo == 'insert_sermons') {
 // -----------------Insert sertmon data into its table------------------------
-   mysqli_select_db($link, "dclm_sermon2") or die("could not connect");
-	
    $dbtable = 'sermon_data';
 
    include '../sermons/se_data2.php';
    for ($ct=1; $ct < count($sermons); $ct++) {
-      $thequery = insertArr($dbtable, $sermons[$ct]);
+      $thequery = insertArr($dbtable, $sermons[$ct], $link);
 
       if (!mysqli_query($link, $thequery)) {
          echo 'Error inserting data for sermon: ' . mysqli_error($link) .'<br>';

@@ -10,6 +10,7 @@ class database{
 	$this->database = $dbInfo['host'];
         $this->mysql_user = $dbInfo['user'];
         $this->mysql_pass = $dbInfo['pass'];
+        $this->database_name = $dbname;
         $this->openConnection();
         return $this->get_link();
     }
@@ -26,6 +27,11 @@ class database{
 		exit();
 	}
 
+	if (!mysqli_select_db($this->databaseLink, $this->database_name))
+	{
+	   echo 'Unable to locate the ' .$this->database_name . ' database.'.'<br>';
+	   exit();
+	}
     }
 
     function get_link(){

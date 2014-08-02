@@ -10,9 +10,9 @@
 	<li><a href="sermons/retreats/">Retreats</a></li>
 	<li><a href="sermons/crusades/">Crusades and Revival Programs</a></li>
 	<li><a href="sermons/youthcamp/">Youth Camps and Summits</a></li>
-	<li><a href="sermons/retreats/">Seminars</a></li>
+	<li><a href="sermons/seminars/">Seminars</a></li>
 	<li><a href="sermons/conferences/">European / North American Conferences</a></li>
-	<li><a href="sermons/retreats/">Special Occassions</a></li>
+	<li><a href="sermons/special_occassions/">Special Occassions</a></li>
 			</ul>
 		</li>
 		<li><a><div class="ctfw-header-menu-link-inner"><div class="ctfw-header-menu-link-title">About Us</div><div class="ctfw-header-menu-link-description">Know Us</div></div></a>
