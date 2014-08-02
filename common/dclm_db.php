@@ -5,11 +5,9 @@
 class database{
     protected $databaseLink;
     function __construct(){
-	//  include "dbSettings.php";
-	$dbInfo = array('host' => 'localhost',
-			'user' => 'root',
-			'pass' => '');
-        $this->database = $dbInfo['host'];
+	include dirname(__FILE__) ."/siteinfo.php";
+
+	$this->database = $dbInfo['host'];
         $this->mysql_user = $dbInfo['user'];
         $this->mysql_pass = $dbInfo['pass'];
         $this->openConnection();

@@ -1,6 +1,5 @@
 <?php
-  $sitename = "localhost";
-  $site_basename = "dclm2014";
+	require_once(dirname(__FILE__) ."/siteinfo.php");
 ?>
   <meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
