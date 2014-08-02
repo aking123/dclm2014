@@ -15,10 +15,10 @@
 	<li><a href="sermons/retreats/">Special Occassions</a></li>
 			</ul>
 		</li>
-		<li><a href="#"><div class="ctfw-header-menu-link-inner"><div class="ctfw-header-menu-link-title">About Us</div><div class="ctfw-header-menu-link-description">Know Us</div></div></a>
+		<li><a><div class="ctfw-header-menu-link-inner"><div class="ctfw-header-menu-link-title">About Us</div><div class="ctfw-header-menu-link-description">Know Us</div></div></a>
 			<ul class="sub-menu">
 	<li><a href="aboutus/about-us/">The Ministry</a></li>
-	<li><a href="aboutus/what-we-believe/">What We Believe</a></li>
+	<li><a href="aboutus/bibledoctrines/">What We Believe</a></li>
 	<li><a href="aboutus/ministries/">Our Ministries</a>
 		<ul class="sub-menu">
 			<li><a href="aboutus/ministries/women-ministry/">Women Ministry</a></li>

@@ -1638,7 +1638,21 @@ body {
 	margin-right: 276px;
 }
 
+.dclm-has-left-sidebar  {
+	padding: 0px;
+}
+.dclm-has-left-sidebar .resurrect-entry-content  {
+	margin-left: 220px;
+}
+
 /* Sidebar */
+
+.dclm-left-sidebar {
+	float: left;
+	width: 210px;
+	margin-top: 10px;
+	margin-left: -210px; /* width + border */
+}
 
 #resurrect-sidebar-right {
 	float: right;

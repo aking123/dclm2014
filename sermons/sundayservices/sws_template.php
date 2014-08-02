@@ -106,7 +106,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	require(dirname(__FILE__) . '/../sermon_query.php');
 
 	$categ = "SWS";
-	$tpl  = 'sermons/sundayservices/sws_template.php';
+	$tpl  = 'sws_template.php';
         include dirname(__FILE__) . '/../sermon_generic.php';  
 	//<!-- /sermon_main -->
 

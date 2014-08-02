@@ -7,7 +7,7 @@
   <?php include '../../common/dclmweb-head.php'; ?>
 	<!-- /head_inc -->
 
-   <title>Crusades Archive - Deeper Christian Life Ministry</title>
+   <title>Retreat Sermons Archive - Deeper Christian Life Ministry</title>
 
 
    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
@@ -89,30 +89,31 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	<div id="resurrect-content-inner">
 
-		<div class="ctfw-breadcrumbs"><a href="./">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/crusades/">Crusades</a></div>
+		<div class="ctfw-breadcrumbs"><a href="./">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/retreats/">Retreats</a></div>
 
         	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
 			<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">
-				<h1 class="resurrect-entry-title resurrect-main-title">Crusade Sermons and Testimonies</h1>
+				<h1 class="resurrect-entry-title resurrect-main-title">Retreats Sermons</h1>
 		
 				<div class="resurrect-entry-content resurrect-clearfix">
 					<div class="resurrect-galleries-list gallery gallery-columns-3">
 
 	<!-- DCLM.org Crusade Sermons common data -->
 <?php 
-	include 'crusade_list.php';
+ //include 'crusade_list.php';
+ $retreats =array(array()) ;
  $tpl = "../events_template.php";
- for ($ct=1; $ct < count($crusades); $ct++) {
+ for ($ct=1; $ct < count($retreats); $ct++) {
 	 echo'		<div class="resurrect-galleries-item gallery-item resurrect-caption-image">';
-	$linkname = str_replace("'", "", $crusades[$ct]["Title"]);
+	$linkname = str_replace("'", "", $retreats[$ct]["Title"]);
 	$linkname = str_replace(" ", "_", $linkname);
-	$page_link = "sermons/crusades/" . $linkname ;
+	$page_link = "sermons/retreats/" . $linkname ;
 	$json_enc = array("pageNum" => "1", "pageLink" => $page_link, "ptemplate" => $tpl);
-	echo'			<a href="' . $page_link .'" onclick=\'loadSermon(' . json_encode($json_enc) . ')\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
-	echo'			<img src="images/crusades/' . $crusades[$ct]["Flyer"] . '" class="resurrect-image" alt="' . htmlspecialchars($crusades[$ct]["Title"]) . '" />';
+	echo'			<a href="' . $page_link .'" onclick=\'loadSermon(' . json_encode($json_enc) . ')\' title="' . htmlspecialchars($retreats[$ct]["Title"]) . '">';
+	echo'			<img src="images/retreats/' . $retreats[$ct]["Flyer"] . '" class="resurrect-image" alt="' . htmlspecialchars($retreats[$ct]["Title"]) . '" />';
 	echo'			<div class="resurrect-caption-image-caption">';
-	echo'					<div class="resurrect-caption-image-title">' . htmlspecialchars($crusades[$ct]["Title"]) . '</div>';
-	echo'					<div class="resurrect-caption-image-description">' . $crusades[$ct]["Date"] . '</div>';
+	echo'					<div class="resurrect-caption-image-title">' . htmlspecialchars($retreats[$ct]["Title"]) . '</div>';
+	echo'					<div class="resurrect-caption-image-description">' . $retreats[$ct]["Date"] . '</div>';
 	echo'			</div>';
 	echo'			</a>';
 	echo'		</div>';

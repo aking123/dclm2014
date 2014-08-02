@@ -6,12 +6,11 @@
 	<!-- DCLM.org Head (common tags) -->
   <?php include '../../common/dclmweb-head.php'; ?>
 	<!-- /head_inc -->
+   <title>What We Believe - Deeper Christian Life Ministry</title>
 
-   <title>Crusades Archive - Deeper Christian Life Ministry</title>
 
-
-   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
 
 <script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
 
@@ -82,49 +81,44 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
   <?php include '../../common/dclmweb-nav.php'; ?>
 	<!-- /nav_inc -->
 				
-
 			</header>
+
 
 <div id="resurrect-content" class="resurrect-no-sidebar">
 
 	<div id="resurrect-content-inner">
 
-		<div class="ctfw-breadcrumbs"><a href="./">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/crusades/">Crusades</a></div>
-
-        	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
-			<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">
-				<h1 class="resurrect-entry-title resurrect-main-title">Crusade Sermons and Testimonies</h1>
+		<div class="ctfw-breadcrumbs"><a href="http://dclm.org/">Home</a> > <a>About Us</a> > <a href="about-us/bibledoctrines/">What We Believe</a>
+		</div>
 		
-				<div class="resurrect-entry-content resurrect-clearfix">
-					<div class="resurrect-galleries-list gallery gallery-columns-3">
 
-	<!-- DCLM.org Crusade Sermons common data -->
-<?php 
-	include 'crusade_list.php';
- $tpl = "../events_template.php";
- for ($ct=1; $ct < count($crusades); $ct++) {
-	 echo'		<div class="resurrect-galleries-item gallery-item resurrect-caption-image">';
-	$linkname = str_replace("'", "", $crusades[$ct]["Title"]);
-	$linkname = str_replace(" ", "_", $linkname);
-	$page_link = "sermons/crusades/" . $linkname ;
-	$json_enc = array("pageNum" => "1", "pageLink" => $page_link, "ptemplate" => $tpl);
-	echo'			<a href="' . $page_link .'" onclick=\'loadSermon(' . json_encode($json_enc) . ')\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
-	echo'			<img src="images/crusades/' . $crusades[$ct]["Flyer"] . '" class="resurrect-image" alt="' . htmlspecialchars($crusades[$ct]["Title"]) . '" />';
-	echo'			<div class="resurrect-caption-image-caption">';
-	echo'					<div class="resurrect-caption-image-title">' . htmlspecialchars($crusades[$ct]["Title"]) . '</div>';
-	echo'					<div class="resurrect-caption-image-description">' . $crusades[$ct]["Date"] . '</div>';
-	echo'			</div>';
-	echo'			</a>';
-	echo'		</div>';
-	echo'	'; 
- }
-?>
-				
-					</div>
-				</div>
-			</article>
+		<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
+
+		<article class="page type-page hentry resurrect-entry-full ctfw-no-image">
+			<h1 class="resurrect-entry-title resurrect-main-title">What We Believe</h1>
+
+		</article>		
+		</div>
+
+		<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix dclm-has-left-sidebar">
+			<div class="resurrect-entry-content resurrect-clearfix">
+
+			<section id="resurrect-loop-after-content" class="resurrect-loop-after-content">
+		
+
+			</section>
+			</div>		
+			<div class="resurrect-entry-content dclm-left-sidebar resurrect-clearfix">
+
+			<section id="resurrect-loop-after-content" class="resurrect-loop-after-content">
+		
+
+			</section>
+			</div>		
 
 		</div>
+<!-- End Location main -->
+
 	</div>
 </div>
 

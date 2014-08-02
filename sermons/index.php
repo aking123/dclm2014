@@ -132,6 +132,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
     //TODO: $Thumb should be different images for different sermon categories.
     $Thumb = "http://demos-cdn.churchthemes.com/resurrect/wp-content/uploads/sites/2/2013/06/prodigal-square-400x400.jpg";
 
+    $json_enc = json_encode($sermons[$s_ct]);
     if (($s_ct == 0) || ($sermons[$s_ct]["Categ"] != $sermons[$s_ct - 1]["Categ"])) {
         echo '	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">';
 	echo '		<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">';
@@ -155,7 +156,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
     echo '		<div class="resurrect-entry-title-meta">';
 
     echo '				<h1 class="resurrect-entry-title">';
-    echo '				<a href="sermons/" title="' . htmlspecialchars($sermons[$s_ct]["Descr"]) . '">' . htmlspecialchars($sermons[$s_ct]["Title"]) . '</a>';
+    echo '				<a href="sermons/player/?player=video" onclick=\'loadSermon('. $json_enc .')\' title="' . htmlspecialchars($sermons[$s_ct]["Descr"]) . '">' . htmlspecialchars($sermons[$s_ct]["Title"]) . '</a>';
     echo '				</h1>';
 		
     echo '		<ul class="resurrect-entry-meta">';
@@ -167,7 +168,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
     echo '			<li class="resurrect-entry-date resurrect-content-icon"> ';
     echo '				<span class="el-icon-calendar"></span>';
-    echo '				<time datetime="2014-06-23T14:09:39+00:00">' . $sermons[$s_ct]["Sdate"] . '</time>';
+    echo '				<time datetime="' . $sermons[$s_ct]["Sdate"] . '">' . $sermons[$s_ct]["Sdate"] . '</time>';
     echo '			</li> ';
     echo '		</ul> ';
 
@@ -179,25 +180,25 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
     echo '		<ul class="resurrect-entry-footer-item resurrect-list-buttons"> ';
     if (($sermons[$s_ct]["High"] != "") && ($sermons[$s_ct]["Low"] != "")) {
 	echo '			<li> ';
-	echo '			<a href="'  . $sermons[$s_ct]["High"] . '" title="Download High Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>High</a>';
+	echo '			<a href="download/?link='  . $sermons[$s_ct]["High"] . '" title="Download High Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>High</a>';
 	echo '	</li> ';
 	echo '			<li> ';
-	echo '			<a href="'  . $sermons[$s_ct]["Low"] . '" title="Download Low Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>Low</a>';
+	echo '			<a href="download/?link='  . $sermons[$s_ct]["Low"] . '" title="Download Low Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>Low</a>';
 	echo '	</li> ';
     }	
     else if ($sermons[$s_ct]["High"] != "") {
 	echo '			<li> ';
-	echo '			<a href="'  . $sermons[$s_ct]["High"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
+	echo '			<a href="download/?link='  . $sermons[$s_ct]["High"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
 	echo '	</li> ';
     }
     else if ($sermons[$s_ct]["Low"] != "") {
 	echo '			<li> ';
-	echo '			<a href="'  . $sermons[$s_ct]["Low"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
+	echo '			<a href="download/?link='  . $sermons[$s_ct]["Low"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
 	echo '	</li> ';
     }
     if ($sermons[$s_ct]["Outline"] != "") {
         echo '		<li>';
-        echo '			<a href="'  . $sermons[$s_ct]["Outline"] . '" title="Read Sermon Outline"><span class="resurrect-button-icon el-icon-book"></span>	Outline	</a>';
+        echo '			<a href="download/?link='  . $sermons[$s_ct]["Outline"] . '" title="Read Sermon Outline"><span class="resurrect-button-icon el-icon-book"></span>	Outline	</a>';
 	echo '		</li> ';
     }
     if (($sermons[$s_ct]["High"] != "") || ($sermons[$s_ct]["Low"] != "")) {
@@ -207,12 +208,12 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	else
 		$video_to_show = $sermons[$s_ct]["Low"] ;
         echo '	        <li>  ';
-	echo '		<a href="' . $video_to_show . '?player=video"><span class="resurrect-button-icon el-icon-video"></span>Watch</a> ';
+	echo '		<a href="sermons/player/?player=video" onclick=\'loadSermon('. $json_enc .')\'><span class="resurrect-button-icon el-icon-video"></span>Watch</a> ';
         echo ' 		</li> ';
     }
     if ($sermons[$s_ct]["Audio"] != "") {
         echo '		<li>';
-        echo '			<a href="' . $sermons[$s_ct]["Audio"] . '?player=audio"><span class="resurrect-button-icon el-icon-headphones"></span>Listen</a> ';
+        echo '			<a href="sermons/player/?player=audio" onclick=\'loadSermon('. $json_enc .')\'><span class="resurrect-button-icon el-icon-headphones"></span>Listen</a> ';
         echo '		</li> ';
     }    
     echo '	</ul> ';

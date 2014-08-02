@@ -488,13 +488,12 @@ function resurrect_activate_menu() {
  *******************************************/
 // Ajax call to dynamically create new pages in sermons/
 
-function loadSermon(num, str1, str2) {	
-	var num, str1, str2;
-	if (str1 == 1) return true;
+function loadSermon(json_enc) {	
+	var json_enc;
 	var request = $.ajax({
 	url: "sermons/sermons_pages.php",
 	type: "POST",
-	data: { pageNum: num, pageLink: str1, ptemplate: str2 },
+	data: json_enc,
 	async: false,
 	dataType: "html"
 	});

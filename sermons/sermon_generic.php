@@ -19,7 +19,7 @@
 	$sermons[] = $row;
  }
 
- $categ_link = dirname($tpl);
+ $categ_link = $pageParent;
 
  $sermonTotal = count($sermons);
  if (fmod($sermonTotal,6) == 0)
@@ -45,7 +45,9 @@
     echo '		<div class="resurrect-entry-title-meta">';
 
     echo '				<h1 class="resurrect-entry-title">';
-    echo '				<a href="sermons/" title="' . $sermons[$s_ct]["Descr"] . '">' . $sermons[$s_ct]["Title"] . '</a>';
+// We can disable the hyperink here, to simplify things    
+//    echo '				<a href="sermons/" title="' . $sermons[$s_ct]["Descr"] . '">' . $sermons[$s_ct]["Title"] . '</a>';
+    echo '				<a>'. $sermons[$s_ct]["Title"] .'</a>';
     echo '				</h1>';
 		
     echo '		<ul class="resurrect-entry-meta">';
@@ -67,42 +69,44 @@
 
     echo '<footer class="resurrect-entry-footer resurrect-clearfix">';
     echo '		<ul class="resurrect-entry-footer-item resurrect-list-buttons"> ';
+    $json_enc = json_encode($sermons[$s_ct]);
+
     if (($sermons[$s_ct]["High"] != "") && ($sermons[$s_ct]["Low"] != "")) {
 	echo '			<li> ';
-	echo '			<a href="'  . $sermons[$s_ct]["High"] . '" title="Download High Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>High</a>';
+	echo '			<a href="download/?link='  . $sermons[$s_ct]["High"] . '" title="Download High Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>High</a>';
 	echo '	</li> ';
 	echo '			<li> ';
-	echo '			<a href="'  . $sermons[$s_ct]["Low"] . '" title="Download Low Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>Low</a>';
+	echo '			<a href="download/?link='  . $sermons[$s_ct]["Low"] . '" title="Download Low Quality Sermon"><span class="resurrect-button-icon el-icon-download"></span>Low</a>';
 	echo '	</li> ';
     }	
     else if ($sermons[$s_ct]["High"] != "") {
 	echo '			<li> ';
-	echo '			<a href="'  . $sermons[$s_ct]["High"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
+	echo '			<a href="download/?link='  . $sermons[$s_ct]["High"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
 	echo '	</li> ';
     }
     else if ($sermons[$s_ct]["Low"] != "") {
 	echo '			<li> ';
-	echo '			<a href="'  . $sermons[$s_ct]["Low"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
+	echo '			<a href="download/?link='  . $sermons[$s_ct]["Low"] . '" title="Download Sermon"><span class="resurrect-button-icon el-icon-download"></span>Download</a>';
 	echo '	</li> ';
     }
     if ($sermons[$s_ct]["Outline"] != "") {
         echo '		<li>';
-        echo '			<a href="'  . $sermons[$s_ct]["Outline"] . '" title="Read Sermon Outline"><span class="resurrect-button-icon el-icon-book"></span>	Outline	</a>';
+        echo '			<a href="download/?link='  . $sermons[$s_ct]["Outline"] . '" title="Read Sermon Outline"><span class="resurrect-button-icon el-icon-book"></span>	Outline	</a>';
 	echo '		</li> ';
     }
     if (($sermons[$s_ct]["High"] != "") || ($sermons[$s_ct]["Low"] != "")) {
 	$video_to_show = "";
-	if ($sermons[$s_ct]["High"] != "")
-		$video_to_show = $sermons[$s_ct]["High"] ;
-	else
+	if ($sermons[$s_ct]["Low"] != "")
 		$video_to_show = $sermons[$s_ct]["Low"] ;
+	else
+		$video_to_show = $sermons[$s_ct]["High"] ;
         echo '	        <li>  ';
-	echo '		<a href="' . $video_to_show . '?player=video"><span class="resurrect-button-icon el-icon-video"></span>Watch</a> ';
+	echo '		<a href="sermons/player/?player=video" onclick=\'loadSermon('. $json_enc .')\'><span class="resurrect-button-icon el-icon-video"></span>Watch</a> ';
         echo ' 		</li> ';
     }
     if ($sermons[$s_ct]["Audio"] != "") {
         echo '		<li>';
-        echo '			<a href="' . $sermons[$s_ct]["Audio"] . '?player=audio"><span class="resurrect-button-icon el-icon-headphones"></span>Listen</a> ';
+        echo '			<a href="sermons/player/?player=audio" onclick=\'loadSermon('. $json_enc .')\'><span class="resurrect-button-icon el-icon-headphones"></span>Listen</a> ';
         echo '		</li> ';
     }    
     echo '	</ul> ';

@@ -1,4 +1,3 @@
-<?php if (!isset($_SESSION)) { session_start(); } ?>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie8 no-js" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en-US"> <!--<![endif]-->
@@ -8,7 +7,6 @@
   <?php include dirname(__FILE__) . '/../../common/dclmweb-head.php'; ?>
 	<!-- /head_inc -->
   <?php
-	$pageTitle = str_replace("_", " ", $_SESSION["se_Page"]["pageLink"]);
 	echo '<title>'. htmlspecialchars($pageTitle) .' - Deeper Christian Life Ministry</title>';
   ?>
 
@@ -93,7 +91,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 				<a href="sermons/" title="Sermon Archive">Sermon Archive</a>
 			</h1>
 
-			<div class="ctfw-breadcrumbs"><a href="http://dclm.org/">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/crusades/">Crusades</a></div>
+			<div class="ctfw-breadcrumbs"><a href="http://dclm.org/">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="<?php echo $pageParent ; ?>">Crusades</a></div>
 		
 	</div>
 

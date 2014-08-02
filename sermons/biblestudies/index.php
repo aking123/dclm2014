@@ -1,5 +1,6 @@
 <?php 
  
 	$thisPage = 1;
-        include 'bst_template.php';  
+	$pageParent = "sermons/biblestudies";
+	include 'bst_template.php';  
 ?>

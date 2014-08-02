@@ -4,14 +4,14 @@
 <head>
 
 	<!-- DCLM.org Head (common tags) -->
-  <?php include '../../common/dclmweb-head.php'; ?>
+  <?php include dirname(__FILE__) . '/../common/dclmweb-head.php'; ?>
 	<!-- /head_inc -->
+  <?php
+	echo '<title>'. htmlspecialchars($pageTitle) .' - Deeper Christian Life Ministry</title>';
+  ?>
 
-   <title>Crusades Archive - Deeper Christian Life Ministry</title>
-
-
-   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
 
 <script type='text/javascript' src='js/resurrect/framework/ie-unsupported.js'></script>
 
@@ -62,7 +62,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	<div id="resurrect-top">
 
 	<!-- DCLM.org Banner (common tags) -->
-  <?php include '../../common/dclmweb-banner.php'; ?>
+  <?php include dirname(__FILE__) . '/../common/dclmweb-banner.php'; ?>
 	<!-- /banner_inc -->
 
 	</div>
@@ -74,59 +74,57 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 			<header id="resurrect-header" class="resurrect-header-text-dark">
 				
 	<!-- DCLM.org Logo (common tags) -->
-  <?php include '../../common/dclmweb-logo.php'; ?>
+  <?php include dirname(__FILE__) . '/../common/dclmweb-logo.php'; ?>
 	<!-- /logo_inc -->
 										
 				
 	<!-- DCLM.org Main navigation (menu common tags) -->
-  <?php include '../../common/dclmweb-nav.php'; ?>
+  <?php include dirname(__FILE__) . '/../common/dclmweb-nav.php'; ?>
 	<!-- /nav_inc -->
 				
 
+	<div id="resurrect-banner">
+
+		<img width="960" height="250" src="images/bible2-banner-960x250.jpg" class="attachment-resurrect-banner" alt="Bible 2 (Banner)" />
+		
+			<h1>
+				<a href="sermons/" title="Sermon Archive">Sermon Archive</a>
+			</h1>
+
+			<div class="ctfw-breadcrumbs"><a href="http://dclm.org/">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="<?php echo $pageParent ; ?>">Crusades</a></div>
+		
+	</div>
+
+
 			</header>
 
-<div id="resurrect-content" class="resurrect-no-sidebar">
+<div id="resurrect-content" class="resurrect-has-sidebar">
 
 	<div id="resurrect-content-inner">
 
-		<div class="ctfw-breadcrumbs"><a href="./">Home</a> > <a href="sermons/">Sermon Archive</a> > <a href="sermons/crusades/">Crusades</a></div>
-
-        	<div class="resurrect-content-block resurrect-content-block-close resurrect-clearfix">
-			<article class="page type-page has-post-thumbnail hentry resurrect-entry-full ctfw-has-image">
-				<h1 class="resurrect-entry-title resurrect-main-title">Crusade Sermons and Testimonies</h1>
 		
-				<div class="resurrect-entry-content resurrect-clearfix">
-					<div class="resurrect-galleries-list gallery gallery-columns-3">
+	<!-- DCLM.org Sermons common data -->
+<?php
+	include dirname(__FILE__) . '/sermon_query.php';
 
-	<!-- DCLM.org Crusade Sermons common data -->
-<?php 
-	include 'crusade_list.php';
- $tpl = "../events_template.php";
- for ($ct=1; $ct < count($crusades); $ct++) {
-	 echo'		<div class="resurrect-galleries-item gallery-item resurrect-caption-image">';
-	$linkname = str_replace("'", "", $crusades[$ct]["Title"]);
-	$linkname = str_replace(" ", "_", $linkname);
-	$page_link = "sermons/crusades/" . $linkname ;
-	$json_enc = array("pageNum" => "1", "pageLink" => $page_link, "ptemplate" => $tpl);
-	echo'			<a href="' . $page_link .'" onclick=\'loadSermon(' . json_encode($json_enc) . ')\' title="' . htmlspecialchars($crusades[$ct]["Title"]) . '">';
-	echo'			<img src="images/crusades/' . $crusades[$ct]["Flyer"] . '" class="resurrect-image" alt="' . htmlspecialchars($crusades[$ct]["Title"]) . '" />';
-	echo'			<div class="resurrect-caption-image-caption">';
-	echo'					<div class="resurrect-caption-image-title">' . htmlspecialchars($crusades[$ct]["Title"]) . '</div>';
-	echo'					<div class="resurrect-caption-image-description">' . $crusades[$ct]["Date"] . '</div>';
-	echo'			</div>';
-	echo'			</a>';
-	echo'		</div>';
-	echo'	'; 
- }
-?>
-				
-					</div>
-				</div>
-			</article>
-
-		</div>
+//  	<!-- Crusade sermons -->
+	$categ = "CRU";
+	$tpl  = '../../events_template.php' ;
+        include dirname(__FILE__) . '/sermon_generic.php';  
+	//<!-- /sermon_main -->
+?>		
 	</div>
+
 </div>
+
+
+	<div id="resurrect-sidebar-right" role="complementary">
+		
+<?php 
+	include dirname(__FILE__) . '/sidebar-common.php';
+?>
+
+	</div>
 
 
 
@@ -141,7 +139,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	<footer id="resurrect-footer">
 
 	<!-- footer_inc (DCLM.org Footer) -->
-  <?php include '../../common/dclmweb-footer.php'; ?>
+  <?php include dirname(__FILE__) . '/../common/dclmweb-footer.php'; ?>
 	<!-- /footer_inc -->
 
 	</footer>

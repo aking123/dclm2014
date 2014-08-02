@@ -107,7 +107,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 	require(dirname(__FILE__) . '/../sermon_query.php');
 
 	$categ = "BST";
-	$tpl  = 'sermons/biblestudies/bst_template.php' ;
+	$tpl  = 'bst_template.php' ;
         include dirname(__FILE__) . '/../sermon_generic.php';  
 	//<!-- /sermon_main -->
 ?>		
