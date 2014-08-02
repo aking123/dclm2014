@@ -100,6 +100,12 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 				    <li class="resurrect-slide-no-description">
 
 					<div class="flex-image-container">
+					 <img src="images/slides/August_prog2-960x480.jpg" alt="" title="" />
+					</div>
+				    </li>
+				    <li class="resurrect-slide-no-description">
+
+					<div class="flex-image-container">
 					 <img src="images/slides/BST-960x480.jpg" alt="" title="" />
 					</div>
 				    </li>
@@ -177,7 +183,7 @@ if ( jQuery.cookie( 'resurrect_responsive_off' ) ) {
 
 	<section class="resurrect-widget resurrect-home-widget widget_ctfw-highlight">
 		<div class="resurrect-caption-image resurrect-highlight">
-			<img src="images/crusades/Jul2014MonthlyRevival.jpg" class="resurrect-image" alt="RevivalBanner201407" />			
+			<img src="images/crusades/August_prog-600x410.jpg" class="resurrect-image" alt="RevivalBanner201408" />			
 		</div>
 	</section>
 
