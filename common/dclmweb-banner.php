@@ -14,7 +14,7 @@
 			
 				<div id="resurrect-top-menu">
 					<ul id="resurrect-top-menu-links" class="menu">
-						<li class="menu-item"><a href="/">Home</a></li>
+						<li class="menu-item"><a href="./">Home</a></li>
 						<li class="menu-item"><a href="contact/">Contact</a></li>
 					</ul>					
 				</div>

@@ -11,7 +11,7 @@
    <title>Sermon Player - Deeper Christian Life Ministry</title>
 
 
-   <link rel="stylesheet" href="css/mediaelementplayer.min.css" />
+   <link rel="stylesheet" href="css/mediaelement/mediaelementplayer.min.css" />
 
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
@@ -165,10 +165,10 @@ else {
     echo '	<div id="resurrect-sermon-full-player">';
     echo '		<div id="resurrect-sermon-full-video-player">';
     if ($_REQUEST["player"] == "audio") {
-	    echo '			<audio src="'. $sermon["Audio"] . '" type="audio/mp3" controls="controls" preload="none"></audio>';
+	    echo '			<audio src="'. $sermon["Audio"] . '" width="600" style="width: 100%;" type="audio/mp3" controls="controls" preload="none"></audio>';
     }
     else {
-	    echo '			<video src="'. $sermon["Low"] . '" width="600" height="360" type="video/mp4" controls="controls" preload="none"></video>';
+	    echo '			<video src="'. $sermon["Low"] . '" width="600" height="360" style="width: 100%; height: 100%;" type="video/mp4" controls="controls" preload="none"></video>';
     }
     echo '		</div>';
     echo '	</div>';
@@ -247,16 +247,13 @@ else {
 
 <script>
        $('audio,video').mediaelementplayer({
-         // width of audio player
-        audioWidth: 600,
-        // height of audio player
-        audioHeight: 40,
     	// the order of controls you want on the control bar (and other plugins below)
 	features: ['playpause','progress','current','duration','volume','fullscreen'],
 	// Hide controls when playing and mouse is not over the video
 	alwaysShowControls: false,
-       );
+       });
 </script>
+       
 
 <script>
 jQuery(document).ready(function($) {

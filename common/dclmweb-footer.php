@@ -37,7 +37,7 @@
 						
 									
 				<div id="resurrect-notice">
-					Copyright &copy; 2014 Deeper Life Bible Church.
+					Copyright &copy; 2014 Deeper Christian Life Ministry.
 				</div>
 									
 			</div>
